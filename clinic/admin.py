@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django.contrib import admin
 from django import forms
 from .models import PatientVisit, Diagnosis
@@ -31,7 +30,6 @@ class DiagnosisAdmin(admin.ModelAdmin):
 admin.site.register(Diagnosis, DiagnosisAdmin)
 
 
-=======
 from django.contrib import admin
 from django import forms
 from .models import PatientVisit, Diagnosis
@@ -64,4 +62,3 @@ class DiagnosisAdmin(admin.ModelAdmin):
 admin.site.register(Diagnosis, DiagnosisAdmin)
 
 
->>>>>>> 037b6d71d45035c58b96fc5d43770f0b5c23cb0f

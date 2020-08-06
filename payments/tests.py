@@ -1,5 +1,5 @@
 import unittest
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.test import Client
 from .models import member_info, member_benefits, member_anniversary, member_acceptance, principal_applicant, pre_authorization, provider, cash
 from django.contrib.auth.models import User

@@ -1,5 +1,5 @@
 __author__ = 'Stephen'
-from django.core.urlresolvers import resolve
+from django.urls import reverse
 from django.template import Library
 from valentisHealth.authenticator import *
 

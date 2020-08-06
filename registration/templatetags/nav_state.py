@@ -1,4 +1,4 @@
 __author__ = 'Hp'
-from django.core.urlresolvers import resolve
+from django.urls import reverse
 from django.template import Library
 

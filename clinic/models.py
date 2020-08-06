@@ -1,4 +1,4 @@
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django_extensions.db.fields import AutoSlugField
 from django.db.models import *
 from django.conf import settings
