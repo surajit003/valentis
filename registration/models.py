@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django.urls import reverse
 from django.db.models import *
 from django.conf import settings
@@ -261,7 +260,6 @@ class InsuranceCompanies(models.Model):
 class UnableToSendEmail(Exception):
     """ Easy to understand naming conventions work best! """
     pass
-=======
 from django.urls import reverse
 from django.db.models import *
 from django.conf import settings
@@ -528,4 +526,3 @@ class InsuranceCompanies(models.Model):
 class UnableToSendEmail(Exception):
     """ Easy to understand naming conventions work best! """
     pass
->>>>>>> 037b6d71d45035c58b96fc5d43770f0b5c23cb0f
