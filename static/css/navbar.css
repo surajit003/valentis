@@ -1,0 +1,53 @@
+.navigation {
+    padding-top: 1px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    background: #3C5D73;
+    /* width: 70%; */
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif !important;
+    line-height: 1.5;
+    font-weight: 100;
+    color: rgb(46, 19, 19);
+    -webkit-font-smoothing: antialiased;
+    border-bottom: 2px solid #fff;
+  }
+
+  .navigation-tabs {
+    display: table;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    width: 100%;
+  }
+
+  .navigation-tabs li {
+    float: left;
+    line-height: 38px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+  }
+
+  .navigation-tabs a {
+    background-color: #3C5D73;
+    /* border-bottom: px solid #fff; */
+    color: #fff;
+    font-weight: 600;
+    display: block;
+    letter-spacing: 0;
+    outline: none;
+    padding: 0 50px;
+    text-decoration: none;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+
+  }
+
+  .current a {
+    color:darkgray;
+    background: #fff;
+      font-family: 'Montserrat', sans-serif !important;
+  }

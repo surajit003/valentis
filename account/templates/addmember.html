@@ -1,0 +1,268 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Valentis Health Admin Dashboard</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="{% static 'css/startmin.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/startmin.css" rel="stylesheet">
+
+
+    <!-- Custom Fonts -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="background:#2d5265;" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'registration_search' %}">Valentis Health</a>
+        </div>
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <!-- Top Navigation: Left Menu -->
+        <ul class="nav navbar-nav navbar-left navbar-top-links">
+
+        </ul>
+
+        <!-- Top Navigation: Right Menu -->
+        <ul class="nav navbar-right navbar-top-links">
+            <li class="dropdown navbar-inverse">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-alerts">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-comment fa-fw"></i> New Comment
+                                <span class="pull-right text-muted small">4 minutes ago</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="#">
+                            <i>See new Messages</i>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> SuperAdmin <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Sidebar -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+
+                <ul class="nav" id="side-menu">
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search current members...">
+                                <span class="input-group-btn">
+
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                        </div>
+                    </li>
+                    <li>
+
+                    </li>
+                    <li>
+                        <ul class="nav nav-second-level">
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Add members Panel</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        {% if success %}
+            <div class="alert alert-success">
+                <strong>Success!</strong> User added Successfully.
+                Login details have been sent to their email.
+            </div>
+        {% endif %}
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Basic Form Elements
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <form method="post">
+                                    {% csrf_token %}
+{#                                    {% if form.errors %}#}
+{#                                        {% for field in form %}#}
+{#                                            {% for error in field.errors %}#}
+{#                                                <div class="alert alert-danger">#}
+{#                                                    <i>{{ error|escape }}</i>#}
+{#                                                </div>#}
+{#                                            {% endfor %}#}
+{#                                        {% endfor %}#}
+{#                                        {% for error in form.non_field_errors %}#}
+{#                                            <div class="alert alert-danger">#}
+{#                                                <i>{{ error|escape }}</i>#}
+{#                                            </div>#}
+{#                                        {% endfor %}#}
+{#                                    {% endif %}#}
+
+
+                                    <div class="form-group">
+                                        <label>First name</label>
+                                            <i>{{ form.errors.first_name }}</i>
+                                        <input class="form-control" name="first_name"
+                                               value="{{ form.first_name.value|default_if_none:""}}">
+                                        <p class="help-block">Example tosh. </p>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Last name</label>
+                                            <i>{{ form.errors.last_name }}</i>
+                                        <input class="form-control" name="last_name"
+                                               value="{{ form.last_name.value|default_if_none:""}}">
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Enter Valid Phone Number</label>
+                                            <i>{{ form.errors.phone_number }}</i>
+                                        <input class="form-control" name="phone_number"
+                                               value="{{ form.phone_number.value|default_if_none:""}}">
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Enter email</label>
+                                            <i>{{ form.errors.email }}</i>
+                                        <input class="form-control" name="email"
+                                               value="{{ form.email.value|default_if_none:""}}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Staff number</label>
+                                            <i>{{ form.errors.staff_number }}</i>
+                                        <input class="form-control" name="staff_number"
+                                               value="{{ form.staff_number.value|default_if_none:""}}">
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>ID Number</label>
+                                            <i>{{ form.errors.id_number }}</i>
+                                        <input class="form-control" name="id_number"
+                                               value="{{ form.id_number.value|default_if_none:""}}">
+
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label>User role</label>
+                                            <i>{{ form.errors.role }}</i>
+                                        <select class="selectpicker" data-style="btn-info" name="role">
+                                            <option value="Admin">Admin</option>
+                                            <option value="Receptionist">Receptionist</option>
+                                            <option value="Callcenter">Callcenter</option>
+                                            <option value="Doctor">Doctor</option>
+                                            <option value="Labs">Labs</option>
+                                            <option value="Nurse">Nurse</option>
+                                            <option value="Radiology">Radiology</option>
+                                            <option value="Superadmin">Superadmin</option>
+                                        </select>
+
+
+                                    </div>
+
+
+                                    <button class="btn btn-primary" type="submit"> Add New Member</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../js/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/startmin.js"></script>
+</div>
+</body>
+</html>

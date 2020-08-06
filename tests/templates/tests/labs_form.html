@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% load static %} {% load crispy_forms_tags %} {% block content %}
+<script>
+    $("#labs_tab").addClass("current").siblings().removeClass("current")
+</script>
+<p><a class="btn btn-default" href="{% url 'labs_labs_list' %}">labs Listing</a></p>
+<form method="post">
+    {% csrf_token %} {{form|crispy}}
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+{% endblock %}

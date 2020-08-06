@@ -1,0 +1,100 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<script>
+    $("#radiology_tab").addClass("current").siblings().removeClass("current")
+</script>
+<p><a class="btn btn-default" href="{% url 'tests_radiology_list' %}">radiology Listing</a></p>
+<table class="table">
+    <tr>
+        <td>slug</td>
+        <td>{{ object.slug }}</td>
+    </tr>
+    <tr>
+        <td>created</td>
+        <td>{{ object.created }}</td>
+    </tr>
+    <tr>
+        <td>last_updated</td>
+        <td>{{ object.last_updated }}</td>
+    </tr>
+    <tr>
+        <td>lpm_date</td>
+        <td>{{ object.lpm_date }}</td>
+    </tr>
+    <tr>
+        <td>could_b_pregrant</td>
+        <td>{{ object.could_b_pregrant }}</td>
+    </tr>
+    <tr>
+        <td>examination</td>
+        <td>{{ object.examination }}</td>
+    </tr>
+    <tr>
+        <td>clinical_indication</td>
+        <td>{{ object.clinical_indication }}</td>
+    </tr>
+    <tr>
+        <td>intra_orbital_fb_hist</td>
+        <td>{{ object.intra_orbital_fb_hist }}</td>
+    </tr>
+    <tr>
+        <td>intracranial_clip</td>
+        <td>{{ object.intracranial_clip }}</td>
+    </tr>
+    <tr>
+        <td>pacemaker</td>
+        <td>{{ object.pacemaker }}</td>
+    </tr>
+    <tr>
+        <td>cochlear_implants</td>
+        <td>{{ object.cochlear_implants }}</td>
+    </tr>
+    <tr>
+        <td>prosthetic_hrt_valve</td>
+        <td>{{ object.prosthetic_hrt_valve }}</td>
+    </tr>
+    <tr>
+        <td>pregnancy</td>
+        <td>{{ object.pregnancy }}</td>
+    </tr>
+    <tr>
+        <td>recent_surgery</td>
+        <td>{{ object.recent_surgery }}</td>
+    </tr>
+    <tr>
+        <td>patient_info</td>
+        <td>{{ object.patient_info }}</td>
+    </tr>
+    <tr>
+        <td>diabetic_metformin</td>
+        <td>{{ object.diabetic_metformin }}</td>
+    </tr>
+    <tr>
+        <td>allergic_contrast</td>
+        <td>{{ object.allergic_contrast }}</td>
+    </tr>
+    <tr>
+        <td>other_allergies</td>
+        <td>{{ object.other_allergies }}</td>
+    </tr>
+    <tr>
+        <td>kidney_problems</td>
+        <td>{{ object.kidney_problems }}</td>
+    </tr>
+    <tr>
+        <td>anticoagulant_drugs</td>
+        <td>{{ object.anticoagulant_drugs }}</td>
+    </tr>
+    <tr>
+        <td>egfr_result</td>
+        <td>{{ object.egfr_result }}</td>
+    </tr>
+    <tr>
+        <td>date</td>
+        <td>{{ object.date }}</td>
+    </tr>
+    <tr>
+        <td>patient_no</td>
+        <td>{{ object.patient_no }}</td>
+    </tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit radiology</a> {% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'payments_principal_applicant_list' %}">principal_applicant Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>name</td>
+    <td>slug</td>
+    <td>created</td>
+    <td>last_updated</td>
+    <td>family_no</td>
+    <td>first_name</td>
+    <td>postal_add</td>
+    <td>town</td>
+    <td>email</td>
+    <td>other_names</td>
+    <td>corp_id</td>
+    <td>mobile_no</td>
+    <td>family_size</td>
+    <td>user_id</td>
+    <td>category</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.name }}</td>
+    <td>{{ object.slug }}</td>
+    <td>{{ object.created }}</td>
+    <td>{{ object.last_updated }}</td>
+    <td>{{ object.family_no }}</td>
+    <td>{{ object.first_name }}</td>
+    <td>{{ object.postal_add }}</td>
+    <td>{{ object.town }}</td>
+    <td>{{ object.email }}</td>
+    <td>{{ object.other_names }}</td>
+    <td>{{ object.corp_id }}</td>
+    <td>{{ object.mobile_no }}</td>
+    <td>{{ object.family_size }}</td>
+    <td>{{ object.user_id }}</td>
+    <td>{{ object.category }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'payments_principal_applicant_create' %}">Create new principal_applicant</a>
+{% endblock %}

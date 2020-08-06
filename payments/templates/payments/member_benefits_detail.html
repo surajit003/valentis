@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'payments_member_benefits_list' %}">member_benefits Listing</a></p>
+<table class="table">
+<tr><td>name</td><td>{{ object.name }}</td></tr>
+<tr><td>slug</td><td>{{ object.slug }}</td></tr>
+<tr><td>created</td><td>{{ object.created }}</td></tr>
+<tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+<tr><td>member_no</td><td>{{ object.member_no }}</td></tr>
+<tr><td>limit</td><td>{{ object.limit }}</td></tr>
+<tr><td>sharing</td><td>{{ object.sharing }}</td></tr>
+<tr><td>anniv</td><td>{{ object.anniv }}</td></tr>
+<tr><td>suspended</td><td>{{ object.suspended }}</td></tr>
+<tr><td>expense</td><td>{{ object.expense }}</td></tr>
+<tr><td>idx</td><td>{{ object.idx }}</td></tr>
+<tr><td>balance</td><td>{{ object.balance }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit member_benefits</a>
+
+{% endblock %}

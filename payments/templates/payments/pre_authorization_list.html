@@ -1,0 +1,68 @@
+
+{% extends "base.html" %} {% load static %} {% block content %}
+<script>
+$("#pre_authorization_tab").addClass("current").siblings().removeClass("current")
+
+</script>
+{#<p><a class="btn btn-default" href="{% url 'payments_pre_authorization_list' %}">pre_authorization Listing</a></p>#}
+
+    <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp">
+  <thead>
+    <tr>
+{#      <th class="mdl-data-table__cell--non-numeric">Material</th>#}
+
+        <th>ID</th>
+        <th>Link</th>
+        <th>Print</th>
+        <th>name</th>
+        <th>member_no</th>
+        <th>provider</th>
+        <th>date_reported</th>
+        <th>reported_by</th>
+        <th>authorized_by</th>
+        <th>date_authorized</th>
+        <th>pre_diagnosis</th>
+        <th>authority_type</th>
+        <th>ward</th>
+        <th>available_limit</th>
+        <th>Days to be admitted</th>
+        <th>reserve</th>
+        <th>notes</th>
+        <th>anniv</th>
+        <!-- <td>auth_batch_no</td> -->
+        <th>daily_bed_charge</th>
+        <th>date_admitted</th>
+        <th>Reference No</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for object in object_list %}
+    <tr>
+        <td>{{object.pk}}</td>
+        <td class="mdl-data-table__cell--non-numeric"><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+        <td class="mdl-data-table__cell--non-numeric"><a href="{% url 'payments_pre_authorization_print' object.slug %}">
+            pdf</a></td>
+        <td class="mdl-data-table__cell--non-numeric">{{ object.name }}</td>
+        <td class="mdl-data-table__cell">{{ object.member_no }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ object.get_authority_type }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ object.date_reported }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ object.reported_by }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ object.authorized_by }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ object.date_authorized }}</td>
+{#        <td class="mdl-data-table__cell--non-numeric">{{ object.date_authorized }}</td>#}
+        <td class="mdl-data-table__cell--non-numeric">{{ object.pre_diagnosis }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ object.get_authority_type }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ object.ward }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ object.available_limit }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ object.admit_days }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ object.reserve }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ object.notes }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ object.anniv }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ object.day_bed_charge }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ object.day_bed_charge }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ object.code }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+    <a class="btn btn-primary" href="{% url 'payments_pre_authorization_search' %}">Create new pre_authorization</a> {% endblock %}

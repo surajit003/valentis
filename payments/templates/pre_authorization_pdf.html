@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+{#{% load humanize %}#}
+{#{% load lpo_tags %}#}
+{% load static %}
+<html>
+    <head>
+
+
+    <title>Admission Authorisation</title>
+    <style type="text/css">
+        body{
+            font-size: 14px;
+            font-family: Verdana;
+        }
+        h1{
+            font-family: Verdana;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        table {
+            max-width: 100%;
+            background-color: transparent;
+        }
+        th {
+            text-align: left;
+            font-weight: 700;
+            color: #303641;
+            padding: 3px;
+        }
+        .table {
+            width: 100%;
+            background-color: #ffffff;
+            margin-bottom: 15px;
+        }
+        tr{
+            padding: 2.5px;
+            text-align: left;
+        }
+        .table > thead > tr > th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #ebebeb;
+        }
+        .table > tbody + tbody {
+            border-top: 2px solid #ebebeb;
+        }
+        .table-bordered {
+            border: 1px solid #ebebeb;
+        }
+        .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11 {
+            float: left;
+        }
+        .col-md-3 {
+            width: 25%;
+        }
+        .col-md-2 {
+            width: 16.66666667%;
+        }
+        .col-md-1 {
+            width: 8.33333333%;
+        }
+        .table-point {
+            background-color: #bdc2c9;
+            padding-top:5px;
+            border-bottom: 2px solid #FFFFFF;
+
+        }
+        @page {
+            size: {{ pagesize }};
+            top: 120pt;
+            bottom: 130pt;
+            margin:1cm;
+            @frame content_frame {
+                -pdf-frame-content: mainContent;
+                margin-left: 1cm;
+                margin-right: 1cm;
+            }
+            @frame footer {
+                -pdf-frame-content: footerContent;
+                bottom: 0cm;
+                margin-left: 40px;
+                margin-right: 40px;
+                height: 5.5cm;
+                text-align: right;
+            }
+            @frame header {
+                -pdf-frame-content: headerContent;
+                margin-left: 40px;
+                margin-right: 40px;
+                top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+      <div id="headerContent" >
+         <img src="media/Sanlam_Logo.png"  style="width:500px;align-content: center">
+          <div align="right" style="padding-top: 25px">
+       </div>
+      </div>
+      <div class="mainContent">
+            <div class="row" style="width:100%;display:block;">
+               <table>
+                  <tbody>
+                     <tr>
+                        <td>
+
+                        </td>
+                        <td style="padding:0;text-align:center;font-size:14px;">
+
+                           <div style="font-size:15px;padding-top:12px;"><strong>Admission Authorisation</strong></div>
+
+                             <div class="logo-img"><img src="{% static '/img/sanlam.png'%}"> </div>
+                        </td>
+                        <td style="text-align:right;">
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+
+      </div><!-- /.main-content -->
+      <style>
+          .admission {
+              width: 30%;
+              background-color: #000000;
+              color: #FFFFFF;
+          }
+      </style>
+{#        <table style="padding-top: 10px">#}
+{#            <tr>#}
+{#                <td style="width: 30%;background-color: #000000; color: #FFFFFF">#}
+{#                    Att:#}
+{#                </td>#}
+{#                <td>#}
+{#                    .#}
+{#                </td>#}
+{#                <td>#}
+{#                </td>#}
+{#            </tr>#}
+{#            <tr>#}
+{##}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="admission">#}
+{#                    Reference No:#}
+{#                </td>#}
+{#                <td>#}
+{#                    {{ pre_auth.slug }}#}
+{#                </td>#}
+{#                    <td class="admission" style="width: 30%">#}
+{#                     Date:#}
+{#                </td>#}
+{#                <td>#}
+{#                    {{ pre_auth.date_authorized }}#}
+{#                </td>#}
+{#            </tr>#}
+{#            <tr>#}
+{##}
+{#            </tr>#}
+{#            <tr{{ pre_auth.slug }}>#}
+{#                <td class="admission">#}
+{#                    No of Days:#}
+{#                </td>#}
+{#                <td>#}
+{#                    {{ pre_auth.admit_days }}#}
+{#                </td>#}
+{#                    <td class="admission" style="width: 30%">#}
+{#                     Limit Up to(Kes):#}
+{#                </td>#}
+{#                <td>{{ pre_auth.available_limit }}</td>#}
+{#            </tr>#}
+{##}
+{#            </tr>#}
+{#            <tr></tr>#}
+{#            <tr>#}
+{#                <td class="admission">#}
+{#                    Authority type:#}
+{#                </td>#}
+{#                <td>#}
+{#                    {{ pre_auth.authority_type }}#}
+{#                </td>#}
+{##}
+{#                <td class="admission" style="width: 30%">#}
+{#                    Ward:#}
+{#                </td>#}
+{#                <td> {{ pre_auth.ward }}</td>#}
+{#            </tr>#}
+{#            <tr></tr>#}
+{#            <tr>#}
+{#                <td class="admission">#}
+{#                    Provider:#}
+{#                </td>#}
+{#                <td>#}
+{#                    {{ pre_auth.get_provider }}#}
+{#                </td>#}
+{#                <td class="admission" style="width: 30%">#}
+{#                     Day bed charges:#}
+{#                </td>#}
+{#                <td>{{ pre_auth.day_bed_charge }}</td>#}
+{#            </tr>#}
+{#        </table>#}
+{##}
+{##}
+{#      <table>#}
+{#          <tr></tr>#}
+{#          <tr></tr>#}
+{#          <tr>#}
+{#              <td class="admission">#}
+{#                  Re:#}
+{#              </td>#}
+{#              <td>#}
+{#                  {{ pre_auth.name }}#}
+{#              </td>#}
+{#              <td class="admission" style="width: 30%">#}
+{#                  Member No:#}
+{#              </td>#}
+{#              <td>#}
+{#                  {{ pre_auth.member_no }}#}
+{#              </td>#}
+{#          </tr>#}
+{#          <tr></tr>#}
+{#          <tr>#}
+{#              <td class="admission">#}
+{#                  Corpotate:#}
+{#              </td>#}
+{#              <td COLSPAN="3">#}
+{#                  {{ pre_auth.corporate }}#}
+{#              </td>#}
+{#          </tr>#}
+{#          <tr></tr>#}
+{#          <tr>#}
+{#              <td class="admission">#}
+{#                  Notes:#}
+{#              </td>#}
+{#              <td COLSPAN="3">#}
+{#                   {{ pre_auth.notes }}#}
+{#              </td>#}
+{#          </tr>#}
+{#      </table>#}
+        <!-- <pdf:nextpage /> -->
+
+      <table class="mdl-data-table mdl-js-data-table mdl-shadow--3dp mdl-cell mdl-cell--10-col mdl-typography--text-right">
+          <tr>
+            <td colspan="4">Attr</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="table-point" >Reference No:</td>
+            <td>{{ pre_auth.code }}</td>
+            <td class="table-point">Date</td>
+            <td>{{ pre_auth.date_authorized }}</td>
+          </tr>
+          <tr>
+            <td class="table-point">No of Days:</td>
+            <td>{{ pre_auth.admit_days }}</td>
+            <td class="table-point">Limit Up to(Kes):</td>
+            <td>{{ pre_auth.available_limit }}</td>
+          </tr>
+          <tr>
+            <td class="table-point">Authority type:</td>
+            <td>{{ pre_auth.get_authority_type }}</td>
+            <td class="table-point">Ward:</td>
+            <td>{{ pre_auth.get_ward }}</td>
+          </tr>
+          <tr>
+            <td class="table-point">Provider:</td>
+            <td>{{ pre_auth.get_provider }}</td>
+            <td class="table-point">Day bed charges:</td>
+            <td>{{ pre_auth.day_bed_charge }}</td>
+          </tr>
+      </table>
+      <br>
+      <br>
+      <table>
+          <tr>
+              <td class="table-point">Re:</td>
+              <td>{{ pre_auth.name }}</td>
+              <td class="table-point">Member No:</td>
+              <td>{{ pre_auth.member_no }}</td>
+          </tr>
+          <tr>
+              <td class="table-point">Corpotate:</td>
+              <td colspan="3"></td>
+          </tr>
+          <tr>
+              <td class="table-point">Notes:</td>
+              <td colspan="3">{{ pre_auth.notes }}</td>
+          </tr>
+      </table>
+      <br>
+      <br>
+      <div>
+          <p>This is to confirm that the above is a valid member of Salam Insurance Company</p>
+          <strong>Note:</strong>
+          <p>
+              1) Sanlam insurance Company will pay the medical bill Net of NHIF Rebate.<br>
+              2) A copy of this letter and the discharge summary should be attached to the claim<br>
+              3) Any bills incurred beyond these limit without communication to Sanlam are not payable.<br>
+              4) Any admissions beyond three days requires a comprehensive medical report requesting for extension <br>
+              of time and if this is not done Sanlam is not liable for bills incurred there after.<br>
+              5) For all smart card holders, the card must be run ot this letter will not be honored.
+          </p>
+      </div>
+
+      <div id="footerContent">
+          <strong>Generated by</strong>
+          <strong><p>{{ user.get_full_name }}</p></strong>
+      </div>
+   </body>
+</html>

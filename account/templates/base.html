@@ -1,0 +1,280 @@
+{% load staticfiles %}
+{% load nav_state %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Valentis Health</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{% static 'css/material.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/intlTelInput.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search_box.css' %}">
+
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script async src="{% static 'js/index.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js" defer></script>
+    <script src="{% static 'js/intlTelInput.min.js' %}" async></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+
+</head>
+
+<body>
+<header class="mdl-layout__header mdl-layout__header--scroll" style="background-color: #0F2737">
+    <div class="mdl-layout__header-row headstitle">
+        <!-- Title -->
+
+        <div class="sidebar-toggle-box" id="showLeft">
+
+
+            <span class="mdl-layout-title logotwo" style="margin-bottom:20px; ">   </span>
+        </div>
+
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation -->
+        <div class="mdl-navigation">
+            {% if user.is_authenticated %}
+                <a class="btn-logout" href="{% url 'change_password' %}"></span>Change Password</a> {% endif %}
+        </div>
+        <div class="mdl-navigation">
+            {% if user.is_authenticated %}
+                <a class="btn-logout" href="{% url 'logout' %}"><span class="fa fa-home"></span>Logout</a> {% else %}
+
+                <a class="mdl-navigation__link" href="">login</a> {% endif %}
+
+
+        </div>
+    </div>
+    <script>
+        $(function () {
+            if ($('[type="date"]').prop('type') != 'date') {
+                $('[type="date"]').datepicker({dateFormat: 'yy-mm-dd'});
+
+                console.log("checking date")
+            }
+        })
+    </script>
+
+</header>
+
+<section id="sideMenu" class="na-menu na-menu-vertical na-menu-left">
+    <nav>
+
+        {% has_group request as side_links %}
+
+        {{ side_links|safe }}
+
+
+    </nav>
+
+</section>
+
+
+<div class="mdl-grid">
+
+    {% if show_waiting_list %}
+        <div class="mdl-layout-spacer"></div>
+        <div id="waiting_list_table" class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--6-col" style="max-height: 600px; overflow: auto">
+            <div class="mdl-card__title mdl-color--teal-500">
+                <h2 class="mdl-card__title-text mdl-color-text--white">Waiting List</h2>
+            </div>
+            <div class="mdl-card__supporting-text mdl-cell mdl-cell--12-col" style="overflow: auto">
+                <script>
+                    function timeDiff(then) {
+                        var now = moment().format("DD/MM/YYYY HH:mm:ss")
+                        var ms = moment(now, "DD/MM/YYYY HH:mm:ss").diff(moment(then, "DD/MM/YYYY HH:mm:ss"));
+                        var d = moment.duration(ms);
+
+                        console.log(d.days(), d.hours(), d.minutes(), d.seconds());
+                        days = d.days();
+                        hrs = d.hours();
+                        mins = d.minutes();
+                        secs = d.seconds();
+                        if (days > 0) {
+                            return d.days() + "d " + d.hours() + "h " + d.minutes() + "m " + d.seconds() + "s ago";
+                        } else if (hrs > 0) {
+                            return d.hours() + "h " + d.minutes() + "m " + d.seconds() + "s ago";
+                        }
+                        else if (mins > 0) {
+                            return d.minutes() + "m " + d.seconds() + "s ago";
+                        } else {
+                            return d.seconds() + " seconds ago";
+                        }
+                    }
+
+                </script>
+                <table class="mdl-data-table mdl-js-data-table full-width">
+                    <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric full-width">Patient Name</th>
+                        <th>Age</th>
+                        <th>Patient Id.</th>
+                        <th>Arrival Time.</th>
+                        <th>Wait duration</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for patient in waiting_list %}
+                        <tr onclick="window.location.href='/{{ link }}/{{ patient.patient_no }}/'">
+                            <td class="mdl-data-table__cell--non-numeric">{{ patient.first_name }} {{ patient.last_name }}</td>
+                            <td>{{ patient.age }}</td>
+                            <td>{{ patient.patient_no }}</td>
+                            <td>{{ patient.last_updated }}</td>
+                            <td id="wait_{{ patient.pk }}"></td>
+
+                        </tr>
+                        <script>
+
+                            $(function () {
+                                function updateDuration() {
+                                    var wait = timeDiff("{{ patient.last_updated|date:'d/m/Y H:m:s' }}")
+                                    console.log("wait is", wait)
+                                    $("#wait_{{ patient.pk  }}").text(wait)
+                                }
+
+                                updateDuration()
+                                setInterval(function () {
+                                    updateDuration()
+                                }, 3000)
+
+                                console.log("{{ patient.last_updated|date:'d/m/Y H:m:s' }}", "hello")
+                            })
+                        </script>
+
+
+
+                    {% endfor %}
+
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    {% endif %}
+    <!-- center the waiting list above if not in the clinic page otherwise align right(check spacer above waiting list)-->
+    {% if not clinic %}
+        <div class="mdl-layout-spacer"></div>
+    {% endif %}
+
+    {% if clinic %}
+
+        <div class="mdl-cell mdl-cell--4-col">
+            <div id="from_labs" class="mdl-card mdl-shadow--4dp util-center mdl-cell mdl-cell--12-col waiting_table">
+                <div class="mdl-card__title mdl-color--teal-500">
+                    <h2 class="mdl-card__title-text mdl-color-text--white">From Labs </h2>
+                </div>
+
+                <div class="mdl-card__supporting-text mdl-cell mdl-cell--12-col">
+                    <table class="mdl-data-table mdl-js-data-table full-width">
+                        <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric full-width">Patient Name</th>
+                            <th>Age</th>
+                            <th>Patient No.</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for patient in from_labs %}
+                            <tr onclick="window.location.href='{% url 'doctor_visit' patient.patient_no %}'">
+                                <td class="mdl-data-table__cell--non-numeric">{{ patient.full_name }} </td>
+                                <td style="text-align:left;">{{ patient.age }}</td>
+                                <td style="text-align:left;">{{ patient.patient_no }}</td>
+                            </tr>
+                        {% endfor %}
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div id="from_labs" class="mdl-card mdl-shadow--4dp util-center mdl-cell mdl-cell--12-col">
+                <div class="mdl-card__title mdl-color--teal-500">
+                    <h2 class="mdl-card__title-text mdl-color-text--white">From Radiology</h2>
+                </div>
+                <div class="mdl-card__supporting-text mdl-cell mdl-cell--12-col">
+                    <table class="mdl-data-table mdl-js-data-table full-width">
+                        <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric full-width">Patient Name</th>
+                            <th>Patient's Age</th>
+                            <th>Patient Id.</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for patient in from_radiology %}
+                            <tr onclick="window.location.href='{% url 'doctor_visit' patient.patient_no %}'">
+                                <td class="mdl-data-table__cell--non-numeric">{{ patient.first_name }} {{ patient.last_name }}</td>
+                                <td style="text-align:left;">{{ patient.age }}</td>
+                                <td style="text-align:left;">{{ patient.patient_no }}</td>
+                            </tr>
+                        {% endfor %}
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+
+
+</div>
+
+{# content goes here#}
+<div style="margin-left: 220px;">{% block content %} {% endblock %}</div>
+
+<script src="https://code.getmdl.io/1.3.0/material.min.js" defer></script>
+
+<script>
+    $(function () {
+        var delayInMilliseconds = 700; //.1 second delay to delay with mdl overriding this script
+
+        setTimeout(function () {
+            $('input[type="date"]').parent().addClass('is-dirty')
+        }, delayInMilliseconds);
+
+    })
+
+    //phone numbers to have country prefix and style function
+    $(function () {
+        $('.phone_input').intlTelInput()
+
+        $('.phone_input').on('keyup', function () {
+            var number = $(this).intlTelInput("getNumber");
+            {#            $(this).val(number)#}
+
+        });
+    })
+
+    //asign value to the hidden input
+    function phone_number(phone_id) {
+
+
+    }
+</script>
+
+
+</body>
+
+</html>

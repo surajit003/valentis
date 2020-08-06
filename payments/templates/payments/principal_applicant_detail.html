@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'payments_principal_applicant_list' %}">principal_applicant Listing</a></p>
+<table class="table">
+<tr><td>name</td><td>{{ object.name }}</td></tr>
+<tr><td>slug</td><td>{{ object.slug }}</td></tr>
+<tr><td>created</td><td>{{ object.created }}</td></tr>
+<tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+<tr><td>family_no</td><td>{{ object.family_no }}</td></tr>
+<tr><td>first_name</td><td>{{ object.first_name }}</td></tr>
+<tr><td>postal_add</td><td>{{ object.postal_add }}</td></tr>
+<tr><td>town</td><td>{{ object.town }}</td></tr>
+<tr><td>email</td><td>{{ object.email }}</td></tr>
+<tr><td>other_names</td><td>{{ object.other_names }}</td></tr>
+<tr><td>corp_id</td><td>{{ object.corp_id }}</td></tr>
+<tr><td>mobile_no</td><td>{{ object.mobile_no }}</td></tr>
+<tr><td>family_size</td><td>{{ object.family_size }}</td></tr>
+<tr><td>user_id</td><td>{{ object.user_id }}</td></tr>
+<tr><td>category</td><td>{{ object.category }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit principal_applicant</a>
+
+{% endblock %}

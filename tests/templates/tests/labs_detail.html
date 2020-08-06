@@ -1,0 +1,382 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<script>
+    $("#labs_tab").addClass("current").siblings().removeClass("current")
+</script>
+
+<p><a class="btn btn-default" href="{% url 'labs_labs_list' %}">labs Listing</a></p>
+<table class="table">
+    <tr>
+        <td>slug</td>
+        <td>{{ object.slug }}</td>
+    </tr>
+    <tr>
+        <td>created</td>
+        <td>{{ object.created }}</td>
+    </tr>
+    <tr>
+        <td>last_updated</td>
+        <td>{{ object.last_updated }}</td>
+    </tr>
+    <tr>
+        <td>lab_name</td>
+        <td>{{ object.lab_name }}</td>
+    </tr>
+    <tr>
+        <td>h01</td>
+        <td>{{ object.h01 }}</td>
+    </tr>
+    <tr>
+        <td>h02</td>
+        <td>{{ object.h02 }}</td>
+    </tr>
+    <tr>
+        <td>h03</td>
+        <td>{{ object.h03 }}</td>
+    </tr>
+    <tr>
+        <td>h04</td>
+        <td>{{ object.h04 }}</td>
+    </tr>
+    <tr>
+        <td>h05</td>
+        <td>{{ object.h05 }}</td>
+    </tr>
+    <tr>
+        <td>h06</td>
+        <td>{{ object.h06 }}</td>
+    </tr>
+    <tr>
+        <td>h07</td>
+        <td>{{ object.h07 }}</td>
+    </tr>
+    <tr>
+        <td>h08</td>
+        <td>{{ object.h08 }}</td>
+    </tr>
+    <tr>
+        <td>h09</td>
+        <td>{{ object.h09 }}</td>
+    </tr>
+    <tr>
+        <td>c01</td>
+        <td>{{ object.c01 }}</td>
+    </tr>
+    <tr>
+        <td>c02</td>
+        <td>{{ object.c02 }}</td>
+    </tr>
+    <tr>
+        <td>p01</td>
+        <td>{{ object.p01 }}</td>
+    </tr>
+    <tr>
+        <td>p02</td>
+        <td>{{ object.p02 }}</td>
+    </tr>
+    <tr>
+        <td>p03</td>
+        <td>{{ object.p03 }}</td>
+    </tr>
+    <tr>
+        <td>p04</td>
+        <td>{{ object.p04 }}</td>
+    </tr>
+    <tr>
+        <td>p05</td>
+        <td>{{ object.p05 }}</td>
+    </tr>
+    <tr>
+        <td>p06</td>
+        <td>{{ object.p06 }}</td>
+    </tr>
+    <tr>
+        <td>mbs01</td>
+        <td>{{ object.mbs01 }}</td>
+    </tr>
+    <tr>
+        <td>mbs02</td>
+        <td>{{ object.mbs02 }}</td>
+    </tr>
+    <tr>
+        <td>mbs03</td>
+        <td>{{ object.mbs03 }}</td>
+    </tr>
+    <tr>
+        <td>ge01</td>
+        <td>{{ object.ge01 }}</td>
+    </tr>
+    <tr>
+        <td>lks01</td>
+        <td>{{ object.lks01 }}</td>
+    </tr>
+    <tr>
+        <td>lks02</td>
+        <td>{{ object.lks02 }}</td>
+    </tr>
+    <tr>
+        <td>lks03</td>
+        <td>{{ object.lks03 }}</td>
+    </tr>
+    <tr>
+        <td>lks04</td>
+        <td>{{ object.lks04 }}</td>
+    </tr>
+    <tr>
+        <td>lks05</td>
+        <td>{{ object.lks05 }}</td>
+    </tr>
+    <tr>
+        <td>lks06</td>
+        <td>{{ object.lks06 }}</td>
+    </tr>
+    <tr>
+        <td>lks07</td>
+        <td>{{ object.lks07 }}</td>
+    </tr>
+    <tr>
+        <td>gm01</td>
+        <td>{{ object.gm01 }}</td>
+    </tr>
+    <tr>
+        <td>gm02</td>
+        <td>{{ object.gm02 }}</td>
+    </tr>
+    <tr>
+        <td>gm03</td>
+        <td>{{ object.gm03 }}</td>
+    </tr>
+    <tr>
+        <td>lm01</td>
+        <td>{{ object.lm01 }}</td>
+    </tr>
+    <tr>
+        <td>lm02</td>
+        <td>{{ object.lm02 }}</td>
+    </tr>
+    <tr>
+        <td>lm03</td>
+        <td>{{ object.lm03 }}</td>
+    </tr>
+    <tr>
+        <td>lm04</td>
+        <td>{{ object.lm04 }}</td>
+    </tr>
+    <tr>
+        <td>lpg01</td>
+        <td>{{ object.lpg01 }}</td>
+    </tr>
+    <tr>
+        <td>lpg02</td>
+        <td>{{ object.lpg02 }}</td>
+    </tr>
+    <tr>
+        <td>lpg03</td>
+        <td>{{ object.lpg03 }}</td>
+    </tr>
+    <tr>
+        <td>lpg04</td>
+        <td>{{ object.lpg04 }}</td>
+    </tr>
+    <tr>
+        <td>lpg05</td>
+        <td>{{ object.lpg05 }}</td>
+    </tr>
+    <tr>
+        <td>lpg06</td>
+        <td>{{ object.lpg06 }}</td>
+    </tr>
+    <tr>
+        <td>lpg06</td>
+        <td>{{ object.lpg06 }}</td>
+    </tr>
+    <tr>
+        <td>lpg07</td>
+        <td>{{ object.lpg07 }}</td>
+    </tr>
+    <tr>
+        <td>lpg08</td>
+        <td>{{ object.lpg08 }}</td>
+    </tr>
+    <tr>
+        <td>hv01</td>
+        <td>{{ object.hv01 }}</td>
+    </tr>
+    <tr>
+        <td>hv02</td>
+        <td>{{ object.hv02 }}</td>
+    </tr>
+    <tr>
+        <td>hv03</td>
+        <td>{{ object.hv03 }}</td>
+    </tr>
+    <tr>
+        <td>i01</td>
+        <td>{{ object.i01 }}</td>
+    </tr>
+    <tr>
+        <td>i02</td>
+        <td>{{ object.i02 }}</td>
+    </tr>
+    <tr>
+        <td>i03</td>
+        <td>{{ object.i03 }}</td>
+    </tr>
+    <tr>
+        <td>m01</td>
+        <td>{{ object.m01 }}</td>
+    </tr>
+    <tr>
+        <td>m02</td>
+        <td>{{ object.m02 }}</td>
+    </tr>
+    <tr>
+        <td>m03</td>
+        <td>{{ object.m03 }}</td>
+    </tr>
+    <tr>
+        <td>M04</td>
+        <td>{{ object.M04 }}</td>
+    </tr>
+    <tr>
+        <td>m05</td>
+        <td>{{ object.m05 }}</td>
+    </tr>
+    <tr>
+        <td>m06</td>
+        <td>{{ object.m06 }}</td>
+    </tr>
+    <tr>
+        <td>m07</td>
+        <td>{{ object.m07 }}</td>
+    </tr>
+    <tr>
+        <td>m08</td>
+        <td>{{ object.m08 }}</td>
+    </tr>
+    <tr>
+        <td>g01</td>
+        <td>{{ object.g01 }}</td>
+    </tr>
+    <tr>
+        <td>other</td>
+        <td>{{ object.other }}</td>
+    </tr>
+    <tr>
+        <td>diagnosis</td>
+        <td>{{ object.diagnosis }}</td>
+    </tr>
+    <tr>
+        <td>h01_alergy</td>
+        <td>{{ object.h01_alergy }}</td>
+    </tr>
+    <tr>
+        <td>h02_alergy</td>
+        <td>{{ object.h02_alergy }}</td>
+    </tr>
+    <tr>
+        <td>h03_alergy</td>
+        <td>{{ object.h03_alergy }}</td>
+    </tr>
+    <tr>
+        <td>h04_alergy</td>
+        <td>{{ object.h04_alergy }}</td>
+    </tr>
+    <tr>
+        <td>h06_alergy</td>
+        <td>{{ object.h06_alergy }}</td>
+    </tr>
+    <tr>
+        <td>h07_alergy</td>
+        <td>{{ object.h07_alergy }}</td>
+    </tr>
+    <tr>
+        <td>h08_alergy</td>
+        <td>{{ object.h08_alergy }}</td>
+    </tr>
+    <tr>
+        <td>c01_iron_studies</td>
+        <td>{{ object.c01_iron_studies }}</td>
+    </tr>
+    <tr>
+        <td>c01_cardiac_markers</td>
+        <td>{{ object.c01_cardiac_markers }}</td>
+    </tr>
+    <tr>
+        <td>c02_cardiac_markers</td>
+        <td>{{ object.c02_cardiac_markers }}</td>
+    </tr>
+    <tr>
+        <td>c02_cardiac_markers_1</td>
+        <td>{{ object.c02_cardiac_markers_1 }}</td>
+    </tr>
+    <tr>
+        <td>lks01_antenatal_screen</td>
+        <td>{{ object.lks01_antenatal_screen }}</td>
+    </tr>
+    <tr>
+        <td>lks02_antenatal_screen</td>
+        <td>{{ object.lks02_antenatal_screen }}</td>
+    </tr>
+    <tr>
+        <td>lks04_antenatal_screen</td>
+        <td>{{ object.lks04_antenatal_screen }}</td>
+    </tr>
+    <tr>
+        <td>lks05_antenatal_screen</td>
+        <td>{{ object.lks05_antenatal_screen }}</td>
+    </tr>
+    <tr>
+        <td>lks06_antenatal_screen</td>
+        <td>{{ object.lks06_antenatal_screen }}</td>
+    </tr>
+    <tr>
+        <td>lks07_antenatal_screen</td>
+        <td>{{ object.lks07_antenatal_screen }}</td>
+    </tr>
+    <tr>
+        <td>gm01_antenatal_screen</td>
+        <td>{{ object.gm01_antenatal_screen }}</td>
+    </tr>
+    <tr>
+        <td>fsh_menopausal_screen</td>
+        <td>{{ object.fsh_menopausal_screen }}</td>
+    </tr>
+    <tr>
+        <td>oestradiol_menopausal_screen</td>
+        <td>{{ object.oestradiol_menopausal_screen }}</td>
+    </tr>
+    <tr>
+        <td>albumin_menopausal_screen</td>
+        <td>{{ object.albumin_menopausal_screen }}</td>
+    </tr>
+    <tr>
+        <td>hv02_menopausal_screen</td>
+        <td>{{ object.hv02_menopausal_screen }}</td>
+    </tr>
+    <tr>
+        <td>hv03_menopausal_screen</td>
+        <td>{{ object.hv03_menopausal_screen }}</td>
+    </tr>
+    <tr>
+        <td>ast_menopausal_screen</td>
+        <td>{{ object.ast_menopausal_screen }}</td>
+    </tr>
+    <tr>
+        <td>i01_menopausal_screen</td>
+        <td>{{ object.i01_menopausal_screen }}</td>
+    </tr>
+    <tr>
+        <td>i02_menopausal_screen</td>
+        <td>{{ object.i02_menopausal_screen }}</td>
+    </tr>
+    <tr>
+        <td>i03_menopausal_screen</td>
+        <td>{{ object.i03_menopausal_screen }}</td>
+    </tr>
+    <tr>
+        <td>patient_no</td>
+        <td>{{ object.patient_no }}</td>
+    </tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit labs</a> {% endblock %}

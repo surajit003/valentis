@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<script>
+    $("#prescription_tab").addClass("current").siblings().removeClass("current")
+</script>
+<table class="table">
+    <tr>
+        <td>ID</td>
+        <td>Link</td>
+        <td>slug</td>
+        <td>created</td>
+        <td>last_updated</td>
+        <td>prescription_id</td>
+        <td>patient_no</td>
+        <td>patient_name</td>
+        <td>address</td>
+        <td>phone_number</td>
+        <td>signature</td>
+        <td>prescription</td>
+    </tr>
+    {% for object in object_list %}
+    <tr>
+        <td>{{object.pk}}</td>
+        <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+        <td>{{ object.slug }}</td>
+        <td>{{ object.created }}</td>
+        <td>{{ object.last_updated }}</td>
+        <td>{{ object.prescription_id }}</td>
+        <td>{{ object.patient_no }}</td>
+        <td>{{ object.patient_name }}</td>
+        <td>{{ object.address }}</td>
+        <td>{{ object.phone_number }}</td>
+        <td>{{ object.signature }}</td>
+        <td>{{ object.prescription }}</td>
+    </tr>
+    {% endfor %}
+</table>{% endblock %}

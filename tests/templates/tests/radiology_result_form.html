@@ -1,0 +1,215 @@
+{% extends "base.html" %} {% load static %} {% load crispy_forms_tags %} {% block content %}
+<script>
+    $("#radiology_tab").addClass("current").siblings().removeClass("current")
+</script>
+<style>
+    .special {
+        padding: 10px;
+    }
+</style>
+
+<div class="table">
+
+    <div class="mdl-grid">
+        <div class="special">Date Requested</div>
+        <div class="special">{{ patient.last_updated }}</div>
+    </div>
+
+</div>
+
+
+{% for field in request_ %} {% if field.data %}
+<script>
+    $(function() {
+        $('#id_{{ field.name }}').prop('checked', true)
+        console.log("#id_{{ field.name }}")
+
+    })
+</script>
+{% else %}
+<script>
+    $(function() {
+        $('#div_id_{{ field.name }}').addClass('hidden')
+        console.log('#div_id_{{ field.name }}')
+
+    })
+</script>
+
+{% endif %} {% endfor %}
+
+<fieldset disabled>
+    <div id="radiology_request">
+        <div class="mdl-grid ">
+            <div id="div_id_patient_no" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+                <label for="id_patient_no" class="mdl-textfield__label mdl-color-text--black">
+                        Patient No</label>
+                <div class="controls"><input class="mdl-textfield__input" name="patient_no" id="patient_no" type="text" value="{% if patient.patient_no != None %}{{ patient.patient_no }}{% endif %}" readonly/></div>
+            </div>
+
+        </div>
+        <div class="mdl-grid">
+            <div class="mdl-textfield mdl-js-textfield getmdl-select mdl-cell mdl-cell--12-col">
+                <input class="mdl-textfield__input" value="" id="could_b_pregrant" readonly/>
+                <input value="" type="hidden" name="could_b_pregrant" />
+                <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                <label class="mdl-textfield__label" for="could_b_pregrant">Could you be pregnant</label>
+                <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="could_b_pregrant">
+                    <li class="mdl-menu__item" data-val="yes">Yes</li>
+                    <li class="mdl-menu__item" data-val="no">No</li>
+
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="mdl-grid">
+            <div id="div_id_could_b_pregrant" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+                <label for="id_examination" class="mdl-textfield__label mdl-color-text--grey ">
+                        Examination Required
+                    </label>
+                <div class="controls"><textarea class="mdl-textfield__input" cols="80" id="id_examination" maxlength="20" name="examination" rows="10">{{ examination }}</textarea></div>
+            </div>
+        </div>
+
+        <div class="mdl-grid">
+            <div id="div_id_could_b_pregrant" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+                <label for="id_clinical_indication" class="mdl-textfield__label mdl-color-text--grey ">
+                        Clinical Indications
+                    </label>
+                <div class="controls"><textarea class="mdl-textfield__input" cols="80" id="id_clinical_indication" maxlength="100" name="clinical_indication" rows="10">{{ clinical_indication }}</textarea></div>
+            </div>
+        </div>
+        <div id="div_id_intra_orbital_fb_hist" class="mdl-cell mdl-cell--12-col">
+            <div class="controls"><label for="id_intra_orbital_fb_hist" class="checkbox "> <input
+                        class="checkboxinput" id="id_intra_orbital_fb_hist" name="intra_orbital_fb_hist"
+                        type="checkbox">
+                    Intra orbital fb hist
+                </label></div>
+        </div>
+        <div id="div_id_intracranial_clip" class="mdl-cell mdl-cell--4-col">
+            <div class="controls"><label for="id_intracranial_clip" class="checkbox "> <input
+                        class="checkboxinput" id="id_intracranial_clip" name="intracranial_clip"
+                        type="checkbox">
+                    Intracranial clip
+                </label></div>
+        </div>
+        <div id="div_id_pacemaker" class="mdl-cell mdl-cell--4-col">
+            <div class="controls"><label for="id_pacemaker" class="checkbox "> <input
+                        class="checkboxinput" id="id_pacemaker" name="pacemaker" type="checkbox">
+                    Pacemaker
+                </label></div>
+        </div>
+        <div id="div_id_cochlear_implants" class="mdl-cell mdl-cell--4-col">
+            <div class="controls"><label for="id_cochlear_implants" class="checkbox "> <input
+                        class="checkboxinput" id="id_cochlear_implants" name="cochlear_implants"
+                        type="checkbox">
+                    Cochlear implants
+                </label></div>
+        </div>
+        <div id="div_id_prosthetic_hrt_valve" class="mdl-cell mdl-cell--4-col">
+            <div class="controls"><label for="id_prosthetic_hrt_valve" class="checkbox "> <input
+                        class="checkboxinput" id="id_prosthetic_hrt_valve" name="prosthetic_hrt_valve"
+                        type="checkbox">
+                    Prosthetic hrt valve
+                </label></div>
+        </div>
+        <div id="div_id_pregnancy" class="mdl-cell mdl-cell--4-col">
+            <div class="controls"><label for="id_pregnancy" class="checkbox "> <input
+                        class="checkboxinput" id="id_pregnancy" name="pregnancy" type="checkbox">
+                    Pregnancy
+                </label></div>
+        </div>
+        <div id="div_id_recent_surgery" class="mdl-cell mdl-cell--4-col">
+            <div class="controls"><label for="id_recent_surgery" class="checkbox "> <input
+                        class="checkboxinput" id="id_recent_surgery" name="recent_surgery"
+                        type="checkbox">
+                    Recent surgery
+                </label></div>
+        </div>
+        <div id="div_id_patient_info" class="mdl-cell mdl-cell--4-col">
+            <div class="controls"><label for="id_patient_info" class="checkbox "> <input
+                        class="checkboxinput" id="id_patient_info" name="patient_info" type="checkbox">
+                    Patient info
+                </label></div>
+        </div>
+        <div id="div_id_diabetic_metformin" class="mdl-cell mdl-cell--4-col">
+            <div class="controls"><label for="id_diabetic_metformin" class="checkbox "> <input
+                        class="checkboxinput" id="id_diabetic_metformin" name="diabetic_metformin"
+                        type="checkbox">
+                    Diabetic metformin
+                </label></div>
+        </div>
+        <div id="div_id_allergic_contrast" class="mdl-cell mdl-cell--4-col">
+            <div class="controls"><label for="id_allergic_contrast" class="checkbox "> <input
+                        class="checkboxinput" id="id_allergic_contrast" name="allergic_contrast"
+                        type="checkbox">
+                    Allergic contrast
+                </label></div>
+        </div>
+        <div id="div_id_other_allergies" class="mdl-cell mdl-cell--4-col">
+            <div class="controls"><label for="id_other_allergies" class="checkbox "> <input
+                        class="checkboxinput" id="id_other_allergies" name="other_allergies"
+                        type="checkbox">
+                    Other allergies
+                </label></div>
+        </div>
+        <div id="div_id_kidney_problems" class="mdl-cell mdl-cell--4-col">
+            <div class="controls"><label for="id_kidney_problems" class="checkbox "> <input
+                        class="checkboxinput" id="id_kidney_problems" name="kidney_problems"
+                        type="checkbox">
+                    Kidney problems
+                </label></div>
+        </div>
+        <div id="div_id_anticoagulant_drugs" class="mdl-cell mdl-cell--4-col">
+            <div class="controls"><label for="id_anticoagulant_drugs" class="checkbox "> <input
+                        class="checkboxinput" id="id_anticoagulant_drugs" name="anticoagulant_drugs"
+                        type="checkbox">
+                    Anticoagulant drugs
+                </label></div>
+        </div>
+        <div id="div_id_egfr_result" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col"><label for="id_egfr_result" class="mdl-textfield__label mdl-color-text--grey ">
+                EGFR result
+            </label>
+            <div class="controls"><input class="mdl-textfield__input" id="id_egfr_result" maxlength="30" value="
+                                                     {% if patient.egfr_result != None %}{{ patient.egfr_result }}{% endif %}" name="egfr_result" type="text"></div>
+        </div>
+
+        <div id="div_id_date" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col"><label for="id_date" class="mdl-textfield__label mdl-color-text--grey ">
+                Date
+            </label>
+            <div class="controls"><input class="mdl-textfield__input" id="id_date" name="egfr_result" type="date">
+            </div>
+        </div>
+    </div>
+</fieldset>
+<div class="mdl-cell--9-col" style="margin-top: 20px;">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <input id="triage_id" type="text" class="hidden" name="triage_id" value=" {{ patient.session_id }}">
+
+    <div class="mdl-grid ">
+
+        <div id="div_id_patient_no" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col"><label for="id_patient_no" class="mdl-textfield__label mdl-color-text--black">
+                Patient id</label>
+            <div class="controls"><input class="mdl-textfield__input" cols="40" id="id_patient_no" maxlength="100" name="patient_no" value="{% if patient.patient_no != None %}{{ patient.patient_no }}{% endif %}" rows="10" readonly></div>
+        </div>
+    </div>
+
+    <div class="mdl-grid ">
+        <div id="div_id_results" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col"><label for="id_results" class="mdl-textfield__label mdl-color-text--grey">
+                Test results </label>
+            <div class="controls"><textarea class="mdl-textfield__input" cols="40" id="id_results" maxlength="400" name="results" rows="10" required="">{% if form.results.value != None %}
+                    {{ form.results.value }}{% endif %}</textarea></div>
+        </div>
+
+    </div>
+    <div class="mdl-grid"><input name="uploaded_file" type="file" /></div>
+    <div class="mdl-grid">
+        <button name="radiology_btn" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored mdl-color--primary" type="submit">Submit
+            </button>
+    </div>
+
+</form>
+</div>
+{% endblock %}

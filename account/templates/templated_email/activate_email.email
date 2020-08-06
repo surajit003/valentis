@@ -1,0 +1,390 @@
+{% block subject %}Activation email for {{ user.email }}{% endblock %}
+{% block plain %}
+    Hi {{ user.username }},
+    Please click on the link to confirm your registration,
+    http://{{ domain }}{% url "activate" email=email token=token %}
+
+{% endblock %}
+
+{% block html %}
+    {% load staticfiles %}
+
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+          xmlns:o="urn:schemas-microsoft-com:office:office">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Here it is: Your ValentisHealth account!</title>
+        <style type="text/css">
+            a {
+                color: #1165BF;
+                outline: none;
+                text-decoration: none;
+                border: none;
+                cursor: pointer;
+                word-wrap: break-all;
+            }
+
+            .join-bar {
+                padding: 40px 0 10px 0;
+                background: -webkit-linear-gradient(#42BC85 0%, #3fb17d 25%, #42BC85 50%);
+                /* For Safari 5.1 to 6.0 */
+                background: -o-linear-gradient(#42BC85 0%, #3fb17d 25%, #42BC85 50%);
+                /* For Opera 11.1 to 12.0 */
+                background: -moz-linear-gradient(#42BC85 0%, #3fb17d 25%, #42BC85 50%);
+                /* For Firefox 3.6 to 15 */
+                background: linear-gradient(#42BC85 0%, #3fb17d 25%, #42BC85 50%);
+                /* Standard syntax (must be last) */
+            }
+
+            .join-bar-2 {
+                border-radius: 50%;
+                padding: 0 !important;
+                background: -webkit-radial-gradient(rgba(0, 0, 0, 0.08) 20%, rgba(0, 0, 0, 0.0) 60%);
+                /* For Safari 5.1 to 6.0 */
+                background: -o-radial-gradient(rgba(0, 0, 0, 0.08) 20%, rgba(0, 0, 0, 0.0) 60%);
+                /* For Opera 11.1 to 12.0 */
+                background: -moz-radial-gradient(rgba(0, 0, 0, 0.08) 20%, rgba(0, 0, 0, 0.0) 60%);
+                /* For Firefox 3.6 to 15 */
+                background: radial-gradient(rgba(0, 0, 0, 0.08) 20%, rgba(0, 0, 0, 0.0) 60%);
+                /* Standard syntax (must be last) */
+            }
+
+            .join-bar-white {
+                padding: 40px 0 10px 0;
+                background: white;
+            }
+
+            @media screen and (max-device-width: 650px) {
+                body,
+                .body-table {
+                    padding: 10px !important;
+                }
+
+                td.blue-header {
+                    font-size: 20px !important;
+                    line-height: 24px !important;
+                    padding: 25px 5px !important;
+                }
+
+                td.grey-header {
+                    font-size: 24px !important;
+                    line-height: 30px !important;
+                }
+
+                .ticket img {
+                    width: 80% !important;
+                    height: auto !important;
+                    max-width: 284px;
+                }
+
+                .envelope img {
+                    width: 90% !important;
+                    height: auto !important;
+                    max-width: 357px;
+                }
+
+                .img90 img {
+                    width: 90% !important;
+                    height: auto !important;
+                }
+
+                .text-content td {
+                    padding-left: 20px !important;
+                    padding-right: 20px !important;
+                }
+
+                .text-content td.transaction-wrapper {
+                    padding: 8px 10px 0 !important;
+                }
+
+                .text-content .transaction td.left {
+                    padding-left: 0px !important;
+                    padding-right: 2px !important;
+                    vertical-align: top;
+                    font-size: 12px !important;
+                    line-height: 16px;
+                    width: 110px !important;
+                }
+
+                .text-content .transaction td.right {
+                    padding-left: 0px !important;
+                    padding-right: 0px !important;
+                    vertical-align: top;
+                    font-size: 12px !important;
+                    line-height: 16px;
+                }
+
+                .full-width img {
+                    width: 100% !important;
+                    height: auto !important;
+                    text-align: center !important;
+                }
+
+                .hidden-mobile {
+                    display: none;
+                }
+            }
+
+            @media screen and (max-width: 650px) {
+                body,
+                .body-table {
+                    padding: 10px !important;
+                }
+
+                td.blue-header {
+                    font-size: 20px !important;
+                    line-height: 24px !important;
+                    padding: 25px 5px !important;
+                }
+
+                td.grey-header {
+                    font-size: 24px !important;
+                    line-height: 30px !important;
+                }
+
+                .ticket img {
+                    width: 80% !important;
+                    height: auto !important;
+                    max-width: 284px;
+                }
+
+                .envelope img {
+                    width: 90% !important;
+                    height: auto !important;
+                    max-width: 357px;
+                }
+
+                .img90 img {
+                    width: 90% !important;
+                    height: auto !important;
+                }
+
+                .text-content td {
+                    padding-left: 20px !important;
+                    padding-right: 20px !important;
+                }
+
+                .text-content td.transaction-wrapper {
+                    padding: 8px 10px 0 !important;
+                }
+
+                .text-content .transaction td.left {
+                    padding-left: 0px !important;
+                    padding-right: 2px !important;
+                    vertical-align: top;
+                    font-size: 12px !important;
+                    line-height: 16px;
+                    width: 110px !important;
+                }
+
+                .text-content .transaction td.right {
+                    padding-left: 0px !important;
+                    padding-right: 0px !important;
+                    vertical-align: top;
+                    font-size: 12px !important;
+                    line-height: 16px;
+                }
+
+                .text-content td.full-width {
+                    padding-left: 0 !important;
+                    padding-right: 0 !important;
+                }
+
+                .full-width img {
+                    width: 100% !important;
+                    height: auto !important;
+                    text-align: center !important;
+                }
+
+                .hidden-mobile {
+                    display: none;
+                }
+            }
+        </style>
+        <!--[if gte mso 9]>
+          <xml>
+            <o:OfficeDocumentSettings>
+              <o:AllowPNG/>
+              <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+          </xml>
+        <![endif]-->
+        <!--[if gte mso 15]>
+          <style type="text/css">
+            table { font-size:1px; line-height:0; mso-margin-top-alt:1px; }
+          </style>
+        <![endif]-->
+    </head>
+
+    <body style="font-family: 'Proxima Nova', -apple-system, 'Avenir Next', Helvetica, Arial, sans-serif; font-weight: normal; text-align: left; line-height: 20px; font-size: 14px; background: #F6F6F6;"
+          bgcolor="#F6F6F6">
+    <table class="body-table" cellpadding="0" cellspacing="0" width="100%"
+           style="width:100%; -webkit-text-size-adjust:100%;">
+        <tr>
+            <td style="margin: 0; padding: 0; border: none; background: #F6F6F6;" bgcolor="#F6F6F6" align="center"
+                rowspan="1" colspan="1">
+                <table cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td width="100%" align="center"
+                            style="width: 520px; border-spacing: 0; border-collapse: collapse;">
+                            <table cellpadding="0" cellspacing="0" border="0" align="center">
+                                <tr style="margin: 0; padding: 0; border: none;">
+                                    <td width="100%" style="text-align: center; padding: 20px 0;" align="center">
+                                        <a target="_blank" href="http://valentishealth.co.ke"
+                                           style="text-decoration: none; outline: none; border: none; line-height: 0;"
+                                           align="center">
+                                            <img src="<img src="{% static '/img/logothree.jpg' %}" alt="ValentisHealth"
+                                            width="196" height="57" style="outline: none; border: none;" />
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr style="margin: 0; padding: 0; border: none;">
+                                    <td class="header"
+                                        style="vertical-align: middle; text-align: center; background: none; padding: 20px; border: none;"
+                                        align="center" valign="middle">
+                                        <table cellpadding="0" cellspacing="0" border="0" align="center">
+                                            <tr>
+                                                <td class="grey-header"
+                                                    style="font-weight: normal; font-size: 27px; line-height: 34px; color: #4A4A4A; font-family: 'Proxima Nova', -apple-system, 'Avenir Next', Helvetica, Arial, sans-serif; text-align: center; display: block; width: 100%; background: none; padding: 0;"
+                                                    align="center">Here it is: Your ValentisHealth account!
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td width="520"
+                                        style="-moz-box-shadow: 0px 2px 2px 0px rgba(155,154,155,0.50); -webkit-box-shadow: 0px 2px 2px 0px rgba(155,154,155,0.50); box-shadow: 0px 2px 2px 0px rgba(155,154,155,0.50); background: white; padding: 0; border: none;"
+                                        bgcolor="white">
+                                        <table cellpadding="0" cellspacing="0" width="100%"
+                                               style="table-layout: fixed; border-spacing: 0; border-collapse: separate;">
+                                            <tr>
+                                                <td style="background: #ffffff; padding: 40px 0 15px" rowspan="1"
+                                                    colspan="1">
+                                                    <table class="text-content" cellpadding="0" cellspacing="0"
+                                                           border="0">
+                                                        <tr>
+                                                            <td class="join-bar-white" style="padding: 0 !important;"
+                                                                align="center" rowspan="1" colspan="1">
+                                                                <table cellpadding="0" cellspacing="0" border="0"
+                                                                       width="195" align="center">
+                                                                    <tr>
+                                                                        <td width="195" height="40"
+                                                                            style="font-family: 'Proxima Nova', -apple-system, 'Avenir Next', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 16px; line-height: 24px; background: #42BC85; color: white; border-bottom: 2px #3fb17d solid; text-align: center; vertical-align: middle; padding: 0 !important;"
+                                                                            valign="middle" rowspan="1" colspan="1">
+                                                                            <a style="color: white; text-decoration: none; outline: none; border: none; display: inline-block; width: 195px; height: 30px; padding-top: 8px; vertical-align: middle; text-align: center;"
+                                                                               shape="rect" href="http://
+
+
+
+                                                                                    {{ domain }}{% url "activate" email=email token=token %}">Activate
+                                                                                email</a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                <table cellpadding="0" cellspacing="10" border="0"
+                                                                       width="300" align="center">
+                                                                    <tr>
+                                                                        <td class="join-bar-2" width="300" height="3"
+                                                                            valign="middle" rowspan="1" colspan="1">
+                                                                            &nbsp;</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="font-family: 'Proxima Nova', -apple-system, 'Avenir Next', Helvetica, Arial, sans-serif; color: #4A4A4A; font-size: 14px; padding: 0 40px 20px; line-height: 20px;"
+                                                                rowspan="1" colspan="1">Please confirm your email
+                                                                address, to activate your account. If you received this
+                                                                by mistake or weren't expecting it, please disregard
+                                                                this email.
+
+                                                            </td>
+                                                        </tr>
+
+                                                    </table>
+                                                </td>
+                                            </tr>
+
+                                            <tr style="padding: 0; border: none;">
+                                                <td style="background-color: #42BC85; color: #ffffff; padding: 30px 0 40px 0; text-align: center"
+                                                    align="center" rowspan="1" colspan="1">
+                                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td style="font-family: 'Proxima Nova', -apple-system, 'Avenir Next', Helvetica, Arial, sans-serif; color: #FFFFFF; font-size: 24px;line-height: 30px; text-align: center;"
+                                                                align="center" rowspan="1" colspan="1">Check out our
+                                                                website
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="join-bar"
+                                                    style="background-color: #42BC85; color: #ffffff; padding: 0 0 10px 0"
+                                                    align="center" rowspan="1" colspan="1">
+                                                    <table cellpadding="0" cellspacing="0" border="0" width="195"
+                                                           align="center">
+                                                        <tr>
+                                                            <td width="195" height="40"
+                                                                style="font-family: 'Proxima Nova', -apple-system, 'Avenir Next', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 16px; line-height: 24px; background: #ffffff; color: #42BC85; border-bottom: 2px #cccccc solid; text-align: center; vertical-align: middle; padding: 0 !important;"
+                                                                valign="middle" rowspan="1" colspan="1">
+                                                                <a style="color: #42BC85; text-decoration: none; outline: none; border: none; display: inline-block; width: 195px; height: 30px; padding-top: 8px; vertical-align: middle; text-align: center;"
+                                                                   shape="rect" href="https://valentishealth.co.ke/">Valentis
+                                                                    Health Website</a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <table cellpadding="0" cellspacing="10" border="0" width="300"
+                                                           align="center">
+                                                        <tr>
+                                                            <td class="join-bar-2" width="300" height="3"
+                                                                valign="middle" rowspan="1" colspan="1">&nbsp;</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+
+                                        </table>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td style="width: 500px; font-family: 'Proxima Nova', -apple-system, 'Avenir Next', Helvetica, Arial, sans-serif; color: #707171;font-size: 11px; line-height: 15px; padding: 0 0 6px 0; font-weight: normal; text-align: center;">&copy;
+                                        ValentisHealth Ltd.
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width: 500px; font-family: 'Proxima Nova', -apple-system, 'Avenir Next', Helvetica, Arial, sans-serif; color: #707171;font-size: 11px; line-height: 15px; padding: 0 0 6px 0; font-weight: normal; text-align: center;">
+                                        <br/>All rights reserved.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 500px; font-family: 'Proxima Nova', -apple-system, 'Avenir Next', Helvetica, Arial, sans-serif; color: #707171; font-size: 11px; line-height: 15px; padding: 0 0 35px 0; font-weight: normal; text-align: center;">
+                                        <a style="font-size: 11px; font-weight: normal; color: #707171; outline: none; text-decoration: none; border: none;"
+                                           href="https://www.aspiration.com/?utm_campaign=website&utm_source=sendgrid.com&utm_medium=email"
+                                           target="_blank">Valentishealth.co.ke</a> &middot;
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <img src="http://valentishealth.co.ke"
+         alt="" width="1" height="1" border="0"
+         style="height:1px !important;width:1px !important;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !important;margin-right:0 !important;margin-left:0 !important;padding-top:0 !important;padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !important;"
+    />
+    </body>
+
+    </html>
+
+
+{% endblock %}

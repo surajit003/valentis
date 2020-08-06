@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<script>
+    $("#clinic_tab").addClass("current").siblings().removeClass("current")
+</script>
+<p><a class="btn btn-default" href="{% url 'clinic_patientvisit_list' %}">patientVisit Listing</a></p>
+<table class="table">
+    <tr>
+        <td>name</td>
+        <td>{{ object.name }}</td>
+    </tr>
+    <tr>
+        <td>slug</td>
+        <td>{{ object.slug }}</td>
+    </tr>
+    <tr>
+        <td>created</td>
+        <td>{{ object.created }}</td>
+    </tr>
+    <tr>
+        <td>last_updated</td>
+        <td>{{ object.last_updated }}</td>
+    </tr>
+    <tr>
+        <td>patient_no</td>
+        <td>{{ object.patient_no }}</td>
+    </tr>
+    <tr>
+        <td>visit_id</td>
+        <td>{{ object.visit_id }}</td>
+    </tr>
+    <tr>
+        <td>radiology_no</td>
+        <td>{{ object.radiology_no }}</td>
+    </tr>
+    <tr>
+        <td>notes</td>
+        <td>{{ object.notes }}</td>
+    </tr>
+    <tr>
+        <td>diagnosis</td>
+        <td>{{ object.diagnosis }}</td>
+    </tr>
+    <tr>
+        <td>prescription_id</td>
+        <td>{{ object.prescription_id }}</td>
+    </tr>
+    <tr>
+        <td>status</td>
+        <td>{{ object.status }}</td>
+    </tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit patientVisit</a> {% endblock %}

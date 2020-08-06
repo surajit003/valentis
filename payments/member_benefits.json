@@ -1,0 +1,38 @@
+ [{
+    "model": "payments.member_benefits",
+    "pk": 1,
+    "fields": {
+      "name": "Inpatient",
+      "slug": "123",
+      "created": "2018-02-07T06:39:19.439Z",
+      "last_updated": "2018-02-07T06:39:38.132Z",
+      "member_no": "123",
+      "limit": "12345.00",
+      "sharing": "1",
+      "anniv": "1",
+      "suspended": "0",
+      "suspended_date": "2018-02-07",
+      "expense": "123.00",
+      "idx": "1",
+      "balance": "12345.00"
+    }
+  },
+  {
+    "model": "payments.member_benefits",
+    "pk": 2,
+    "fields": {
+      "name": "Dental",
+      "slug": "123-2",
+      "created": "2018-02-08T08:56:54.223Z",
+      "last_updated": "2018-02-08T08:56:54.223Z",
+      "member_no": "123",
+      "limit": "123000.00",
+      "sharing": "1",
+      "anniv": "1",
+      "suspended": "0",
+      "suspended_date": "2018-10-24",
+      "expense": "0.00",
+      "idx": "0",
+      "balance": "1232131.00"
+    }
+  }]

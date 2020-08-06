@@ -1,0 +1,986 @@
+[
+    {
+        "code": "D64.0",
+        "name": "Hereditary sideroblastic anemia"
+    },
+    {
+        "code": "D64.1",
+        "name": "Secondary sideroblastic anemia due to disease"
+    },
+    {
+        "code": "D64.2",
+        "name": "Secondary sideroblastic anemia due to drugs and toxins"
+    },
+    {
+        "code": "D64.3",
+        "name": "Other sideroblastic anemias"
+    },
+    {
+        "code": "D64.81",
+        "name": "Anemia due to antineoplastic chemotherapy"
+    },
+    {
+        "code": "D64.89",
+        "name": "Other specified anemias"
+    },
+    {
+        "code": "D64.9",
+        "name": "Anemia, unspecified"
+    },
+    {
+        "code": "E03.0",
+        "name": "Congenital hypothyroidism with diffuse goiter"
+    },
+    {
+        "code": "E03.1",
+        "name": "Congenital hypothyroidism without goiter"
+    },
+    {
+        "code": "E03.2",
+        "name": "Hypothyroidism due to medicaments and other exogenous substances"
+    },
+    {
+        "code": "E03.3",
+        "name": "Postinfectious hypothyroidism"
+    },
+    {
+        "code": "E03.4",
+        "name": "Atrophy of thyroid (acquired)"
+    },
+    {
+        "code": "E03.5",
+        "name": "Myxedema coma"
+    },
+    {
+        "code": "E03.8",
+        "name": "Other specified hypothyroidism"
+    },
+    {
+        "code": "E03.9",
+        "name": "Hypothyroidism, unspecified"
+    },
+    {
+        "code": "E78.0",
+        "name": "Pure hypercholesterolemia"
+    },
+    {
+        "code": "E78.1",
+        "name": "Pure hyperglyceridemia"
+    },
+    {
+        "code": "E78.2",
+        "name": "Mixed hyperlipidemia"
+    },
+    {
+        "code": "E78.3",
+        "name": "Hyperchylomicronemia"
+    },
+    {
+        "code": "E78.4",
+        "name": "Other hyperlipidemia"
+    },
+    {
+        "code": "E78.5",
+        "name": "Hyperlipidemia, unspecified"
+    },
+    {
+        "code": "E78.6",
+        "name": "Lipoprotein deficiency"
+    },
+    {
+        "code": "E11.9",
+        "name": "Type 2 diabetes mellitus without complications"
+    },
+    {
+        "code": "F41.1",
+        "name": "Generalized anxiety disorder"
+    },
+    {
+        "code": "F41.8",
+        "name": "Other specified anxiety disorders"
+    },
+    {
+        "code": "F41.9",
+        "name": "Anxiety disorder, unspecified"
+    },
+    {
+        "code": "F43.20",
+        "name": "Adjustment disorder, unspecified"
+    },
+    {
+        "code": "F43.21",
+        "name": "Adjustment disorder with depressed mood"
+    },
+    {
+        "code": "F43.22",
+        "name": "Adjustment disorder with anxiety"
+    },
+    {
+        "code": "F43.24",
+        "name": "Adjustment disorder with disturbance of conduct"
+    },
+    {
+        "code": "F43.25",
+        "name": "Adjustment disorder with mixed disturbance of emotions and conduct"
+    },
+    {
+        "code": "F43.29",
+        "name": "Adjustment disorder with other symptoms"
+    },
+    {
+        "code": "F32.0",
+        "name": "Major depressive disorder, single episode, mild"
+    },
+    {
+        "code": "F32.1",
+        "name": "Major depressive disorder, single episode, moderate"
+    },
+    {
+        "code": "F32.2",
+        "name": "Major depressive disorder, single episode, severe without psychotic features"
+    },
+    {
+        "code": "F32.3",
+        "name": "Major depressive disorder, single episode, severe with psychotic features"
+    },
+    {
+        "code": "F32.4",
+        "name": "Major depressive disorder, single episode, in partial remission"
+    },
+    {
+        "code": "F32.5",
+        "name": "Major depressive disorder, single episode, in full remission"
+    },
+    {
+        "code": "F32.8",
+        "name": "Other depressive episodes"
+    },
+    {
+        "code": "F32.9",
+        "name": "Major depressive disorder, single episode, unspecified"
+    },
+    {
+        "code": "G89.4",
+        "name": "Chronic pain syndrome"
+    },
+    {
+        "code": "G93.3",
+        "name": "Postviral fatigue syndrome"
+    },
+    {
+        "code": "H61.20",
+        "name": "Impacted cerumen, unspecified ear"
+    },
+    {
+        "code": "H61.21",
+        "name": "Impacted cerumen, right ear"
+    },
+    {
+        "code": "H61.22",
+        "name": "Impacted cerumen, left ear"
+    },
+    {
+        "code": "H61.23",
+        "name": "Impacted cerumen, bilateral"
+    },
+    {
+        "code": "I48.0",
+        "name": "Paroxysmal atrial fibrillation"
+    },
+    {
+        "code": "I48.1",
+        "name": "Persistent atrial fibrillation"
+    },
+    {
+        "code": "I48.2",
+        "name": "Chronic atrial fibrillation"
+    },
+    {
+        "code": "I48.91",
+        "name": "Unspecified atrial fibrillation"
+    },
+    {
+        "code": "I50.1",
+        "name": "Left ventricular failure"
+    },
+    {
+        "code": "I50.21",
+        "name": "Acute systolic (congestive) heart failure"
+    },
+    {
+        "code": "I50.22",
+        "name": "Chronic systolic (congestive) heart failure"
+    },
+    {
+        "code": "I50.23",
+        "name": "Acute on chronic systolic (congestive) heart failure"
+    },
+    {
+        "code": "I50.30",
+        "name": "Unspecified diastolic (congestive) heart failure"
+    },
+    {
+        "code": "I50.31",
+        "name": "Acute diastolic (congestive) heart failure"
+    },
+    {
+        "code": "I50.32",
+        "name": "Chronic diastolic (congestive) heart failure"
+    },
+    {
+        "code": "I50.33",
+        "name": "Acute on chronic diastolic (congestive) heart failure"
+    },
+    {
+        "code": "I50.40",
+        "name": "Unspecified combined systolic (congestive) and diastolic (congestive) heart failure"
+    },
+    {
+        "code": "I50.41",
+        "name": "Acute combined systolic (congestive) and diastolic (congestive) heart failure"
+    },
+    {
+        "code": "I50.42",
+        "name": "Chronic combined systolic (congestive) and diastolic (congestive) heart failure"
+    },
+    {
+        "code": "I50.43",
+        "name": "Acute on chronic combined systolic (congestive) and diastolic (congestive) heart failure"
+    },
+    {
+        "code": "I50.9",
+        "name": "Heart failure, unspecified"
+    },
+    {
+        "code": "I10",
+        "name": "Essential (primary) hypertension"
+    },
+    {
+        "code": "J18.9",
+        "name": "Pneumonia, unspecified organism"
+    },
+    {
+        "code": "J20.0",
+        "name": "Acute bronchitis due to Mycoplasma pneumoniae"
+    },
+    {
+        "code": "J20.1",
+        "name": "Acute bronchitis due to Hemophilus influenzae"
+    },
+    {
+        "code": "J20.2",
+        "name": "Acute bronchitis due to streptococcus"
+    },
+    {
+        "code": "J20.3",
+        "name": "Acute bronchitis due to coxsackievirus"
+    },
+    {
+        "code": "J20.4",
+        "name": "Acute bronchitis due to parainfluenza virus"
+    },
+    {
+        "code": "J20.5",
+        "name": "Acute bronchitis due to respiratory syncytial virus"
+    },
+    {
+        "code": "J20.6",
+        "name": "Acute bronchitis due to rhinovirus"
+    },
+    {
+        "code": "J20.7",
+        "name": "Acute bronchitis due to echovirus"
+    },
+    {
+        "code": "J20.8",
+        "name": "Acute bronchitis due to other specified organisms"
+    },
+    {
+        "code": "J20.9",
+        "name": "Acute bronchitis, unspecified"
+    },
+    {
+        "code": "J30.0",
+        "name": "Vasomotor rhinitis"
+    },
+    {
+        "code": "J30.1",
+        "name": "Allergic rhinitis due to pollen"
+    },
+    {
+        "code": "J30.2",
+        "name": "Other seasonal allergic rhinitis"
+    },
+    {
+        "code": "J30.5",
+        "name": "Allergic rhinitis due to food"
+    },
+    {
+        "code": "J30.81",
+        "name": "Allergic rhinitis due to animal (cat) (dog) hair and dander"
+    },
+    {
+        "code": "J30.89",
+        "name": "Other allergic rhinitis"
+    },
+    {
+        "code": "J30.9",
+        "name": "Allergic rhinitis, unspecified"
+    },
+    {
+        "code": "J39.8",
+        "name": "Other specified diseases of upper respiratory tract"
+    },
+    {
+        "code": "J01.00",
+        "name": "Acute maxillary sinusitis, unspecified"
+    },
+    {
+        "code": "J01.10",
+        "name": "Acute frontal sinusitis, unspecified"
+    },
+    {
+        "code": "J01.20",
+        "name": "Acute ethmoidal sinusitis, unspecified"
+    },
+    {
+        "code": "J01.30",
+        "name": "Acute sphenoidal sinusitis, unspecified"
+    },
+    {
+        "code": "J01.40",
+        "name": "Acute pansinusitis, unspecified"
+    },
+    {
+        "code": "J01.80",
+        "name": "Other acute sinusitis"
+    },
+    {
+        "code": "J01.90",
+        "name": "Acute sinusitis, unspecified"
+    },
+    {
+        "code": "J02.0",
+        "name": "Streptococcal pharyngitis"
+    },
+    {
+        "code": "J02.8",
+        "name": "Acute pharyngitis due to other specified organisms"
+    },
+    {
+        "code": "J02.9",
+        "name": "Acute pharyngitis, unspecified"
+    },
+    {
+        "code": "J06.9",
+        "name": "Acute upper respiratory infection, unspecified"
+    },
+    {
+        "code": "J40",
+        "name": "Bronchitis, not specified as acute or chronic"
+    },
+    {
+        "code": "J41.0",
+        "name": "Simple chronic bronchitis"
+    },
+    {
+        "code": "J41.1",
+        "name": "Mucopurulent chronic bronchitis"
+    },
+    {
+        "code": "J41.8",
+        "name": "Mixed simple and mucopurulent chronic bronchitis"
+    },
+    {
+        "code": "J42",
+        "name": "Unspecified chronic bronchitis"
+    },
+    {
+        "code": "J44.0",
+        "name": "Chronic obstructive pulmonary disease with acute lower respiratory infection"
+    },
+    {
+        "code": "J44.1",
+        "name": "Chronic obstructive pulmonary disease with (acute) exacerbation"
+    },
+    {
+        "code": "J44.9",
+        "name": "Chronic obstructive pulmonary disease, unspecified"
+    },
+    {
+        "code": "J45.20",
+        "name": "Mild intermittent asthma, uncomplicated"
+    },
+    {
+        "code": "J45.21",
+        "name": "Mild intermittent asthma with (acute) exacerbation"
+    },
+    {
+        "code": "J45.22",
+        "name": "Mild intermittent asthma with status asthmaticus"
+    },
+    {
+        "code": "J45.30",
+        "name": "Mild persistent asthma, uncomplicated"
+    },
+    {
+        "code": "J45.31",
+        "name": "Mild persistent asthma with (acute) exacerbation"
+    },
+    {
+        "code": "J45.32",
+        "name": "Mild persistent asthma with status asthmaticus"
+    },
+    {
+        "code": "J45.40",
+        "name": "Moderate persistent asthma, uncomplicated"
+    },
+    {
+        "code": "J45.41",
+        "name": "Moderate persistent asthma with (acute) exacerbation"
+    },
+    {
+        "code": "J45.42",
+        "name": "Moderate persistent asthma with status asthmaticus"
+    },
+    {
+        "code": "J45.50",
+        "name": "Severe persistent asthma, uncomplicated"
+    },
+    {
+        "code": "J45.51",
+        "name": "Severe persistent asthma with (acute) exacerbation"
+    },
+    {
+        "code": "J45.52",
+        "name": "Severe persistent asthma with status asthmaticus"
+    },
+    {
+        "code": "J45.901",
+        "name": "Unspecified asthma with (acute) exacerbation"
+    },
+    {
+        "code": "J45.902",
+        "name": "Unspecified asthma with status asthmaticus"
+    },
+    {
+        "code": "J45.909",
+        "name": "Unspecified asthma, uncomplicated"
+    },
+    {
+        "code": "J45.990",
+        "name": "Exercise induced bronchospasm"
+    },
+    {
+        "code": "J45.991",
+        "name": "Cough variant asthma"
+    },
+    {
+        "code": "J45.998",
+        "name": "Other asthma"
+    },
+    {
+        "code": "K64.4",
+        "name": "Residual hemorrhoidal skin tags"
+    },
+    {
+        "code": "K64.5",
+        "name": "Perianal venous thrombosis"
+    },
+    {
+        "code": "K21.0",
+        "name": "Gastro-esophageal reflux disease with esophagitis"
+    },
+    {
+        "code": "K21.9",
+        "name": "Gastro-esophageal reflux disease without esophagitis"
+    },
+    {
+        "code": "L25.0",
+        "name": "Unspecified contact dermatitis due to cosmetics"
+    },
+    {
+        "code": "L25.1",
+        "name": "Unspecified contact dermatitis due to drugs in contact with skin"
+    },
+    {
+        "code": "L25.2",
+        "name": "Unspecified contact dermatitis due to dyes"
+    },
+    {
+        "code": "L25.3",
+        "name": "Unspecified contact dermatitis due to other chemical products"
+    },
+    {
+        "code": "L25.4",
+        "name": "Unspecified contact dermatitis due to food in contact with skin"
+    },
+    {
+        "code": "L25.5",
+        "name": "Unspecified contact dermatitis due to plants, except food"
+    },
+    {
+        "code": "L25.8",
+        "name": "Unspecified contact dermatitis due to other agents"
+    },
+    {
+        "code": "L25.9",
+        "name": "Unspecified contact dermatitis, unspecified cause"
+    },
+    {
+        "code": "L30.9",
+        "name": "Dermatitis, unspecified"
+    },
+    {
+        "code": "L03.115",
+        "name": "Cellulitis of right lower limb"
+    },
+    {
+        "code": "L03.116",
+        "name": "Cellulitis of left lower limb"
+    },
+    {
+        "code": "L03.119",
+        "name": "Cellulitis of unspecified part of limb"
+    },
+    {
+        "code": "L03.125",
+        "name": "Acute lymphangitis of right lower limb"
+    },
+    {
+        "code": "L03.126",
+        "name": "Acute lymphangitis of left lower limb"
+    },
+    {
+        "code": "L03.129",
+        "name": "Acute lymphangitis of unspecified part of limb"
+    },
+    {
+        "code": "M53.3",
+        "name": "Sacrococcygeal disorders, not elsewhere classified"
+    },
+    {
+        "code": "M54.5",
+        "name": "Low back pain"
+    },
+    {
+        "code": "M54.6",
+        "name": "Pain in thoracic spine"
+    },
+    {
+        "code": "M54.89",
+        "name": "Other dorsalgia"
+    },
+    {
+        "code": "M54.9",
+        "name": "Dorsalgia, unspecified"
+    },
+    {
+        "code": "M25.511",
+        "name": "Pain in right shoulder"
+    },
+    {
+        "code": "M25.512",
+        "name": "Pain in left shoulder"
+    },
+    {
+        "code": "M25.519",
+        "name": "Pain in unspecified shoulder"
+    },
+    {
+        "code": "M25.551",
+        "name": "Pain in right hip"
+    },
+    {
+        "code": "M25.552",
+        "name": "Pain in left hip"
+    },
+    {
+        "code": "M25.559",
+        "name": "Pain in unspecified hip"
+    },
+    {
+        "code": "M25.561",
+        "name": "Pain in right knee"
+    },
+    {
+        "code": "M25.562",
+        "name": "Pain in left knee"
+    },
+    {
+        "code": "M25.569",
+        "name": "Pain in unspecified knee"
+    },
+    {
+        "code": "M79.601",
+        "name": "Pain in right arm"
+    },
+    {
+        "code": "M79.602",
+        "name": "Pain in left arm"
+    },
+    {
+        "code": "M79.603",
+        "name": "Pain in arm, unspecified"
+    },
+    {
+        "code": "M79.604",
+        "name": "Pain in right leg"
+    },
+    {
+        "code": "M79.605",
+        "name": "Pain in left leg"
+    },
+    {
+        "code": "M79.606",
+        "name": "Pain in leg, unspecified"
+    },
+    {
+        "code": "M79.609",
+        "name": "Pain in unspecified limb"
+    },
+    {
+        "code": "M79.621",
+        "name": "Pain in right upper arm"
+    },
+    {
+        "code": "M79.622",
+        "name": "Pain in left upper arm"
+    },
+    {
+        "code": "M79.629",
+        "name": "Pain in unspecified upper arm"
+    },
+    {
+        "code": "M79.631",
+        "name": "Pain in right forearm"
+    },
+    {
+        "code": "M79.632",
+        "name": "Pain in left forearm"
+    },
+    {
+        "code": "M79.639",
+        "name": "Pain in unspecified forearm"
+    },
+    {
+        "code": "M79.641",
+        "name": "Pain in right hand"
+    },
+    {
+        "code": "M79.642",
+        "name": "Pain in left hand"
+    },
+    {
+        "code": "M79.643",
+        "name": "Pain in unspecified hand"
+    },
+    {
+        "code": "M79.644",
+        "name": "Pain in right finger(s)"
+    },
+    {
+        "code": "M79.645",
+        "name": "Pain in left finger(s)"
+    },
+    {
+        "code": "M79.646",
+        "name": "Pain in unspecified finger(s)"
+    },
+    {
+        "code": "M79.651",
+        "name": "Pain in right thigh"
+    },
+    {
+        "code": "M79.652",
+        "name": "Pain in left thigh"
+    },
+    {
+        "code": "M79.659",
+        "name": "Pain in unspecified thigh"
+    },
+    {
+        "code": "M79.661",
+        "name": "Pain in right lower leg"
+    },
+    {
+        "code": "M79.662",
+        "name": "Pain in left lower leg"
+    },
+    {
+        "code": "M79.669",
+        "name": "Pain in unspecified lower leg"
+    },
+    {
+        "code": "M79.671",
+        "name": "Pain in right foot"
+    },
+    {
+        "code": "M79.672",
+        "name": "Pain in left foot"
+    },
+    {
+        "code": "M79.673",
+        "name": "Pain in unspecified foot"
+    },
+    {
+        "code": "M79.674",
+        "name": "Pain in right toe(s)"
+    },
+    {
+        "code": "M79.675",
+        "name": "Pain in left toe(s)"
+    },
+    {
+        "code": "M79.676",
+        "name": "Pain in unspecified toe(s)"
+    },
+    {
+        "code": "N15.9",
+        "name": "Renal tubulo-interstitial disease, unspecified"
+    },
+    {
+        "code": "N30.00",
+        "name": "Acute cystitis without hematuria"
+    },
+    {
+        "code": "N30.01",
+        "name": "Acute cystitis with hematuria"
+    },
+    {
+        "code": "N30.10",
+        "name": "Interstitial cystitis (chronic) without hematuria"
+    },
+    {
+        "code": "N30.11",
+        "name": "Interstitial cystitis (chronic) with hematuria"
+    },
+    {
+        "code": "N30.20",
+        "name": "Other chronic cystitis without hematuria"
+    },
+    {
+        "code": "N30.21",
+        "name": "Other chronic cystitis with hematuria"
+    },
+    {
+        "code": "N30.30",
+        "name": "Trigonitis without hematuria"
+    },
+    {
+        "code": "N30.31",
+        "name": "Trigonitis with hematuria"
+    },
+    {
+        "code": "N30.40",
+        "name": "Irradiation cystitis without hematuria"
+    },
+    {
+        "code": "N30.41",
+        "name": "Irradiation cystitis with hematuria"
+    },
+    {
+        "code": "N30.80",
+        "name": "Other cystitis without hematuria"
+    },
+    {
+        "code": "N30.81",
+        "name": "Other cystitis with hematuria"
+    },
+    {
+        "code": "N30.90",
+        "name": "Cystitis, unspecified without hematuria"
+    },
+    {
+        "code": "N30.91",
+        "name": "Cystitis, unspecified with hematuria"
+    },
+    {
+        "code": "N34.1",
+        "name": "Nonspecific urethritis"
+    },
+    {
+        "code": "N34.2",
+        "name": "Other urethritis"
+    },
+    {
+        "code": "N39.0",
+        "name": "Urinary tract infection, site not specified"
+    },
+    {
+        "code": "R51",
+        "name": "Headache"
+    },
+    {
+        "code": "R53.0",
+        "name": "Neoplastic (malignant) related fatigue"
+    },
+    {
+        "code": "R53.1",
+        "name": "Weakness"
+    },
+    {
+        "code": "R53.81",
+        "name": "Other malaise"
+    },
+    {
+        "code": "R53.83",
+        "name": "Other fatigue"
+    },
+    {
+        "code": "R60.0",
+        "name": "Localized edema"
+    },
+    {
+        "code": "R60.1",
+        "name": "Generalized edema"
+    },
+    {
+        "code": "R60.9",
+        "name": "Edema, unspecified"
+    },
+    {
+        "code": "R42",
+        "name": "Dizziness and giddiness"
+    },
+    {
+        "code": "R21",
+        "name": "Rash and other nonspecific skin eruption"
+    },
+    {
+        "code": "R10.0",
+        "name": "Acute abdomen"
+    },
+    {
+        "code": "R10.10",
+        "name": "Upper abdominal pain, unspecified"
+    },
+    {
+        "code": "R10.11",
+        "name": "Right upper quadrant pain"
+    },
+    {
+        "code": "R10.12",
+        "name": "Left upper quadrant pain"
+    },
+    {
+        "code": "R10.13",
+        "name": "Epigastric pain"
+    },
+    {
+        "code": "R10.2",
+        "name": "Pelvic and perineal pain"
+    },
+    {
+        "code": "R10.30",
+        "name": "Lower abdominal pain, unspecified"
+    },
+    {
+        "code": "R10.31",
+        "name": "Right lower quadrant pain"
+    },
+    {
+        "code": "R10.32",
+        "name": "Left lower quadrant pain"
+    },
+    {
+        "code": "R10.33",
+        "name": "Periumbilical pain"
+    },
+    {
+        "code": "R10.84",
+        "name": "Generalized abdominal pain"
+    },
+    {
+        "code": "R10.9",
+        "name": "Unspecified abdominal pain"
+    },
+    {
+        "code": "R19.7",
+        "name": "Diarrhea, unspecified"
+    },
+    {
+        "code": "R05",
+        "name": "Cough"
+    },
+    {
+        "code": "R06.00",
+        "name": "Dyspnea, unspecified"
+    },
+    {
+        "code": "R06.02",
+        "name": "Shortness of breath"
+    },
+    {
+        "code": "R06.3",
+        "name": "Periodic breathing"
+    },
+    {
+        "code": "R06.4",
+        "name": "Hyperventilation"
+    },
+    {
+        "code": "R06.83",
+        "name": "Snoring"
+    },
+    {
+        "code": "R06.89",
+        "name": "Other abnormalities of breathing"
+    },
+    {
+        "code": "R07.1",
+        "name": "Chest pain on breathing"
+    },
+    {
+        "code": "R07.2",
+        "name": "Precordial pain"
+    },
+    {
+        "code": "R07.81",
+        "name": "Pleurodynia"
+    },
+    {
+        "code": "R07.89",
+        "name": "Other chest pain"
+    },
+    {
+        "code": "R07.9",
+        "name": "Chest pain, unspecified"
+    },
+    {
+        "code": "R30.0",
+        "name": "Dysuria"
+    },
+    {
+        "code": "Z77.22",
+        "name": "Contact with and (suspected) exposure to environmental tobacco smoke (acute) (chronic)"
+    },
+    {
+        "code": "Z87.891",
+        "name": "Personal history of nicotine dependence"
+    },
+    {
+        "code": "Z23",
+        "name": "Encounter for immunization"
+    },
+    {
+        "code": "Z72.0",
+        "name": "Tobacco use"
+    },
+    {
+        "code": "Z00.00",
+        "name": "Encounter for general adult medical examination without abnormal findings"
+    },
+    {
+        "code": "Z00.01",
+        "name": "Encounter for general adult medical examination with abnormal findings"
+    },
+    {
+        "code": "Z01.818",
+        "name": "Encounter for other preprocedural examination"
+    },
+    {
+        "code": "Z57.31",
+        "name": "Occupational exposure to environmental tobacco smoke"
+    }
+]

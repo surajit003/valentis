@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<script>
+    $("#prescription_tab").addClass("current").siblings().removeClass("current")
+</script>
+<table class="table">
+    <tr>
+        <td>slug</td>
+        <td>{{ object.slug }}</td>
+    </tr>
+    <tr>
+        <td>created</td>
+        <td>{{ object.created }}</td>
+    </tr>
+    <tr>
+        <td>last_updated</td>
+        <td>{{ object.last_updated }}</td>
+    </tr>
+    <tr>
+        <td>prescription_id</td>
+        <td>{{ object.prescription_id }}</td>
+    </tr>
+    <tr>
+        <td>patient_no</td>
+        <td>{{ object.patient_no }}</td>
+    </tr>
+    <tr>
+        <td>patient_name</td>
+        <td>{{ object.patient_name }}</td>
+    </tr>
+    <tr>
+        <td>address</td>
+        <td>{{ object.address }}</td>
+    </tr>
+    <tr>
+        <td>phone_number</td>
+        <td>{{ object.phone_number }}</td>
+    </tr>
+    <tr>
+        <td>signature</td>
+        <td>{{ object.signature }}</td>
+    </tr>
+    <tr>
+        <td>prescription</td>
+        <td>{{ object.prescription }}</td>
+    </tr>
+</table>
+{% endblock %}

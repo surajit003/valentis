@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block content %}
+    <script>
+        $("#pre_authorization_tab").addClass("current").siblings().removeClass("current");
+    </script>
+
+    <div class="mdl-card full-width">
+        <div class="mdh-expandable-search">
+            <i class="material-icons">search</i>
+                <input type="text" id="search" placeholder="Search member by their names, ID no., or member no." size="1"
+                       onkeyup="searchMembers(this.value)">
+        </div>
+
+
+        <div style="margin-left: 50px; margin-top:-50px;">
+            <div id="no_result" style="display: none">
+            <div class="mdl-card__title mdl-card--expand">
+                <h2 class="mdl-card__title-text">No Results</h2>
+            </div>
+        </div>
+
+        <div id="searchresult" style="display: none; max-width: 70%;">
+            <table id="search_table" class="mdl-data-table mdl-js-data-table ">
+                <thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric full-width">Patient No</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Id No</th>
+                    <th>MEMBER_NO</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        </div>
+    </div>
+    <script>
+        //Do ajax call for search box
+
+    function searchMembers(str) {
+       console.log('Entered');
+
+        //ensure to remove previous prepended results to avoid duplicity
+        $('#searchresult tbody').children().remove();
+        if (/\S/.test(str) && str.length > 5) {
+            $.ajax({
+                url: "http://127.0.0.1:8000/payments/api/v1/member_info/",
+                type: "get",
+                data: {
+                    search: str,
+                },
+                success: function(json) {
+                    console.log("Json",json)
+                    if (json.length === 0) {
+                        onchange = "searchMembers(this.value)"
+                        $("#no_result").show()
+                        $('#searchresult').hide()
+
+                    } else {
+
+                        $("#no_result").hide()
+                        $('#searchresult').show()
+                        var tbody = $('#search_table tbody'),
+                            props = ["member_no", "first_name", "surname", "passport_no"]
+                        $.each(json, function(i, reservation) {
+
+                            var tr = $("<tr onclick=\"window.location.href='/payments/pre_authorization/new/" + json[i].member_no + "/' \" '>");
+                            $.each(props, function(i, prop) {
+                                $('<td  class="mdl-data-table__cell--non-numeric">').html(reservation[prop]).appendTo(tr);
+                            });
+                            tbody.append(tr);
+                        });
+
+                    }
+
+                }
+
+            })
+        } else {
+            $("#no_result").hide()
+            $('#searchresult').hide()
+        }
+
+    }
+
+    </script>
+
+{% endblock %}

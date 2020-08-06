@@ -1,0 +1,65 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<p><a class="btn btn-default" href="{% url 'nurse_models_list' %}">models Listing</a></p>
+<table class="table">
+    <tr>
+        <td>slug</td>
+        <td>{{ object.slug }}</td>
+    </tr>
+    <tr>
+        <td>created</td>
+        <td>{{ object.created }}</td>
+    </tr>
+    <tr>
+        <td>last_updated</td>
+        <td>{{ object.last_updated }}</td>
+    </tr>
+    <tr>
+        <td>systolic</td>
+        <td>{{ object.systolic }}</td>
+    </tr>
+    <tr>
+        <td>diastolic</td>
+        <td>{{ object.diastolic }}</td>
+    </tr>
+    <tr>
+        <td>temperature</td>
+        <td>{{ object.temperature }}</td>
+    </tr>
+    <tr>
+        <td>oxygen_saturation</td>
+        <td>{{ object.oxygen_saturation }}</td>
+    </tr>
+    <tr>
+        <td>urinalysis</td>
+        <td>{{ object.urinalysis }}</td>
+    </tr>
+    <tr>
+        <td>heart_rate</td>
+        <td>{{ object.heart_rate }}</td>
+    </tr>
+    <tr>
+        <td>others</td>
+        <td>{{ object.others }}</td>
+    </tr>
+    <tr>
+        <td>attending_nurse</td>
+        <td>{{ object.attending_nurse }}</td>
+    </tr>
+    <tr>
+        <td>patient_no</td>
+        <td>{{ object.patient_no }}</td>
+    </tr>
+    <tr>
+        <td>first_name</td>
+        <td>{{ object.first_name }}</td>
+    </tr>
+    <tr>
+        <td>last_name</td>
+        <td>{{ object.last_name }}</td>
+    </tr>
+    <tr>
+        <td>middle_name</td>
+        <td>{{ object.middle_name }}</td>
+    </tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit models</a> {% endblock %}

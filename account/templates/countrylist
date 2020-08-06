@@ -1,0 +1,251 @@
+<select>
+	<li class="mdl-menu__item" data-val="AF">Afghanistan</li>
+	<li class="mdl-menu__item" data-val="AX">Åland Islands</li>
+	<li class="mdl-menu__item" data-val="AL">Albania</li>
+	<li class="mdl-menu__item" data-val="DZ">Algeria</li>
+	<li class="mdl-menu__item" data-val="AS">American Samoa</li>
+	<li class="mdl-menu__item" data-val="AD">Andorra</li>
+	<li class="mdl-menu__item" data-val="AO">Angola</li>
+	<li class="mdl-menu__item" data-val="AI">Anguilla</li>
+	<li class="mdl-menu__item" data-val="AQ">Antarctica</li>
+	<li class="mdl-menu__item" data-val="AG">Antigua and Barbuda</li>
+	<li class="mdl-menu__item" data-val="AR">Argentina</li>
+	<li class="mdl-menu__item" data-val="AM">Armenia</li>
+	<li class="mdl-menu__item" data-val="AW">Aruba</li>
+	<li class="mdl-menu__item" data-val="AU">Australia</li>
+	<li class="mdl-menu__item" data-val="AT">Austria</li>
+	<li class="mdl-menu__item" data-val="AZ">Azerbaijan</li>
+	<li class="mdl-menu__item" data-val="BS">Bahamas</li>
+	<li class="mdl-menu__item" data-val="BH">Bahrain</li>
+	<li class="mdl-menu__item" data-val="BD">Bangladesh</li>
+	<li class="mdl-menu__item" data-val="BB">Barbados</li>
+	<li class="mdl-menu__item" data-val="BY">Belarus</li>
+	<li class="mdl-menu__item" data-val="BE">Belgium</li>
+	<li class="mdl-menu__item" data-val="BZ">Belize</li>
+	<li class="mdl-menu__item" data-val="BJ">Benin</li>
+	<li class="mdl-menu__item" data-val="BM">Bermuda</li>
+	<li class="mdl-menu__item" data-val="BT">Bhutan</li>
+	<li class="mdl-menu__item" data-val="BO">Bolivia, Plurinational State of</li>
+	<li class="mdl-menu__item" data-val="BQ">Bonaire, Sint Eustatius and Saba</li>
+	<li class="mdl-menu__item" data-val="BA">Bosnia and Herzegovina</li>
+	<li class="mdl-menu__item" data-val="BW">Botswana</li>
+	<li class="mdl-menu__item" data-val="BV">Bouvet Island</li>
+	<li class="mdl-menu__item" data-val="BR">Brazil</li>
+	<li class="mdl-menu__item" data-val="IO">British Indian Ocean Territory</li>
+	<li class="mdl-menu__item" data-val="BN">Brunei Darussalam</li>
+	<li class="mdl-menu__item" data-val="BG">Bulgaria</li>
+	<li class="mdl-menu__item" data-val="BF">Burkina Faso</li>
+	<li class="mdl-menu__item" data-val="BI">Burundi</li>
+	<li class="mdl-menu__item" data-val="KH">Cambodia</li>
+	<li class="mdl-menu__item" data-val="CM">Cameroon</li>
+	<li class="mdl-menu__item" data-val="CA">Canada</li>
+	<li class="mdl-menu__item" data-val="CV">Cape Verde</li>
+	<li class="mdl-menu__item" data-val="KY">Cayman Islands</li>
+	<li class="mdl-menu__item" data-val="CF">Central African Republic</li>
+	<li class="mdl-menu__item" data-val="TD">Chad</li>
+	<li class="mdl-menu__item" data-val="CL">Chile</li>
+	<li class="mdl-menu__item" data-val="CN">China</li>
+	<li class="mdl-menu__item" data-val="CX">Christmas Island</li>
+	<li class="mdl-menu__item" data-val="CC">Cocos (Keeling) Islands</li>
+	<li class="mdl-menu__item" data-val="CO">Colombia</li>
+	<li class="mdl-menu__item" data-val="KM">Comoros</li>
+	<li class="mdl-menu__item" data-val="CG">Congo</li>
+	<li class="mdl-menu__item" data-val="CD">Congo, the Democratic Republic of the</li>
+	<li class="mdl-menu__item" data-val="CK">Cook Islands</li>
+	<li class="mdl-menu__item" data-val="CR">Costa Rica</li>
+	<li class="mdl-menu__item" data-val="CI">Côte d'Ivoire</li>
+	<li class="mdl-menu__item" data-val="HR">Croatia</li>
+	<li class="mdl-menu__item" data-val="CU">Cuba</li>
+	<li class="mdl-menu__item" data-val="CW">Curaçao</li>
+	<li class="mdl-menu__item" data-val="CY">Cyprus</li>
+	<li class="mdl-menu__item" data-val="CZ">Czech Republic</li>
+	<li class="mdl-menu__item" data-val="DK">Denmark</li>
+	<li class="mdl-menu__item" data-val="DJ">Djibouti</li>
+	<li class="mdl-menu__item" data-val="DM">Dominica</li>
+	<li class="mdl-menu__item" data-val="DO">Dominican Republic</li>
+	<li class="mdl-menu__item" data-val="EC">Ecuador</li>
+	<li class="mdl-menu__item" data-val="EG">Egypt</li>
+	<li class="mdl-menu__item" data-val="SV">El Salvador</li>
+	<li class="mdl-menu__item" data-val="GQ">Equatorial Guinea</li>
+	<li class="mdl-menu__item" data-val="ER">Eritrea</li>
+	<li class="mdl-menu__item" data-val="EE">Estonia</li>
+	<li class="mdl-menu__item" data-val="ET">Ethiopia</li>
+	<li class="mdl-menu__item" data-val="FK">Falkland Islands (Malvinas)</li>
+	<li class="mdl-menu__item" data-val="FO">Faroe Islands</li>
+	<li class="mdl-menu__item" data-val="FJ">Fiji</li>
+	<li class="mdl-menu__item" data-val="FI">Finland</li>
+	<li class="mdl-menu__item" data-val="FR">France</li>
+	<li class="mdl-menu__item" data-val="GF">French Guiana</li>
+	<li class="mdl-menu__item" data-val="PF">French Polynesia</li>
+	<li class="mdl-menu__item" data-val="TF">French Southern Territories</li>
+	<li class="mdl-menu__item" data-val="GA">Gabon</li>
+	<li class="mdl-menu__item" data-val="GM">Gambia</li>
+	<li class="mdl-menu__item" data-val="GE">Georgia</li>
+	<li class="mdl-menu__item" data-val="DE">Germany</li>
+	<li class="mdl-menu__item" data-val="GH">Ghana</li>
+	<li class="mdl-menu__item" data-val="GI">Gibraltar</li>
+	<li class="mdl-menu__item" data-val="GR">Greece</li>
+	<li class="mdl-menu__item" data-val="GL">Greenland</li>
+	<li class="mdl-menu__item" data-val="GD">Grenada</li>
+	<li class="mdl-menu__item" data-val="GP">Guadeloupe</li>
+	<li class="mdl-menu__item" data-val="GU">Guam</li>
+	<li class="mdl-menu__item" data-val="GT">Guatemala</li>
+	<li class="mdl-menu__item" data-val="GG">Guernsey</li>
+	<li class="mdl-menu__item" data-val="GN">Guinea</li>
+	<li class="mdl-menu__item" data-val="GW">Guinea-Bissau</li>
+	<li class="mdl-menu__item" data-val="GY">Guyana</li>
+	<li class="mdl-menu__item" data-val="HT">Haiti</li>
+	<li class="mdl-menu__item" data-val="HM">Heard Island and McDonald Islands</li>
+	<li class="mdl-menu__item" data-val="VA">Holy See (Vatican City State)</li>
+	<li class="mdl-menu__item" data-val="HN">Honduras</li>
+	<li class="mdl-menu__item" data-val="HK">Hong Kong</li>
+	<li class="mdl-menu__item" data-val="HU">Hungary</li>
+	<li class="mdl-menu__item" data-val="IS">Iceland</li>
+	<li class="mdl-menu__item" data-val="IN">India</li>
+	<li class="mdl-menu__item" data-val="ID">Indonesia</li>
+	<li class="mdl-menu__item" data-val="IR">Iran, Islamic Republic of</li>
+	<li class="mdl-menu__item" data-val="IQ">Iraq</li>
+	<li class="mdl-menu__item" data-val="IE">Ireland</li>
+	<li class="mdl-menu__item" data-val="IM">Isle of Man</li>
+	<li class="mdl-menu__item" data-val="IL">Israel</li>
+	<li class="mdl-menu__item" data-val="IT">Italy</li>
+	<li class="mdl-menu__item" data-val="JM">Jamaica</li>
+	<li class="mdl-menu__item" data-val="JP">Japan</li>
+	<li class="mdl-menu__item" data-val="JE">Jersey</li>
+	<li class="mdl-menu__item" data-val="JO">Jordan</li>
+	<li class="mdl-menu__item" data-val="KZ">Kazakhstan</li>
+	<li class="mdl-menu__item" data-val="KE">Kenya</li>
+	<li class="mdl-menu__item" data-val="KI">Kiribati</li>
+	<li class="mdl-menu__item" data-val="KP">Korea, Democratic People's Republic of</li>
+	<li class="mdl-menu__item" data-val="KR">Korea, Republic of</li>
+	<li class="mdl-menu__item" data-val="KW">Kuwait</li>
+	<li class="mdl-menu__item" data-val="KG">Kyrgyzstan</li>
+	<li class="mdl-menu__item" data-val="LA">Lao People's Democratic Republic</li>
+	<li class="mdl-menu__item" data-val="LV">Latvia</li>
+	<li class="mdl-menu__item" data-val="LB">Lebanon</li>
+	<li class="mdl-menu__item" data-val="LS">Lesotho</li>
+	<li class="mdl-menu__item" data-val="LR">Liberia</li>
+	<li class="mdl-menu__item" data-val="LY">Libya</li>
+	<li class="mdl-menu__item" data-val="LI">Liechtenstein</li>
+	<li class="mdl-menu__item" data-val="LT">Lithuania</li>
+	<li class="mdl-menu__item" data-val="LU">Luxembourg</li>
+	<li class="mdl-menu__item" data-val="MO">Macao</li>
+	<li class="mdl-menu__item" data-val="MK">Macedonia, the former Yugoslav Republic of</li>
+	<li class="mdl-menu__item" data-val="MG">Madagascar</li>
+	<li class="mdl-menu__item" data-val="MW">Malawi</li>
+	<li class="mdl-menu__item" data-val="MY">Malaysia</li>
+	<li class="mdl-menu__item" data-val="MV">Maldives</li>
+	<li class="mdl-menu__item" data-val="ML">Mali</li>
+	<li class="mdl-menu__item" data-val="MT">Malta</li>
+	<li class="mdl-menu__item" data-val="MH">Marshall Islands</li>
+	<li class="mdl-menu__item" data-val="MQ">Martinique</li>
+	<li class="mdl-menu__item" data-val="MR">Mauritania</li>
+	<li class="mdl-menu__item" data-val="MU">Mauritius</li>
+	<li class="mdl-menu__item" data-val="YT">Mayotte</li>
+	<li class="mdl-menu__item" data-val="MX">Mexico</li>
+	<li class="mdl-menu__item" data-val="FM">Micronesia, Federated States of</li>
+	<li class="mdl-menu__item" data-val="MD">Moldova, Republic of</li>
+	<li class="mdl-menu__item" data-val="MC">Monaco</li>
+	<li class="mdl-menu__item" data-val="MN">Mongolia</li>
+	<li class="mdl-menu__item" data-val="ME">Montenegro</li>
+	<li class="mdl-menu__item" data-val="MS">Montserrat</li>
+	<li class="mdl-menu__item" data-val="MA">Morocco</li>
+	<li class="mdl-menu__item" data-val="MZ">Mozambique</li>
+	<li class="mdl-menu__item" data-val="MM">Myanmar</li>
+	<li class="mdl-menu__item" data-val="NA">Namibia</li>
+	<li class="mdl-menu__item" data-val="NR">Nauru</li>
+	<li class="mdl-menu__item" data-val="NP">Nepal</li>
+	<li class="mdl-menu__item" data-val="NL">Netherlands</li>
+	<li class="mdl-menu__item" data-val="NC">New Caledonia</li>
+	<li class="mdl-menu__item" data-val="NZ">New Zealand</li>
+	<li class="mdl-menu__item" data-val="NI">Nicaragua</li>
+	<li class="mdl-menu__item" data-val="NE">Niger</li>
+	<li class="mdl-menu__item" data-val="NG">Nigeria</li>
+	<li class="mdl-menu__item" data-val="NU">Niue</li>
+	<li class="mdl-menu__item" data-val="NF">Norfolk Island</li>
+	<li class="mdl-menu__item" data-val="MP">Northern Mariana Islands</li>
+	<li class="mdl-menu__item" data-val="NO">Norway</li>
+	<li class="mdl-menu__item" data-val="OM">Oman</li>
+	<li class="mdl-menu__item" data-val="PK">Pakistan</li>
+	<li class="mdl-menu__item" data-val="PW">Palau</li>
+	<li class="mdl-menu__item" data-val="PS">Palestinian Territory, Occupied</li>
+	<li class="mdl-menu__item" data-val="PA">Panama</li>
+	<li class="mdl-menu__item" data-val="PG">Papua New Guinea</li>
+	<li class="mdl-menu__item" data-val="PY">Paraguay</li>
+	<li class="mdl-menu__item" data-val="PE">Peru</li>
+	<li class="mdl-menu__item" data-val="PH">Philippines</li>
+	<li class="mdl-menu__item" data-val="PN">Pitcairn</li>
+	<li class="mdl-menu__item" data-val="PL">Poland</li>
+	<li class="mdl-menu__item" data-val="PT">Portugal</li>
+	<li class="mdl-menu__item" data-val="PR">Puerto Rico</li>
+	<li class="mdl-menu__item" data-val="QA">Qatar</li>
+	<li class="mdl-menu__item" data-val="RE">Réunion</li>
+	<li class="mdl-menu__item" data-val="RO">Romania</li>
+	<li class="mdl-menu__item" data-val="RU">Russian Federation</li>
+	<li class="mdl-menu__item" data-val="RW">Rwanda</li>
+	<li class="mdl-menu__item" data-val="BL">Saint Barthélemy</li>
+	<li class="mdl-menu__item" data-val="SH">Saint Helena, Ascension and Tristan da Cunha</li>
+	<li class="mdl-menu__item" data-val="KN">Saint Kitts and Nevis</li>
+	<li class="mdl-menu__item" data-val="LC">Saint Lucia</li>
+	<li class="mdl-menu__item" data-val="MF">Saint Martin (French part)</li>
+	<li class="mdl-menu__item" data-val="PM">Saint Pierre and Miquelon</li>
+	<li class="mdl-menu__item" data-val="VC">Saint Vincent and the Grenadines</li>
+	<li class="mdl-menu__item" data-val="WS">Samoa</li>
+	<li class="mdl-menu__item" data-val="SM">San Marino</li>
+	<li class="mdl-menu__item" data-val="ST">Sao Tome and Principe</li>
+	<li class="mdl-menu__item" data-val="SA">Saudi Arabia</li>
+	<li class="mdl-menu__item" data-val="SN">Senegal</li>
+	<li class="mdl-menu__item" data-val="RS">Serbia</li>
+	<li class="mdl-menu__item" data-val="SC">Seychelles</li>
+	<li class="mdl-menu__item" data-val="SL">Sierra Leone</li>
+	<li class="mdl-menu__item" data-val="SG">Singapore</li>
+	<li class="mdl-menu__item" data-val="SX">Sint Maarten (Dutch part)</li>
+	<li class="mdl-menu__item" data-val="SK">Slovakia</li>
+	<li class="mdl-menu__item" data-val="SI">Slovenia</li>
+	<li class="mdl-menu__item" data-val="SB">Solomon Islands</li>
+	<li class="mdl-menu__item" data-val="SO">Somalia</li>
+	<li class="mdl-menu__item" data-val="ZA">South Africa</li>
+	<li class="mdl-menu__item" data-val="GS">South Georgia and the South Sandwich Islands</li>
+	<li class="mdl-menu__item" data-val="SS">South Sudan</li>
+	<li class="mdl-menu__item" data-val="ES">Spain</li>
+	<li class="mdl-menu__item" data-val="LK">Sri Lanka</li>
+	<li class="mdl-menu__item" data-val="SD">Sudan</li>
+	<li class="mdl-menu__item" data-val="SR">Suriname</li>
+	<li class="mdl-menu__item" data-val="SJ">Svalbard and Jan Mayen</li>
+	<li class="mdl-menu__item" data-val="SZ">Swaziland</li>
+	<li class="mdl-menu__item" data-val="SE">Sweden</li>
+	<li class="mdl-menu__item" data-val="CH">Switzerland</li>
+	<li class="mdl-menu__item" data-val="SY">Syrian Arab Republic</li>
+	<li class="mdl-menu__item" data-val="TW">Taiwan, Province of China</li>
+	<li class="mdl-menu__item" data-val="TJ">Tajikistan</li>
+	<li class="mdl-menu__item" data-val="TZ">Tanzania, United Republic of</li>
+	<li class="mdl-menu__item" data-val="TH">Thailand</li>
+	<li class="mdl-menu__item" data-val="TL">Timor-Leste</li>
+	<li class="mdl-menu__item" data-val="TG">Togo</li>
+	<li class="mdl-menu__item" data-val="TK">Tokelau</li>
+	<li class="mdl-menu__item" data-val="TO">Tonga</li>
+	<li class="mdl-menu__item" data-val="TT">Trinidad and Tobago</li>
+	<li class="mdl-menu__item" data-val="TN">Tunisia</li>
+	<li class="mdl-menu__item" data-val="TR">Turkey</li>
+	<li class="mdl-menu__item" data-val="TM">Turkmenistan</li>
+	<li class="mdl-menu__item" data-val="TC">Turks and Caicos Islands</li>
+	<li class="mdl-menu__item" data-val="TV">Tuvalu</li>
+	<li class="mdl-menu__item" data-val="UG">Uganda</li>
+	<li class="mdl-menu__item" data-val="UA">Ukraine</li>
+	<li class="mdl-menu__item" data-val="AE">United Arab Emirates</li>
+	<li class="mdl-menu__item" data-val="GB">United Kingdom</li>
+	<li class="mdl-menu__item" data-val="US">United States</li>
+	<li class="mdl-menu__item" data-val="UM">United States Minor Outlying Islands</li>
+	<li class="mdl-menu__item" data-val="UY">Uruguay</li>
+	<li class="mdl-menu__item" data-val="UZ">Uzbekistan</li>
+	<li class="mdl-menu__item" data-val="VU">Vanuatu</li>
+	<li class="mdl-menu__item" data-val="VE">Venezuela, Bolivarian Republic of</li>
+	<li class="mdl-menu__item" data-val="VN">Viet Nam</li>
+	<li class="mdl-menu__item" data-val="VG">Virgin Islands, British</li>
+	<li class="mdl-menu__item" data-val="VI">Virgin Islands, U.S.</li>
+	<li class="mdl-menu__item" data-val="WF">Wallis and Futuna</li>
+	<li class="mdl-menu__item" data-val="EH">Western Sahara</li>
+	<li class="mdl-menu__item" data-val="YE">Yemen</li>
+	<li class="mdl-menu__item" data-val="ZM">Zambia</li>
+	<li class="mdl-menu__item" data-val="ZW">Zimbabwe</li>
+</select>

@@ -1,0 +1,215 @@
+{% extends "base.html" %} {% load static %} {% load crispy_forms_tags %} {% block content %}
+
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <title>Valentis Health</title>
+
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'css/search_box.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
+
+        {#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css"/>#}
+        {#    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>#}
+
+    </head>
+    <div class="mdl-grid">
+
+        {#<div class="mdl-card mdl-shadow--4dp util-center mdl-cell mdl-cell--2-col"></div>#}
+
+        <div id="triage" class="mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp util-center mdl-cell mdl-cell--8-col">
+
+                <fieldset>
+                    <legend style="font-weight: bold; font-size: 16px; padding: 17px;color:#879399; "> Confirm
+                        Patients Details
+                    </legend>
+
+                    <div class="mdl-grid ">
+                    <div class="patient_no" style="border: 1px solid #ccc; ">
+                        Patient's NO.: <input name="patient_no"
+                                              id="patient_no"
+                                              type="text"
+                                              value="{{ patient.patient_no }}"
+                                              readonly/></div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey" for="first_name">First Name</label>
+                        <input class="mdl-textfield__input" type="text" id="first_name" name="first_name" value="{% if patient.first_name != None %}{{ patient.first_name }}{% endif %}" readonly/>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_last_name">Last
+                                Name</label>
+                        <input class="mdl-textfield__input" type="text" id="textfield_last_name" name="last_name" value="{% if patient.last_name != None %}{{ patient.last_name }}{% endif %}" readonly/>
+                    </div>
+                </div>
+                <div class="mdl-grid ">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey" for="first_name">Phone</label>
+                        <input class="mdl-textfield__input" type="text" id="phone" name="phone" value="{% if patient.phone != None %}{{ patient.phone }}{% endif %}" readonly/>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_last_name">
+                                Gender</label>
+                        <input class="mdl-textfield__input" type="text" id="textfield_last_name" name="last_name" value="{% if patient.gender != None %}{{ patient.gender }}{% endif %}" readonly/>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_last_name">
+                                Age</label>
+                        <input class="mdl-textfield__input" type="text" id="textfield_last_name" name="last_name" value="{% if patient.age != None %}{{ patient.age }}{% endif %}" readonly/>
+                    </div>
+                </div>
+
+
+                </fieldset>
+                <form method="post">
+                    {% csrf_token %}
+            <span>{% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger">
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}</span>
+
+
+
+                    <fieldset>
+                        <legend>Triage</legend>
+
+                        <div class="">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+                                <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_systolic">systolic</label>
+                                <input class="mdl-textfield__input" type="text" id="textfield_systolic" name="systolic"
+                                       value="{{ form.systolic.value|default_if_none:"" }}" required/>
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+                                <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_diastolic">diastolic</label>
+                                <input class="mdl-textfield__input" type="text" id="textfield_diastolic"
+                                       name="diastolic" value="{{ form.diastolic.value|default_if_none:"" }}" required/>
+                            </div>
+                        </div>
+
+                        <div class="mdl-grid ">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+                                <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_temperature">temperature</label>
+                                <input class="mdl-textfield__input" type="text" id="textfield_temperature"
+                                       name="temperature" value="{{ form.temperature.value|default_if_none:"" }}"
+                                       required/>
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+                                <label class="mdl-textfield__label mdl-color-text--grey"
+                                       for="textfield_oxygen_saturation">Oxygen Saturation</label>
+                                <input class="mdl-textfield__input" type="text" id="textfield_oxygen_saturation"
+                                       name="oxygen_saturation"
+                                       value="{{ form.oxygen_saturation.value|default_if_none:"" }}" required/>
+                            </div>
+                        </div>
+                        <div class="mdl-grid ">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                                <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_heart_rate">Heart
+                                    Rate</label>
+                                <input class="mdl-textfield__input" type="text" id="textfield_heart_rate"
+                                       name="heart_rate" value="{{ form.heart_rate.value|default_if_none:"" }}"
+                                       required/>
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                                <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_height">Height
+                                    in Metres</label>
+                                <input class="mdl-textfield__input" type="text" id="textfield_height" name="height"
+                                       value="{{ form.height.value|default_if_none:"" }}" required/>
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                                <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_weight">Weight
+                                    in Kg</label>
+                                <input class="mdl-textfield__input" type="text" id="textfield_weight" name="weight"
+                                       value="{{ form.weight.value|default_if_none:"" }}" required/>
+                            </div>
+
+
+                        </div>
+                        <div class="mdl-grid">
+
+                            <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+                                <input class="mdl-textfield__input" type="text"
+                                       value="{{ form.random_glucose.value|default_if_none:"" }}" id="random_glucose"
+                                       name="random_glucose">
+                                <label class="mdl-textfield__label" for="random_glucose">Random Glucose</label>
+                            </div>
+                        </div>
+                        <div class="mdl-grid">
+
+                            <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+                                <textarea class="mdl-textfield__input" type="text" rows="8" id="urinalysis"
+                                          name="urinalysis">{% if form.urinalysis.value != None %}
+                                    {{ form.urinalysis.value }}{% endif %}</textarea>
+                                <label class="mdl-textfield__label" for="urinalysis">Urinalysis</label>
+                            </div>
+                        </div>
+
+                        <div class="mdl-grid">
+
+                            <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+                                <textarea class="mdl-textfield__input" type="text" rows="8" id="others"
+                                          name="others">{{ form.others.value|default_if_none:"" }}</textarea>
+                                <label class="mdl-textfield__label" for="others">Presenting Illness</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    {# {{ form|crispy }}#}
+                    <button name="radiology_btn"
+                            class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored mdl-color--primary"
+                            type="submit" style="margin:0 0 20px 20px; ">Submit
+                    </button>
+                </form>
+            </div>
+
+            <div class="mdl-card mdl-shadow--4dp util-center mdl-cell mdl-cell--4-col">
+                <div class="mdl-card__title mdl-color--teal-500">
+                    <h2 class="mdl-card__title-text mdl-color-text--white">Waiting List</h2>
+                </div>
+                <div class="mdl-card__supporting-text mdl-cell mdl-cell--12-col">
+                    <table class="mdl-data-table mdl-js-data-table full-width">
+                        <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric full-width">Patient Name</th>
+                            <th>Patient's Age</th>
+                            <th>Patient Id.</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for patient in waiting_list %}
+                            <tr onclick="populateTriage({{ patient.patient_no }},'{{ patient.first_name }}', '{{ patient.last_name }}')">
+                                <td class="mdl-data-table__cell--non-numeric">{{ patient.first_name }} {{ patient.last_name }}</td>
+                                <td>{{ patient.age }}</td>
+                                <td>{{ patient.patient_no }}</td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,171 @@
+{% extends "base.html" %} {% load static %} {% load crispy_forms_tags %} {% block content %}
+    <script>
+        $("#prescription_tab").addClass("current").siblings().removeClass("current")
+    </script>
+
+    <script src="{% static 'js/bootbox.min.js' %}"></script>
+    <script src="{% static 'js/fuse.min.js' %}"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"
+            integrity="sha384-feJI7QwhOS+hwpX2zkaeJQjeiwlhOP+SdQDqhgvvo1DsjtiSQByFdThsxO669S2D"
+            crossorigin="anonymous"></script>
+
+    <style>
+        .divText {
+            padding: 2px 0;
+        }
+    </style>
+    <div class="mdl-grid">
+
+        <div class="mdl-shadow--4dp mdl-cell mdl-cell--8-col">
+            <form method="post" id="data">
+                {% csrf_token %}
+
+
+                <div class="mdl-grid ">
+
+                    <div id="div_id_patient_no"
+                         class="hidden mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                        <label for="id_patient_no" class="mdl-textfield__label mdl-color-text--black">
+                            Patient id</label>
+                        <div class="controls"><input class="mdl-textfield__input" cols="40" id="id_patient_no"
+                                                     maxlength="100" name="patient_no" value="{% if patient.patient_no != None %}{{ patient.patient_no }}{% endif %}" rows="10"
+                                                     readonly>
+                        </div>
+                    </div>
+
+                    <div id="div_id_patient_name"
+                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                        <label for="id_patient_name" class="mdl-textfield__label mdl-color-text--black">
+                            Patient Name</label>
+                        <div class="controls"><input class="mdl-textfield__input" cols="30" id="id_patient_name"
+                                                     maxlength="100" name="patient_name" value="{% if patient.patient_name != None %}{{ patient.patient_name }}{% endif %}" rows="10"
+                                                     readonly></div>
+                    </div>
+
+                    <div class="phone mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey"
+                               for="textfield_phone_number">Phone </label>
+                        <input class="mdl-textfield__input" type='tel'
+                               id="textfield_phone_number" value="{% if form.phone_number.value != None %}{{ form.phone_number.value }}{% else %}{% if patient.phone != None %}{{ patient.phone }}{% endif %}{% endif %}"
+                               name="phone_number"/>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey"
+                               for="textfield_email">Email Address</label>
+                        <input class="mdl-textfield__input" type="email"
+                               id="textfield_email"
+                               value="{% if form.email.value != None %}{{ form.email.value }}{% else %}{% if patient.email != None %}{{ patient.email }}{% endif %}{% endif %}"
+                               name="email" required/>
+                    </div>
+
+                    <script>
+                        $('.phone').addClass('is-dirty')
+
+                        $('#textfield_phone_number').on('keyup', function (e) {
+                            $('.phone').addClass('is-dirty')
+                            var number = $("#textfield_phone_number").intlTelInput("getNumber");
+                            $("#textfield_phone_number").val(number)
+
+                        });
+
+
+                        $("#textfield_phone_number").intlTelInput();
+
+                    </script>
+
+                </div>
+                <div class="mdl-grid ">
+                    <div id="div_id_address"
+                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--8-col">
+                        <label for="id_address" class="mdl-textfield__label mdl-color-text--grey">
+                            Physical Address</label>
+                            <textarea class="mdl-textfield__input" cols="40" id="id_address"
+                                      maxlength="400" name="address" rows="4"
+                                      required="">{% if form.address.value != None %}{{ form.address.value }}{% else %}{{ patient.postal_address|default_if_none:"" }}{% endif %}</textarea>
+                    </div>
+                </div>
+                <div class="mdl-grid">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--8-col">
+                        <label for="id_delivery_address" class="mdl-textfield__label mdl-color-text--grey">
+                            Delivery Address</label>
+                        <input class="mdl-textfield__input" cols="40" onfocus="this.placeholder = ''"
+                               onblur="this.placeholder = 'Enter the medicine you want to search'"
+                               id="delivery_address" maxlength="100" name="delivery_address" rows="10"
+                               placeholder="Enter Your Delivery Address" />
+                    </div>
+                </div>
+                <div class="mdl-grid ">
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <div id="div_id_prescription"
+                             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col" >
+                            <label for="id_prescription" class="mdl-textfield__label mdl-color-text--grey">
+                                Prescription </label>
+                            <div id="prescription_tags"></div>
+                            <div class="controls">
+                                <input class="mdl-textfield__input" cols="40" onfocus="this.placeholder = ''"
+                                       onblur="this.placeholder = 'Enter the medicine you want to search'"
+                                       id="medicationlist" maxlength="100" name="medicationlist" rows="10"
+                                       placeholder="Enter the medicine you want to search"
+                                       onkeyup="getsearch(this.value)"/>
+                            <textarea class="hidden mdl-textfield__input" cols="40" id="id_prescription" maxlength="400"
+                                      name="prescription" rows="10"
+                                      required="">{{ form.prescription.value|default_if_none:"" }}</textarea></div>
+                        </div>
+
+
+                        <div id="no_result" class="search" style="display: none">
+                            <div class="mdl-card__title mdl-card--expand results">
+                                <h2 class="mdl-card__title-text">No Results</h2>
+                            </div>
+                        </div>
+                        <div id="searchresult" class="search full-width "
+                             style="display: none; height: 300px; overflow-x: auto; overflow-y: auto; margin-top: -20px">
+                            <table id="search_table" class="mdl-data-table mdl-js-data-table results full-width ">
+                                <thead>
+                                <tr>
+                                    <th class="mdl-data-table__cell--non-numeric full-width">Brand Name</th>
+                                </tr>
+                                </thead>
+                                <tbody id="livesearch">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="prescriptionlist">
+                </div>
+                <div class="mdl-grid">
+                    <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored mdl-color--primary"
+                            type="submit">Submit
+                    </button>
+                    &nbsp;
+                    <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored mdl-color--primary"
+                            type="button" id="sendemail">Send Prescription
+                    </button>
+
+                </div>
+                <div class="mdl-grid">
+
+                </div>
+
+            </form>
+        </div>
+
+
+        <div class="prescard mdl-cell mdl-cell--4-col">
+            <h2 class="mdl-card__title-text" style="font-size:16px; padding:20px; border-bottom:1px solid #ccc; ">
+                Previous Prescriptions</h2>
+            <div class="mdl-card__title" id="myprescription" style="font-size:12px; color: #6b6666; padding:20px; ">
+            </div>
+
+        </div>
+
+        <div class="mdl-layout-spacer"></div>
+    </div>
+    <script type="text/javascript">
+
+    </script>
+{% endblock %}

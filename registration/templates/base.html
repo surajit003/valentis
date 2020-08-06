@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title></title>
+{#      <!-- Compiled and minified CSS -->#}
+{#  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">#}
+{##}
+{#  <!-- Compiled and minified JavaScript -->#}
+{#  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>#}
+
+
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+{#    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">#}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
+    <link rel="stylesheet" href="{% static  'css/styles.css' %} ">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/tabs.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/tabstyles.css' %}" />
+    <link rel="stylesheet" href="{% static  'css/getmdl-select.min.css'%} ">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script defer src="{% static 'js/getmdl-select.min.js' %}"></script>
+
+    <script src="{% static 'js/modernizr.custom.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+
+
+    <style>
+        #view-source {
+            position: fixed;
+            display: block;
+            right: 0;
+            bottom: 0;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            z-index: 900;
+        }
+    </style>
+</head>
+
+<body>{% block content %}Replace this.{% endblock %}
+
+    <script src="{% static 'js/cbpFWTabs.js' %}"></script>
+    <script>
+        (function() {
+
+            [].slice.call(document.querySelectorAll('.tabs')).forEach(function(el) {
+                new CBPFWTabs(el);
+            });
+
+        })();
+    </script>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+</body>

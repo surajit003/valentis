@@ -1,0 +1,202 @@
+Group,Modality,Tests 
+HEAD & NECK,Ultrasound,Head
+HEAD & NECK,Ultrasound,Middle Cerebral Doppler
+HEAD & NECK,Ultrasound,Neck (Thyroid)
+BREAST ,Ultrasound,Breast Lesion Localization
+BREAST ,Ultrasound,Breast
+BREAST ,Ultrasound,Breast & Axilla
+BREAST ,Ultrasound,Breast Core Biopsy
+BREAST ,Ultrasound,FNA Breast
+ABDOMEN ,Ultrasound,All Abdomen
+ABDOMEN ,Ultrasound,Upper Abdomen
+ABDOMEN ,Ultrasound,Umbilical Artery  Doppler
+ABDOMEN ,Ultrasound,K.U.B.
+ABDOMEN ,Ultrasound,Renal Doppler
+ABDOMEN ,Ultrasound,Hepatic Portal Vein Doppler
+ABDOMEN ,Ultrasound,Abscess Drainage Abdomen
+ABDOMEN ,Ultrasound,Ascetic Drain Placement
+PELVIS ,Ultrasound,Pelvis
+PELVIS ,Ultrasound,Hip Joint
+PELVIS ,Ultrasound,Trans Rectal
+PELVIS ,Ultrasound,Testis Doppler
+PELVIS ,Ultrasound,Trans Vaginal
+PELVIS ,Ultrasound,Fetal
+PELVIS ,Ultrasound,Uterine Artery Doppler
+UPPER EXTREMITY ,Ultrasound,Upper Limb Doppler
+UPPER EXTREMITY ,Ultrasound,Upper Limb Arteries & Veins Doppler
+LOWER EXTREMITY ,Ultrasound,Lower Limb Doppler
+LOWER EXTREMITY ,Ultrasound,Lower Limb Arteries & Veins Doppler
+FINE NEEDLE ASPIRATION ,Ultrasound,FNA Neck
+FINE NEEDLE ASPIRATION ,Ultrasound,FNA Thyroid
+FINE NEEDLE ASPIRATION ,Ultrasound,Guided Aspiration
+OTHERS ,Ultrasound,Echocardiography
+OTHERS ,Ultrasound,Skin Marking
+OTHERS ,Ultrasound,Organ
+OTHERS ,Ultrasound,New Marriage
+HEAD & NECK,MRI,Brain
+HEAD & NECK ,MRI,Angiography (MRA) Head
+HEAD & NECK,MRI,Venography (MRV) Brain
+HEAD & NECK,MRI,Paranasal Sinuses
+ ,,
+HEAD & NECK,MRI,Int. Auditory Meatus (IAM)
+HEAD & NECK,MRI,Parotid Gland
+HEAD & NECK,MRI,Pituitary With Contrast
+ HEAD& NECK,MRI,Orbit
+HEAD & NECK ,MRI,Face
+HEAD & NECK,MRI,Mastoids
+HEAD & NECK,MRI,Brachial Plexus
+HEAD & NECK,MRI,Temporomandibular (TM) Joint
+HEAD & NECK,MRI,Neck
+SPINE ,MRI,Cervical
+SPINE ,MRI,Lumbar
+SPINE ,MRI,Thoracic
+SPINE ,MRI,Whole Spine
+CHEST ,MRI,Chest
+CHEST ,MRI,Breast  With Contrast
+ABDOMEN ,MRI,Cholangiopancreatography (MRCP)
+ABDOMEN ,MRI,Abdomen
+PELVIS ,MRI,Pelvis
+PELVIS ,MRI,Sacroliac Joints
+PELVIS ,MRI,Hip Joints
+PELVIS ,MRI,Fistula
+UPPER EXTREMITY ,MRI,Shoulder
+UPPER EXTREMITY ,MRI,Arm
+UPPER EXTREMITY ,MRI,Elbow
+UPPER EXTREMITY ,MRI,Forearm
+UPPER EXTREMITY ,MRI,Wrist
+UPPER EXTREMITY ,MRI,Hand
+LOWER EXTREMITY ,MRI,Thigh
+LOWER EXTREMITY ,MRI,Femur
+LOWER EXTREMITY ,MRI,Knee
+LOWER EXTREMITY ,MRI,Leg
+LOWER EXTREMITY ,MRI,Ankle
+LOWER EXTREMITY ,MRI,Foot
+COMBINATION EXAMINATIONS ,MRI,Cervical & Lumbar
+COMBINATION EXAMINATIONS ,MRI,Thoracic & Lumbar
+COMBINATION EXAMINATIONS ,MRI,Cervical & Thoracic
+COMBINATION EXAMINATIONS ,MRI,Abdomen & Pelvis
+COMBINATION EXAMINATIONS ,MRI,Brain & Orbit
+CONTRAST ,MRI,Contrast
+,,
+HEAD & NECK,CT +3D,Skull
+HEAD & NECK ,CT +3D,Brain
+HEAD & NECK,CT +3D,Paranasal Sinuses (PNS)
+HEAD & NECK,CT +3D,Orbit
+HEAD & NECK,CT +3D,Face
+HEAD & NECK ,CT +3D,Mastoids
+HEAD & NECK,CT +3D,Temporal Bone
+HEAD & NECK,CT +3D,Neck
+SPINE ,CT +3D,Cervical
+SPINE ,CT +3D,Lumbar
+SPINE ,CT +3D,Thoracic
+SPINE ,CT +3D,Whole Spine
+SPINE ,CT +3D,Myelogram
+CHEST ,CT +3D,Chest
+CHEST ,CT +3D,High Resolution Computed Tomography (HRCT) 
+ABDOMEN ,CT +3D,Abdomen
+ABDOMEN ,CT +3D,K.U.B.
+ABDOMEN ,CT +3D,Urogram With Contrast
+ABDOMEN ,CT +3D,Pneumocolon With Contrast
+PELVIS ,CT +3D,Pelvis
+PELVIS ,CT +3D,Hip Joint
+PELVIS ,CT +3D,Sacroliac Joints
+UPPER EXTREMITY ,CT +3D,Shoulder
+UPPER EXTREMITY ,CT +3D,Humerus
+UPPER EXTREMITY ,CT +3D,Elbow
+UPPER EXTREMITY ,CT +3D,Forearm
+UPPER EXTREMITY ,CT +3D,Wrist
+UPPER EXTREMITY ,CT +3D,Hand
+LOWER EXTREMITY ,CT +3D,Femur
+LOWER EXTREMITY ,CT +3D,Knee
+LOWER EXTREMITY ,CT +3D,Leg
+LOWER EXTREMITY ,CT +3D,Ankle
+LOWER EXTREMITY ,CT +3D,Foot
+LOWER EXTREMITY ,CT +3D,Cerebral Angio
+LOWER EXTREMITY ,CT +3D,Carotid Angio
+CT ANGIOGRAPHY ,CT +3D,Chest Angio
+CT ANGIOGRAPHY ,CT +3D,Abdomen Angio
+CT ANGIOGRAPHY ,CT +3D,Renal Angio
+CT ANGIOGRAPHY ,CT +3D,Upper Limb Angio
+,CT +3D,Lower Limb Angio
+OTHERS ,CT +3D,Biopsy
+OTHERS ,CT +3D,Scanogram
+OTHERS ,CT +3D,Neck & PNS
+OTHERS ,CT +3D,Abdomen & Pelvis
+OTHERS ,CT +3D,Chest & Abdomen Angio
+COMBINATION EXAMINATIONS ,CT +3D,Brain & PNS
+COMBINATION EXAMINATIONS ,CT +3D,Brain & Orbit
+COMBINATION EXAMINATIONS ,CT +3D,Brain & Temporal Bone
+COMBINATION EXAMINATIONS ,CT +3D,PNS & Orbit
+COMBINATION EXAMINATIONS ,CT +3D,PNS & Temporal Bone
+COMBINATION EXAMINATIONS ,CT +3D,Neck & Chest & Abdomen & Pelvis
+COMBINATION EXAMINATIONS ,CT +3D,Chest & Abdomen
+CONTRAST ,CT +3D,Contrast
+,,
+,,
+HEAD & NECK ,X-Ray,Skull
+HEAD & NECK ,X-Ray,Orbit
+HEAD & NECK ,X-Ray,Facial Bone
+HEAD & NECK ,X-Ray,Submentovertex (S.M.V.)
+HEAD & NECK ,X-Ray,Nasal Bone
+HEAD & NECK ,X-Ray,Paranasal Sinuses
+HEAD & NECK ,X-Ray,Post Nasal Space
+HEAD & NECK ,X-Ray,Mastoid
+HEAD & NECK ,X-Ray,Mandible
+HEAD & NECK ,X-Ray,T.M. Joint
+SPINE ,X-Ray,Neck Soft Tissue
+SPINE ,X-Ray,Cervical
+SPINE ,X-Ray,Thoracic
+SPINE ,X-Ray,Lumbar
+SPINE ,X-Ray,Coccyx
+CHEST ,X-Ray,Chest
+CHEST ,X-Ray,Apical Lordotic View
+CHEST ,X-Ray,Sternum
+CHEST ,X-Ray,Ribs (Oblique)
+                                       ABDOMEN ,X-Ray,K.U.B.
+PELVIS ,X-Ray,Pelvis
+PELVIS ,X-Ray,Hip
+PELVIS ,X-Ray,Sacroiliac Joint
+PELVIS ,X-Ray,Shoulder
+PELVIS ,X-Ray,Acromioclavicular (AC) Joint
+UPPER EXTREMITY ,X-Ray,Clavicle
+UPPER EXTREMITY ,X-Ray,Humerus
+UPPER EXTREMITY ,X-Ray,Elbow
+UPPER EXTREMITY ,X-Ray,Forearm
+UPPER EXTREMITY ,X-Ray,Scaphoid
+UPPER EXTREMITY ,X-Ray,Scaphoid Bone 5-6 Views
+UPPER EXTREMITY ,X-Ray,Wrist
+UPPER EXTREMITY ,X-Ray,Hand
+LOWER EXTREMITY ,X-Ray,Femur
+LOWER EXTREMITY ,X-Ray,Knee
+LOWER EXTREMITY ,X-Ray,Patella
+LOWER EXTREMITY ,X-Ray,Tibia
+LOWER EXTREMITY ,X-Ray,Fibula
+LOWER EXTREMITY ,X-Ray,Ankle
+LOWER EXTREMITY ,X-Ray,Foot
+OTHERS ,X-Ray,Bone Density (BMD)
+OTHERS ,X-Ray,Bone Age
+SPINE MYELOGRAM ,Fluoroscopy,Myelogram Cervical
+SPINE MYELOGRAM ,Fluoroscopy,Myelogram Thoracic
+SPINE MYELOGRAM ,Fluoroscopy,Myelogram Lumbar
+BARIUM EXAMINATIONS ,Fluoroscopy,Barium Swallow
+BARIUM EXAMINATIONS ,Fluoroscopy,Barium Swallow (Gastrograph)
+BARIUM EXAMINATIONS ,Fluoroscopy,Barium Meal
+BARIUM EXAMINATIONS ,Fluoroscopy,Barium Follow Through
+BARIUM EXAMINATIONS ,Fluoroscopy,Barium Enema
+PELVIS ,Fluoroscopy,Colostogram
+PELVIS ,Fluoroscopy,Cystogram
+PELVIS ,Fluoroscopy,Hysterosalpingogram (HSG)
+PELVIS ,Fluoroscopy,Micturating Cystourethrogram (MCUG)
+PELVIS ,Fluoroscopy,Voiding Cysto-Urethrogram (VCUG)
+EXTREMITIES VENOGRAM ,Fluoroscopy,Venogram Upper Limbs
+EXTREMITIES VENOGRAM ,Fluoroscopy,Venogram Lower Limbs
+OTHERS ,Fluoroscopy,Intravenous  Pyelogram - Urogram (IVP - IVU)
+OTHERS ,Fluoroscopy,Loopogram
+OTHERS ,Fluoroscopy,Urethrogram
+OTHERS ,Fluoroscopy,Fistulogram - Sinogram
+OTHERS ,Fluoroscopy,Nephrostogram
+OTHERS ,Fluoroscopy,T-Tube
+COMBINATION EXAMINATIONS ,Fluoroscopy,Barium Swallow & Meal
+COMBINATION EXAMINATIONS ,Fluoroscopy,Barium Meal & Follow Through
+OTHERS ,Mammography,Breast
+OTHERS ,Mammography,Localization Mammography

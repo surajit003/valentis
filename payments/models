@@ -1,0 +1,366 @@
+from django.urls import reverse
+from django_extensions.db.fields import AutoSlugField
+from django.db.models import *
+from django.conf import settings
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.auth import get_user_model
+from django.contrib.auth import models as auth_models
+from django.db import models as models
+from django_extensions.db import fields as extension_fields
+import datetime
+
+
+PROVIDER = (
+    (0, 'AGA KHAN HOSPITAL NAIROBI'),
+    (1, 'NAIROBI HOSPITAL'),
+    (2, 'KENYATTA HOSPITAL'),
+    (3, 'KAREN HOSPITAL'),
+)
+
+WARD = (
+    (0, 'General Ward'),
+    (1, 'Maternity Ward'),
+    (2, 'Children Ward'),
+    (3, 'Critical Ward'),
+)
+
+AUTHORITY_TYPE = (
+    (0, 'In Patient'),
+    (1, 'Out Patient'),
+    (3, 'Dental'),
+    (4, 'Maternity'),
+)
+
+INTERNAL_NOTED = (
+    ('EXT', 'Ext'),
+    ('NEW', 'New')
+)
+
+
+class member_info(models.Model):
+
+    # Fields
+    slug = extension_fields.AutoSlugField(populate_from='member_no', blank=True)
+    family_no = models.CharField(max_length=20,blank=True)
+    member_no = models.CharField(max_length=20,blank=True)
+    surname = models.CharField(max_length=40,blank=True)
+    first_name = models.CharField(max_length=40,blank=True)
+    other_name = models.CharField(max_length=40,blank=True)
+    dob = models.CharField(max_length=100,blank=True)
+    user_id = models.CharField(max_length=10,blank=True)
+    date_entered = models.CharField(max_length=100,blank=True)
+    cancelled = models.CharField(max_length=10,blank=True)
+    employment_no = models.CharField(max_length=20)
+    gender = models.CharField(max_length=20,blank=True)
+    passport_no = models.CharField(max_length=15,blank=True)
+
+
+
+    def __unicode__(self):
+        return u'%s' % self.slug
+
+    def get_full_name(self):
+        return "{} {}".format(self.first_name, self.surname)
+
+    def get_absolute_url(self):
+        return reverse('payments_member_info_detail', args=(self.slug,))
+
+    def get_update_url(self):
+        return reverse('payments_member_info_update', args=(self.slug,))
+
+    def get_anniversary_status(self):
+        member_no = self.member_no
+        anniversary = member_anniversary.objects.filter(slug=member_no).first()
+        if anniversary:
+            return anniversary.end_date > datetime.date.today()
+        else:
+            return False
+
+    def get_benefit_status(self):
+        member_no = self.member_no
+        benefits = member_benefits.objects.filter(member_no=member_no)
+        benefits_status = [x.suspended for x in benefits]
+        return not any(benefits_status)
+
+    def get_status(self):
+        return self.get_anniversary_status() or self.get_benefit_status()
+
+    def is_active(self):
+        # test if cancelled
+        # test if benefits date expired
+        member_no = self.member_no
+        benefits = member_benefits.objects.filter(member_no=member_no)
+        if benefits:
+            benefits_status = [x.is_active() for x in benefits]
+            return any(benefits_status)
+        else:
+            return not bool(self.cancelled)
+
+    def get_benefits(self):
+        member_no = self.member_no
+        return member_benefits.objects.filter(member_no=member_no)
+
+    def get_aniversary_start(self):
+        member_no = self.member_no
+        benefits = member_anniversary.objects.filter(member_no=member_no).first()
+        if benefits:
+            return benefits.start_date
+        else:
+            return 'No start date'
+
+    def get_aniversary_end(self):
+        member_no = self.member_no
+        benefits = member_anniversary.objects.filter(member_no=member_no).first()
+        if benefits:
+            return benefits.end_date
+        else:
+            return 'No end date'
+
+
+
+class member_benefits(models.Model):
+
+    # Fields
+    name = models.CharField(max_length=255)
+    slug = extension_fields.AutoSlugField(populate_from='member_no', blank=True)
+    created = models.DateTimeField(auto_now_add=True, editable=False)
+    last_updated = models.DateTimeField(auto_now=True, editable=False)
+    member_no = models.CharField(max_length=20)
+    limit = models.DecimalField(max_digits=10, decimal_places=2)
+    sharing = models.DecimalField(max_digits=1, decimal_places=0)
+    anniv = models.DecimalField(max_digits=2, decimal_places=0)
+    suspended = models.DecimalField(max_digits=1, decimal_places=0)
+    suspended_date = models.DateField(default=datetime.date.today,blank=True, null=True)
+    expense = models.DecimalField(max_digits=10, decimal_places=2)
+    idx = models.DecimalField(max_digits=10, decimal_places=0)
+    balance = models.DecimalField(max_digits=10, decimal_places=2)
+
+
+    class Meta:
+        ordering = ('last_updated',)
+
+    def __unicode__(self):
+        return u'%s' % self.slug
+
+    def get_absolute_url(self):
+        return reverse('payments_member_benefits_detail', args=(self.slug,))
+
+
+    def get_update_url(self):
+        return reverse('payments_member_benefits_update', args=(self.slug,))
+
+    def is_active(self):
+        if self.suspended_date:
+            return self.suspended_date > datetime.date.today()
+        else:
+            return False
+
+
+class member_anniversary(models.Model):
+
+    # Fields
+    name = models.CharField(max_length=255)
+    slug = extension_fields.AutoSlugField(populate_from='member_no', blank=True)
+    created = models.DateTimeField(auto_now_add=True, editable=False)
+    last_updated = models.DateTimeField(auto_now=True, editable=False)
+    member_no = models.CharField(max_length=20)
+    start_date = models.DateField(default=datetime.date.today)
+    end_date = models.DateField(default=datetime.date.today)
+    anniv = models.IntegerField()
+
+
+    class Meta:
+        ordering = ('last_updated',)
+
+    def __unicode__(self):
+        return u'%s' % self.slug
+
+    def get_absolute_url(self):
+        return reverse('payments_member_anniversary_detail', args=(self.slug,))
+
+
+    def get_update_url(self):
+        return reverse('payments_member_anniversary_update', args=(self.slug,))
+
+
+class member_acceptance(models.Model):
+
+    # Fields
+    name = models.CharField(max_length=255)
+    slug = extension_fields.AutoSlugField(populate_from='member_no', blank=True)
+    created = models.DateTimeField(auto_now_add=True, editable=False)
+    last_updated = models.DateTimeField(auto_now=True, editable=False)
+    member_no = models.CharField(max_length=20)
+    status = models.DecimalField(max_digits=1, decimal_places=0)
+    status_date = models.DateField(default=datetime.date.today)
+    user_id = models.CharField(max_length=10)
+    date_entered = models.DateField(default=datetime.date.today)
+
+
+    class Meta:
+        ordering = ('last_updated',)
+
+    def __unicode__(self):
+        return u'%s' % self.slug
+
+    def get_absolute_url(self):
+        return reverse('payments_member_acceptance_detail', args=(self.slug,))
+
+
+    def get_update_url(self):
+        return reverse('payments_member_acceptance_update', args=(self.slug,))
+
+
+class principal_applicant(models.Model):
+
+    # Fields
+    name = models.CharField(max_length=255)
+    slug = extension_fields.AutoSlugField(populate_from='name', blank=True)
+    created = models.DateTimeField(auto_now_add=True, editable=False)
+    last_updated = models.DateTimeField(auto_now=True, editable=False)
+    family_no = models.CharField(max_length=20, null=False, blank=False)
+    first_name = models.CharField(max_length=40)
+    postal_add = models.CharField(max_length=15)
+    town = models.DecimalField(max_digits=5, decimal_places=0)
+    email = models.EmailField()
+    other_names = models.CharField(max_length=40)
+    corp_id = models.CharField(max_length=10)
+    mobile_no = models.CharField(max_length=20)
+    family_size = models.DecimalField(max_digits=2, decimal_places=0)
+    user_id = models.CharField(max_length=10)
+    category = models.CharField(max_length=10)
+
+
+    class Meta:
+        ordering = ('last_updated',)
+
+    def __unicode__(self):
+        return u'%s' % self.slug
+
+    def get_absolute_url(self):
+        return reverse('payments_principal_applicant_detail', args=(self.slug,))
+
+
+    def get_update_url(self):
+        return reverse('payments_principal_applicant_update', args=(self.slug,))
+
+
+class pre_authorization(models.Model):
+
+    # Fields
+    name = models.CharField(max_length=255)
+    slug = extension_fields.AutoSlugField(populate_from='member_no', blank=True)
+    created = models.DateTimeField(auto_now_add=True, editable=False)
+    last_updated = models.DateTimeField(auto_now=True, editable=False)
+    member_no = models.CharField(max_length=15)
+
+    provider = models.IntegerField(choices=PROVIDER, default=0)
+    date_reported = models.DateField(default=datetime.date.today)
+    reported_by = models.CharField(max_length=20)
+    authorized_by = models.CharField(max_length=10)
+    date_authorized = models.DateField(default=datetime.date.today)
+    pre_diagnosis = models.CharField(max_length=60)
+    authority_type = models.IntegerField(choices=AUTHORITY_TYPE, default=0)
+    ward = models.IntegerField(choices=WARD, default=0)
+    available_limit = models.DecimalField(max_digits=10, decimal_places=2)
+    admit_days = models.DecimalField(max_digits=3, decimal_places=0, null=True, blank=True)
+    reserve = models.DecimalField(max_digits=10, decimal_places=2)
+    notes = models.CharField(max_length=200)
+    internal_notes = models.CharField(max_length=100, choices=INTERNAL_NOTED, default='NEW')
+    anniv = models.DecimalField(max_digits=5, decimal_places=0, null=True)
+    # auth_batch_no = models.DecimalField(populate_from='code')
+    day_bed_charge = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    date_admitted = models.DateField(default=datetime.date.today, null=True, blank=True)
+    code = models.AutoField(primary_key=True)
+
+    class Meta:
+        ordering = ('last_updated',)
+
+    def __unicode__(self):
+        return u'%s' % self.slug
+
+    def get_absolute_url(self):
+        return reverse('payments_pre_authorization_detail', args=(self.slug,))
+
+    def get_update_url(self):
+        return reverse('payments_pre_authorization_update', args=(self.slug,))
+
+    def get_provider(self):
+        provider = list(filter(lambda x: x[0] == self.provider, PROVIDER))[0][1]
+        return provider
+
+    def get_ward(self):
+        try:
+            ward = list(filter(lambda x: x[0] == self.ward, WARD))[0][1]
+            return ward
+        except:
+            return None
+
+    def get_authority_type(self):
+        authority_type = list(filter(lambda x: x[0] == self.authority_type, AUTHORITY_TYPE))[0][1]
+        return authority_type
+
+
+class provider(models.Model):
+
+    # Fields
+    name = models.CharField(max_length=255)
+    slug = extension_fields.AutoSlugField(populate_from='name', blank=True)
+    created = models.DateTimeField(auto_now_add=True, editable=False)
+    last_updated = models.DateTimeField(auto_now=True, editable=False)
+    code = models.CharField(max_length=10)
+    provider = models.CharField(max_length=60)
+
+
+    class Meta:
+        ordering = ('last_updated',)
+
+    def __unicode__(self):
+        return u'%s' % self.slug
+
+    def get_absolute_url(self):
+        return reverse('payments_provider_detail', args=(self.slug,))
+
+
+    def get_update_url(self):
+        return reverse('payments_provider_update', args=(self.slug,))
+
+
+class cash(models.Model):
+
+    # Fields
+    name = models.CharField(max_length=255)
+    slug = extension_fields.AutoSlugField(populate_from='name', blank=True)
+    created = models.DateTimeField(auto_now_add=True, editable=False)
+    last_updated = models.DateTimeField(auto_now=True, editable=False)
+    items = models.TextField(max_length=400)
+    amount_payed = models.DecimalField(max_digits=1,decimal_places=0)
+    total_cost = models.FloatField(max_length=10)
+    balance = models.TextField(max_length=100)
+
+
+    class Meta:
+        ordering = ('last_updated',)
+
+    def __unicode__(self):
+        return u'%s' % self.slug
+
+    def get_absolute_url(self):
+        return reverse('payments_cash_detail', args=(self.slug,))
+
+
+    def get_update_url(self):
+        return reverse('payments_cash_update', args=(self.slug,))
+
+class memberinfosanlamdatabase(models.Model):
+    FAMILY_NO = models.CharField(max_length=255, blank=True)
+    MEMBER_NO = models.CharField(max_length=255, blank=True)
+    FIRST_NAME = models.CharField(max_length=255, blank=True)
+    SURNAME= models.CharField(max_length=255, blank=True)
+    OTHER_NAMES = models.CharField(max_length=255, blank=True)
+    DOB = models.CharField(max_length=255, blank=True)
+    USER_ID = models.CharField(max_length=255, blank=True)
+    CANCELLED = models.CharField(max_length=255, blank=True)
+
+

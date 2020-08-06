@@ -1,0 +1,872 @@
+{% extends "base.html" %} {% load static %} {% load crispy_forms_tags %} {% block content %}
+<script>
+    $("#labs_tab").addClass("current").siblings().removeClass("current")
+</script>
+
+{% for field in request_ %} {% if field.data %}
+<script>
+    $(function() {
+        $('#id_{{ field.name }}').prop('checked', true)
+
+        console.log('#div_id_{{ field.name }}')
+
+    })
+</script>
+{% else %}
+<script>
+    $(function() {
+        $('#div_id_{{ field.name }}').addClass('hidden')
+        console.log('#div_id_{{ field.name }}')
+
+    })
+</script>
+
+{% endif %} {% endfor %}
+
+    <fieldset disabled>
+        <div class="mdl-grid full-width">
+            <div class="mdl-cell mdl-cell--4-col">
+                <div class="mdl-grid ">
+
+                    <div id="div_id_patient_no" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+                        <label for="id_patient_no" class="mdl-textfield__label mdl-color-text--black">
+                                        Patient's Name</label>
+                        <div class="controls"><input class="mdl-textfield__input" name="patient_no" id="patient_no" type="text" value="{% if patient.first_name != None %}{{ patient.first_name }} {{ patient.last_name }}{% endif %}" readonly/></div>
+                    </div>
+
+                </div>
+                <div id="div_id_h01" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_h01" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_h01"
+                                                name="h01" type="checkbox">
+                                        <span class="mdl-checkbox__label">Haemoglobin estimation(Hb)</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_h02" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_h02" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_h02"
+                                                name="h02" type="checkbox">
+                                        <span class="mdl-checkbox__label">Leucocyte diff count</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_h03" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_h03" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_h03"
+                                                name="h03" type="checkbox">
+                                        <span class="mdl-checkbox__label">Leucocyte Total count</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_h04" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_h04" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_h04"
+                                                name="h04" type="checkbox">
+                                        <span class="mdl-checkbox__label">Hb and diff count</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_h05" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_h05" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_h05"
+                                                name="h05" type="checkbox">
+                                        <span class="mdl-checkbox__label">Erythrocyte count</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_h06" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_h06" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_h06"
+                                                name="h06" type="checkbox">
+                                        <span class="mdl-checkbox__label">Packed Cell Volume</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_h07" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_h07" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_h07"
+                                                name="h07" type="checkbox">
+                                        <span class="mdl-checkbox__label">Full blood count</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_h08" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_h08" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_h08"
+                                                name="h08" type="checkbox">
+                                        <span class="mdl-checkbox__label">ESR</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_h09" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_h09" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_h09"
+                                                name="h09" type="checkbox">
+                                        Platelets
+                                    </label></div>
+                </div>
+
+                <br><br> Cogulation
+                <div id="div_id_c01" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_c01" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_c01"
+                                                name="c01" type="checkbox">
+                                        <span class="mdl-checkbox__label">Prothrombin index(PI)/INR</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_c02" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_c02" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_c02"
+                                                name="c02" type="checkbox">
+                                        <span class="mdl-checkbox__label">PI/INR dosage information</span>
+                                    </label></div>
+                </div>
+
+                <br><br> pregnancy
+                <div id="div_id_p01" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_p01" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_p01"
+                                                name="p01" type="checkbox">
+                                        BHCG Qualitative
+                                    </label></div>
+                </div>
+                <div id="div_id_p02" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_p02" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_p02"
+                                                name="p02" type="checkbox">
+                                        <span class="mdl-checkbox__label">Blood group (A B O)</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_p03" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_p03" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_p03"
+                                                name="p03" type="checkbox">
+                                        <span class="mdl-checkbox__label">Groupting: Rh Antigen</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_p04" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_p04" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_p04"
+                                                name="p04" type="checkbox">
+                                        <span class="mdl-checkbox__label">Direct Coombs</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_p05" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_p05" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_p05"
+                                                name="p05" type="checkbox">
+                                        <span class="mdl-checkbox__label">Indirect Coombs</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_p06" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_p06" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_p06"
+                                                name="p06" type="checkbox">
+                                        <span class="mdl-checkbox__label">Syphilis Serology</span>
+                                    </label></div>
+                </div>
+
+                <br><br> Malaria blood smear
+                <div id="div_id_mbs01" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_mbs01" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_mbs01" name="mbs01"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Malaria: Antigen</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_mbs02" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_mbs02" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_mbs02" name="mbs02"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Parasite in blood smear</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_mbs03" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_mbs03" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_mbs03" name="mbs03"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Concentration techniques for parasite</span>
+                                    </label></div>
+                </div>
+
+                <br><br> General Endoctrine
+                <div id="div_id_ge01" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_ge01" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_ge01"
+                                                name="ge01" type="checkbox">
+                                        <span class="mdl-checkbox__label">TSH</span>
+                                    </label></div>
+                </div>
+
+                <br><br> Lung, Kidney, Skeleton
+                <div id="div_id_lks01" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lks01" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_lks01" name="lks01"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Potassium</span>
+                                    </label></div>
+                </div>
+
+                <div id="div_id_lks02" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lks02" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_lks02" name="lks02"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">sodium</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lks03" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lks03" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_lks03" name="lks03"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Potassium / sodium / Chloride / Creatinine </span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lks04" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lks04" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_lks04" name="lks04"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Creatinine</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lks05" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lks05" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_lks05" name="lks05"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Urea</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lks06" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lks06" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_lks06" name="lks06"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Urea & Electrolytes only</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lks07" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lks07" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_lks07" name="lks07"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Uric acid</span>
+                                    </label></div>
+                </div>
+
+                <br><br>
+
+            </div>
+            <div class="mdl-cell mdl-cell--4-col">
+
+
+                Glucose Metabolism
+                <div id="div_id_gm01" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_gm01" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_gm01"
+                                                name="gm01" type="checkbox">
+                                        <span class="mdl-checkbox__label">Glucose - random/fasting</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_gm02" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_gm02" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_gm02"
+                                                name="gm02" type="checkbox">
+                                        <span class="mdl-checkbox__label">HbA1C</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_gm03" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_gm03" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_gm03"
+                                                name="gm03" type="checkbox">
+                                        Glucose tolorance test
+                                    </label></div>
+                </div>
+
+                <br><br> Lipid Metabolism
+                <div id="div_id_lm01" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lm01" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_lm01"
+                                                name="lm01" type="checkbox">
+                                        <span class="mdl-checkbox__label">Cholestrol - Total</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lm02" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lm02" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_lm02"
+                                                name="lm02" type="checkbox">
+                                        <span class="mdl-checkbox__label">Cholestral/HDL</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lm03" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lm03" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_lm03"
+                                                name="lm03" type="checkbox">
+                                        <span class="mdl-checkbox__label">Triglycerides</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lm04" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lm04" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_lm04"
+                                                name="lm04" type="checkbox">
+                                        <span class="mdl-checkbox__label">LDL Cholestrol</span>
+                                    </label></div>
+                </div>
+
+                <br><br> Liver, Pancreas, GIT
+                <div id="div_id_lpg01" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lpg01" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_lpg01" name="lpg01"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Amylase</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lpg02" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lpg02" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_lpg02" name="lpg02"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Alkaline Phosphate</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lpg03" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lpg03" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_lpg03" name="lpg03"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Bilirubin: Total</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lpg04" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lpg04" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_lpg04" name="lpg04"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Bilirubin: Conjugated</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lpg05" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lpg05" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_lpg05" name="lpg05"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">AST(SGOT)</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lpg06" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lpg06" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_lpg06" name="lpg06"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">ALT(SGPT)</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lpg07" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lpg07" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_lpg07" name="lpg07"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">LDH</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lpg08" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lpg08" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_lpg08" name="lpg08"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Gamma GT</span>
+                                    </label></div>
+                </div>
+
+                <br><br> HIV Tests
+                <div id="div_id_hv01" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_hv01" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_hv01"
+                                                name="hv01" type="checkbox">
+                                        HIV: Elisa
+                                    </label></div>
+                </div>
+                <div id="div_id_hv02" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_hv02" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_hv02"
+                                                name="hv02" type="checkbox">
+                                        <span class="mdl-checkbox__label">HIV viral load</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_hv03" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_hv03" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_hv03"
+                                                name="hv03" type="checkbox">
+                                        <span class="mdl-checkbox__label">CD 4/8 count</span>
+                                    </label></div>
+                </div>
+
+                <br><br> Immunology
+                <div id="div_id_i01" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_i01" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_i01"
+                                                name="i01" type="checkbox">
+                                        <span class="mdl-checkbox__label">IHepatitis: AIGM antibody</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_i02" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_i02" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_i02"
+                                                name="i02" type="checkbox">
+                                        <span class="mdl-checkbox__label">Hepatitis: B surface antigen</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_i03" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_i03" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_i03"
+                                                name="i03" type="checkbox">
+                                        <span class="mdl-checkbox__label">C-reactive protein</span>
+                                    </label></div>
+                </div>
+
+                <br><br> Microbiology
+                <div id="div_id_m01" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_m01" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_m01"
+                                                name="m01" type="checkbox">
+                                        <span class="mdl-checkbox__label">Urine dipstick(per stick)</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_m02" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_m02" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_m02"
+                                                name="m02" type="checkbox">
+                                        <span class="mdl-checkbox__label">urine - microscopy</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_m03" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_m03" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_m03"
+                                                name="m03" type="checkbox">
+                                        <span class="mdl-checkbox__label">urine - micro/culture</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_M04" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_M04" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_M04"
+                                                name="M04" type="checkbox">
+                                        <span class="mdl-checkbox__label">Sputum - gram</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_m05" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_m05" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_m05"
+                                                name="m05" type="checkbox">
+                                        <span class="mdl-checkbox__label">Sputum - culture</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_m06" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_m06" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_m06"
+                                                name="m06" type="checkbox">
+                                        <span class="mdl-checkbox__label">Direct prep: AFB</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_m07" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_m07" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_m07"
+                                                name="m07" type="checkbox" >
+                                        <span class="mdl-checkbox__label">LOcult blood</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_m08" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_m08" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input value="true"
+                                                class="mdl-checkbox__input" id="id_m08"
+                                                name="m08" type="checkbox" >
+                                        <span class="mdl-checkbox__label">Faeces</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_g01" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_g01" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_g01"
+                                                name="g01" type="checkbox">
+                                        Pap smear
+                                    </label></div>
+                </div>
+
+
+                <br><br>
+            </div>
+            <div class="mdl-cell mdl-cell--4-col">
+
+
+                <div id="div_id_h01_alergy" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_h01_alergy" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_h01_alergy"
+                                                name="h01_alergy"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Patient History</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_h02_alergy" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_h02_alergy" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_h02_alergy"
+                                                name="h02_alergy"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Total lg E</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_h03_alergy" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_h03_alergy" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_h03_alergy"
+                                                name="h03_alergy"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Inhalant Screen (phadiatop)</span>
+                                    </label></div>
+                </div>
+
+                <br><br>
+                <div id="div_id_h04_alergy" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_h04_alergy" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_h04_alergy"
+                                                name="h04_alergy"
+                                                type="checkbox" >
+                                        <span class="mdl-checkbox__label">Rast per allergen</span>
+                                    </label></div>
+                </div>
+
+                <br><br>
+                <div id="div_id_h06_alergy" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_h06_alergy" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_h06_alergy"
+                                                name="h06_alergy"
+                                                type="checkbox" >
+                                        <span class="mdl-checkbox__label">Iron</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_h07_alergy" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_h07_alergy" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_h07_alergy"
+                                                name="h07_alergy"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Ferritin</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_h08_alergy" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_h08_alergy" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_h08_alergy"
+                                                name="h08_alergy"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Soluble Transferrin receptor</span>
+                                    </label></div>
+                </div>
+
+                <br><br> Cardiac Markers
+                <div id="div_id_c01_iron_studies" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_c01_iron_studies" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input"
+                                                id="id_c01_iron_studies"
+                                                name="c01_iron_studies"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">CK-MB</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_c01_cardiac_markers" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_c01_cardiac_markers" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_c01_cardiac_markers"
+                                                name="c01_cardiac_markers"
+                                                type="checkbox">
+                                        C01 cardiac markers
+                                    </label></div>
+                </div>
+                <div id="div_id_c02_cardiac_markers" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_c02_cardiac_markers" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_c02_cardiac_markers"
+                                                name="c02_cardiac_markers"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Tropin T or I</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_c02_cardiac_markers_1" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_c02_cardiac_markers_1" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_c02_cardiac_markers_1"
+                                                name="c02_cardiac_markers_1"
+                                                type="checkbox" >
+                                        Myoglobin
+                                    </label></div>
+                </div>
+                <div id="div_id_lks01_antenatal_screen" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lks01_antenatal_screen" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_lks01_antenatal_screen"
+                                                name="lks01_antenatal_screen"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Haemoglobin Estimation(Hb)</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lks02_antenatal_screen" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lks02_antenatal_screen" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_lks02_antenatal_screen"
+                                                name="lks02_antenatal_screen"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Blood grouping (ABO/RH Antigen) Creatine</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lks04_antenatal_screen" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lks04_antenatal_screen" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_lks04_antenatal_screen"
+                                                name="lks04_antenatal_screen"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Direct Coombs</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lks05_antenatal_screen" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lks05_antenatal_screen" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_lks05_antenatal_screen"
+                                                name="lks05_antenatal_screen"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Hepatitis B Surface antigen</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lks06_antenatal_screen" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lks06_antenatal_screen" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_lks06_antenatal_screen"
+                                                name="lks06_antenatal_screen"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Rubella lg G</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_lks07_antenatal_screen" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_lks07_antenatal_screen" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_lks07_antenatal_screen"
+                                                name="lks07_antenatal_screen"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Syphilis</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_gm01_antenatal_screen" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_gm01_antenatal_screen" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_gm01_antenatal_screen"
+                                                name="gm01_antenatal_screen"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">HIV: Elisa</span>
+                                    </label></div>
+                </div>
+
+                <br><br> Menopausal Screan
+                <div id="div_id_fsh_menopausal_screen" class="mdl-cell mdl-cell--4-col w3-grey">
+                    <div class="controls"><label for="id_fsh_menopausal_screen" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_fsh_menopausal_screen"
+                                                name="fsh_menopausal_screen"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">FSH</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_oestradiol_menopausal_screen" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_oestradiol_menopausal_screen" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_oestradiol_menopausal_screen"
+                                                name="oestradiol_menopausal_screen"
+                                                type="checkbox">Oestradiol</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_albumin_menopausal_screen" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_albumin_menopausal_screen" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_albumin_menopausal_screen"
+                                                name="albumin_menopausal_screen"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">LH</span>
+                                    </label></div>
+                </div>
+
+                <br><br> Liver Function Tests
+                <div id="div_id_hv02_menopausal_screen" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_hv02_menopausal_screen" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_hv02_menopausal_screen"
+                                                name="hv02_menopausal_screen"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Alkaline Phosphate</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_hv03_menopausal_screen" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_hv03_menopausal_screen" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_hv03_menopausal_screen"
+                                                name="hv03_menopausal_screen"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">ALT(SGPT)</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_ast_menopausal_screen" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_ast_menopausal_screen" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_ast_menopausal_screen"
+                                                name="ast_menopausal_screen"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">AST(SGOT)</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_i01_menopausal_screen" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_i01_menopausal_screen" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_i01_menopausal_screen"
+                                                name="i01_menopausal_screen"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">Bilirubin: Total/Conjugated</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_i02_menopausal_screen" class="mdl-cell mdl-cell--4-col">
+                    <div class="controls"><label for="id_i02_menopausal_screen" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input
+                                                class="mdl-checkbox__input" id="id_i02_menopausal_screen"
+                                                name="i02_menopausal_screen"
+                                                type="checkbox">
+                                        <span class="mdl-checkbox__label">LDH</span>
+                                    </label></div>
+                </div>
+                <div id="div_id_i03_menopausal_screen" class="mdl-cell mdl-cell--4-col"><label for="id_i03_menopausal_screen" class="control-label requiredField">
+                                    <span class="mdl-checkbox__label">Gamma GT</span> </label>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="mdl-grid">
+            <div id="div_id_other" class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--8-col">
+                <label for="id_other" class="mdl-textfield__label">
+                                    Other Test </label>
+                <div class="controls"><textarea class="mdl-textfield__input" cols="20" id="id_other" maxlength="100" name="other" rows="3">{{ other }}</textarea></div>
+            </div>
+            <div id="div_id_diagnosis" class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--8-col">
+                <label for="id_diagnosis" class="mdl-textfield__label"> Doctors
+                                    Diagnosis Information/Diagnosis</label>
+                <div class="controls"><textarea class="mdl-textfield__input" cols="40" id="id_diagnosis" maxlength="100" name="diagnosis" rows="3">{{ diagnosis }}</textarea>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+
+<div class="full-width">
+    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-shadow--4dp mdl-cell mdl-cell--10-col">
+        <div>
+
+        </div>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input id="triage_id" type="text" class="hidden" name="triage_id" value=" {{ patient.session_id }}">
+
+            <div class="mdl-grid ">
+
+                <div id="div_id_patient_no" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col"><label for="id_patient_no" class="mdl-textfield__label mdl-color-text--black">
+                Patient id</label>
+                    <div class="controls"><input class="mdl-textfield__input" cols="40" id="id_patient_no" maxlength="100" name="patient_no" value="{% if patient.patient_no != None %}{{ patient.patient_no }}{% endif %}" rows="10" readonly></div>
+                </div>
+            </div>
+
+            <div class="mdl-grid ">
+                <div id="div_id_test_results" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+                    <label for="id_test_results" class="mdl-textfield__label mdl-color-text--grey">
+                            Test results </label>
+                    <div class="controls"><textarea class="mdl-textfield__input" cols="40" id="id_test_results" maxlength="400" name="test_results" rows="10" required="">{% if patient.test_results != None %}
+                            {{ patient.test_results }}{% endif %}</textarea></div>
+                </div>
+
+
+            </div>
+            <div class="mdl-grid"><input name="uploaded_file" type="file" /></div>
+
+            <div class="mdl-grid">
+                <button name="radiology_btn" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored mdl-color--primary" type="submit">Submit
+                    </button>
+            </div>
+
+        </form>
+    </div>
+    <div class="mdl-layout-spacer"></div>
+</div>
+
+
+
+{% endblock %}

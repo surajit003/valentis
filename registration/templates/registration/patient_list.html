@@ -1,0 +1,178 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<p><a class="btn btn-default" href="{% url 'registration_models_list' %}">models Listing</a></p>
+<table class="table">
+    <tr>
+        <td>ID</td>
+        <td>Link</td>
+        <td>patient_no</td>
+        <td>created</td>
+        <td>last_updated</td>
+        <td>first_name</td>
+        <td>middle_name</td>
+        <td>last_name</td>
+        <td>Gender</td>
+        <td>street_name</td>
+        <td>apartment_name</td>
+        <td>postal_code</td>
+        <td>postal_address</td>
+        <td>city</td>
+        <td>country</td>
+        <td>age</td>
+        <td>next_of_kin</td>
+        <td>n_of_kin_rel</td>
+        <td>email</td>
+        <td>phone</td>
+        <td>primary_insurance</td>
+        <td>secondary_insurance</td>
+        <td>pri_ins_sub</td>
+        <td>sec_ins_sub</td>
+        <td>other_ins_subscriber</td>
+        <td>subscriber_relationship</td>
+        <td>sub_address</td>
+        <td>ss_number</td>
+        <td>sub_ss_number</td>
+        <td>alt_phone</td>
+        <td>sub_work_phone</td>
+        <td>dob</td>
+        <td>sub_dob</td>
+        <td>sub_employer</td>
+        <td>status</td>
+
+
+        <td>occupation</td>
+        <td>marital_status</td>
+        <td>spouse</td>
+        <td>no_children</td>
+        <td>childrens</td>
+        <td>prev_docs</td>
+        <td>medical_information</td>
+        <td>alergies</td>
+        <td>preferred_pharmacy</td>
+        <td>last_phys_examination</td>
+        <td>last_blood_work</td>
+        <td>last_colonoscopy</td>
+        <td>last_tetanus_shot</td>
+        <td>last_menstrual</td>
+        <td>last_pap_smear</td>
+        <td>last_mammogram</td>
+        <td>dexa</td>
+        <td>no_pregnancies</td>
+        <td>miscourages</td>
+        <td>living_children</td>
+        <td>methods_of_contraception</td>
+        <td>surgeries</td>
+        <td>genetic_diseases</td>
+        <td>if_smoker</td>
+        <td>cigar_per_day</td>
+        <td>no_of_yr_smoking</td>
+        <td>if_chew_tobacco</td>
+        <td>yrs_chewing_tobacco</td>
+        <td>if_quit_before</td>
+        <td>tobacco_quit_duration</td>
+        <td>if_drink_alcohol</td>
+        <td>alocohol_type</td>
+        <td>alcohol_frequency</td>
+        <td>if_drug_used</td>
+        <td>drug_type</td>
+        <td>when_drug_used</td>
+        <td>if_exercise</td>
+        <td>exercise_freq</td>
+        <td>if_special_diet</td>
+        <td>special_diet</td>
+        <td>if_use_caffein</td>
+        <td>caffein_daily_amt</td>
+        <td>is_sadder</td>
+        <td>if_lost_interest</td>
+        <td>have_will</td>
+
+
+    </tr>
+    {% for object in object_list %}
+    <tr>
+        <td>{{object.pk}}</td>
+        <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+        <td>{{ object.patient_no }}</td>
+        <td>{{ object.created }}</td>
+        <td>{{ object.last_updated }}</td>
+        <td>{{ object.first_name }}</td>
+        <td>{{ object.middle_name }}</td>
+        <td>{{ object.last_name }}</td>
+        <td>{{ object.gender }}</td>
+        <td>{{ object.street_name }}</td>
+        <td>{{ object.apartment_name }}</td>
+        <td>{{ object.postal_code }}</td>
+        <td>{{ object.postal_address }}</td>
+        <td>{{ object.city }}</td>
+        <td>{{ object.country }}</td>
+        <td>{{ object.age }}</td>
+        <td>{{ object.next_of_kin }}</td>
+        <td>{{ object.n_of_kin_rel }}</td>
+        <td>{{ object.email }}</td>
+        <td>{{ object.phone }}</td>
+        <td>{{ object.primary_insurance }}</td>
+        <td>{{ object.secondary_insurance }}</td>
+        <td>{{ object.pri_ins_sub }}</td>
+        <td>{{ object.sec_ins_sub }}</td>
+        <td>{{ object.other_ins_subscriber }}</td>
+        <td>{{ object.subscriber_relationship }}</td>
+        <td>{{ object.sub_address }}</td>
+        <td>{{ object.ss_number }}</td>
+        <td>{{ object.sub_ss_number }}</td>
+        <td>{{ object.alt_phone }}</td>
+        <td>{{ object.sub_work_phone }}</td>
+        <td>{{ object.dob }}</td>
+        <td>{{ object.sub_dob }}</td>
+        <td>{{ object.sub_employer }}</td>
+        <td>{{ object.status }}</td>
+
+
+        <td>{{ object.occupation }}</td>
+        <td>{{ object.marital_status }}</td>
+        <td>{{ object.spouse }}</td>
+        <td>{{ object.no_children }}</td>
+        <td>{{ object.childrens }}</td>
+        <td>{{ object.prev_docs }}</td>
+        <td>{{ object.medical_information }}</td>
+        <td>{{ object.alergies }}</td>
+        <td>{{ object.preferred_pharmacy }}</td>
+        <td>{{ object.last_phys_examination }}</td>
+        <td>{{ object.last_blood_work }}</td>
+        <td>{{ object.last_colonoscopy }}</td>
+        <td>{{ object.last_tetanus_shot }}</td>
+        <td>{{ object.last_menstrual }}</td>
+        <td>{{ object.last_pap_smear }}</td>
+        <td>{{ object.last_mammogram }}</td>
+        <td>{{ object.dexa }}</td>
+        <td>{{ object.no_pregnancies }}</td>
+        <td>{{ object.miscourages }}</td>
+        <td>{{ object.living_children }}</td>
+        <td>{{ object.methods_of_contraception }}</td>
+        <td>{{ object.surgeries }}</td>
+        <td>{{ object.genetic_diseases }}</td>
+        <td>{{ object.if_smoker }}</td>
+        <td>{{ object.cigar_per_day }}</td>
+        <td>{{ object.no_of_yr_smoking }}</td>
+        <td>{{ object.if_chew_tobacco }}</td>
+        <td>{{ object.yrs_chewing_tobacco }}</td>
+        <td>{{ object.if_quit_before }}</td>
+        <td>{{ object.tobacco_quit_duration }}</td>
+        <td>{{ object.if_drink_alcohol }}</td>
+        <td>{{ object.alocohol_type }}</td>
+        <td>{{ object.alcohol_frequency }}</td>
+        <td>{{ object.if_drug_used }}</td>
+        <td>{{ object.drug_type }}</td>
+        <td>{{ object.when_drug_used }}</td>
+        <td>{{ object.if_exercise }}</td>
+        <td>{{ object.exercise_freq }}</td>
+        <td>{{ object.if_special_diet }}</td>
+        <td>{{ object.special_diet }}</td>
+        <td>{{ object.if_use_caffein }}</td>
+        <td>{{ object.caffein_daily_amt }}</td>
+        <td>{{ object.is_sadder }}</td>
+        <td>{{ object.if_lost_interest }}</td>
+        <td>{{ object.have_will }}</td>
+
+
+    </tr>
+    {% endfor %}
+</table><a class="btn btn-primary" href="{% url 'registration_models_create' %}">New Patient</a> {% endblock %}ß

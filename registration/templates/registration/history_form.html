@@ -1,0 +1,245 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+    <div class="mdl-grid">
+
+
+        <div class="mdl-shadow--16dp util-center full-width">
+            <div class="mdl-card__title mdl-color--teal-500">
+                <h2 class="mdl-card__title-text mdl-color-text--white">Registration Form</h2>
+            </div>
+            <fieldset disabled>
+                <div class="mdl-card__supporting-text full-width">
+
+                    <div class="mdl-grid">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                            <label class="mdl-textfield__label mdl-color-text--grey forminput"
+                                   for="textfield_first_name">First Name</label>
+
+                            <input class="mdl-textfield__input" type="text"
+                                   id="textfield_first_name" name="first_name"
+                                   value="{{ patient.first_name }}"/>
+
+
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                            <label class="mdl-textfield__label mdl-color-text--grey"
+                                   for="textfield_middle_name">Middle Name</label>
+                            <input class="mdl-textfield__input" type="text"
+                                   id="textfield_middle_name" name="middle_name"
+                                   value="{{ patient.middle_name }}"/>
+
+                        </div>
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                            <label class="mdl-textfield__label mdl-color-text--grey"
+                                   for="textfield_last_name">Last Name</label>
+                            <input class="mdl-textfield__input" type="text"
+                                   id="textfield_last_name" value="{{ patient.last_name }}"
+                                   name="last_name" required/>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mdl-grid ">
+
+                        <div class="phone mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                            <label class="mdl-textfield__label mdl-color-text--grey"
+                                   for="textfield_phone">Phone </label>
+                            <input class="phone_input mdl-textfield__input" type='tel'
+                                   id="textfield_phone_input" value="{{ patient.phone }}"
+                                   name="phone"/>
+
+                        </div>
+
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                            <label class="mdl-textfield__label mdl-color-text--grey"
+                                   for="textfield_email">Email Address</label>
+                            <input class="mdl-textfield__input" type="email"
+                                   id="textfield_email"
+                                   value="{{ patient.email }}" name="email"/>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mdl-grid ">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                            <label class="mdl-textfield__label mdl-color-text--grey"
+                                   for="textfield_postal_address">Postal Address</label>
+                            <input class="mdl-textfield__input" type="text"
+                                   id="textfield_postal_address"
+                                   value="{{ patient.postal_address }}" name="postal_address"/>
+
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                            <label class="mdl-textfield__label mdl-color-text--grey"
+                                   for="textfield_postal_code">Postal Code</label>
+                            <input class="mdl-textfield__input" type="text"
+                                   id="textfield_postal_code"
+                                   value="{{ patient.postal_code }}" name="postal_code" required/>
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="mdl-grid ">
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                            <label class="mdl-textfield__label mdl-color-text--grey"
+                                   for="textfield_county">County</label>
+                            <input class="mdl-textfield__input" id="textfield_county" type="text"
+                                   value="{{ patient.county }}" />
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                            <label class="mdl-textfield__label mdl-color-text--grey"
+                                   for="textfield_physical_address">Physical Address</label>
+                            <input class="mdl-textfield__input" type="text"
+                                   id="textfield_physical_address"
+                                   value="{{ patient.physical_address}}"
+                                   name="physical_address"/>
+
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                            <input class="mdl-textfield__input" type="text"
+                                   value="{{ patient.country }}"
+                                   name="country">
+                            <label for="country" class="mdl-textfield__label">Country</label>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="mdl-grid ">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                            <label class="mdl-textfield__label mdl-color-text--grey"
+                                   for="textfield_dob">Date of Birth</label>
+                            <input class="mdl-textfield__input" type="text"
+                                   value="{{ patient.dob }}"
+                                   name="dob">
+
+                        </div>
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                            <label class="mdl-textfield__label mdl-color-text--grey"
+                                   for="textfield_age">Age</label>
+                            <input class="mdl-textfield__input" type="text"
+                                   id="textfield_age" value="{{ patient.age }}" name="age"
+                                   readonly/>
+
+                        </div>
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                            <label class=""
+                                   for="textfield_gender">Gender</label>
+                            <input class="mdl-textfield__input" type="text"
+                                   id="textfield_gender" value="{{ patient.gender }}"
+                                   readonly/>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mdl-grid">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                            <label class=""
+                                   for="textfield_id_type">ID Type</label>
+                            <input class="mdl-textfield__input" type="text"
+                                   id="textfield_id_type"
+                                   value="{{ patient.id_type }}"/>
+
+                            <span style="visibility: visible;"
+                                  class="mdl-textfield__error">{{ patient.id_type.errors|striptags }}</span>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                            <label class="mdl-textfield__label mdl-color-text--grey"
+                                   for="textfield_ss_number">Identification No</label>
+                            <input class="mdl-textfield__input" type="text"
+                                   id="textfield_ss_number"
+                                   value="{{ patient.ss_number }}" name="ss_number"/>
+
+                        </div>
+                    </div>
+                    </div>
+
+            </fieldset>
+
+
+            <fieldset name="insurance" class="fieldset">
+                <legend style="font-weight: bold; font-size: 16px;padding: 17px; ">Emergency contact</legend>
+                <div class="mdl-grid ">
+                    <div class="phone mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey"
+                               for="textfield_emergency_contact">Emergency Contact</label>
+                        <input class="mdl-textfield__input" type="text"
+                               id="textfield_emergency_contact"
+                               value="{{ patient.emergency_contact }}"
+                               name="emergency_contact"/>
+
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey"
+                               for="textfield_e_relationship">Relationship to patient</label>
+                        <input class="mdl-textfield__input" type="text"
+                               id="textfield_e_relationship"
+                               value="{{ patient.e_relationship }}"
+                               name="e_relationship"/>
+                    </div>
+                </div>
+
+                <div class="mdl-grid ">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey"
+                               for="textfield_e_contact_address">Address</label>
+                        <input class="mdl-textfield__input" type="text"
+                               id="textfield_e_contact_address"
+                               value="{{ patient.e_contact_address }}"
+                               name="e_contact_address"/>
+
+                    </div>
+                    <div class="phone mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey"
+                               for="textfield_e_phone_number">Phone Number</label>
+                        <input class="phone_input mdl-textfield__input" type="text"
+                               id="textfield_e_phone_number"
+                               value="{{ patient.e_phone_number }}"
+                               name="e_phone_number"/>
+
+                    </div>
+
+                </div>
+            </fieldset>
+
+        </div>
+
+        </fieldset>
+
+        <div class="mdl-cell mdl-cell--12-col send-button" align="center">
+            {% if patient.status == 0 %}
+
+                <button type="submit"
+                        onclick="window.location.href='{%  url 'registration_sent_to_triage' patient.patient_no %}'"
+                        class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored mdl-color--primary">
+                    Send to Triage
+                </button>
+            {% else %}
+                <button type="submit"
+                        class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored mdl-color--grey disabled">
+                    Patient is still under treatment
+                </button>
+            {% endif %}
+
+            <button type="button"
+                    onclick="window.location.href='/registration/patient/update/{{ patient.patient_no }}/'"
+                    class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored mdl-color--primary">
+                Edit Patient
+            </button>
+        </div>
+
+    </div>
+    </div>
+
+{% endblock %}

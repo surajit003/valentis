@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<p><a class="btn btn-default" href="{% url 'payments_member_info_list' %}">member_info Listing</a></p>
+<table class="table">
+    <tr>
+        <td>family_no</td>
+        <td>{{ object.family_no }}</td>
+    </tr>
+    <tr>
+        <td>created</td>
+        <td>{{ object.created }}</td>
+    </tr>
+    <tr>
+        <td>last_updated</td>
+        <td>{{ object.last_updated }}</td>
+    </tr>
+    <tr>
+        <td>member_no</td>
+        <td>{{ object.member_no }}</td>
+    </tr>
+    <tr>
+        <td>surname</td>
+        <td>{{ object.surname }}</td>
+    </tr>
+    <tr>
+        <td>first_name</td>
+        <td>{{ object.first_name }}</td>
+    </tr>
+    <tr>
+        <td>other_name</td>
+        <td>{{ object.other_name }}</td>
+    </tr>
+    <tr>
+        <td>dob</td>
+        <td>{{ object.dob }}</td>
+    </tr>
+    <tr>
+        <td>user_id</td>
+        <td>{{ object.user_id }}</td>
+    </tr>
+    <tr>
+        <td>date_entered</td>
+        <td>{{ object.date_entered }}</td>
+    </tr>
+    <tr>
+        <td>cancelled</td>
+        <td>{{ object.cancelled }}</td>
+    </tr>
+    <tr>
+        <td>employment_no</td>
+        <td>{{ object.employment_no }}</td>
+    </tr>
+    <tr>
+        <td>gender</td>
+        <td>{{ object.gender }}</td>
+    </tr>
+    <tr>
+        <td>passport_no</td>
+        <td>{{ object.passport_no }}</td>
+    </tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit member_info</a> {% endblock %}

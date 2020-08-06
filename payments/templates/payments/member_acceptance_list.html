@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'payments_member_acceptance_list' %}">member_acceptance Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>name</td>
+    <td>slug</td>
+    <td>created</td>
+    <td>last_updated</td>
+    <td>member_no</td>
+    <td>status</td>
+    <td>status_date</td>
+    <td>user_id</td>
+    <td>date_entered</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.name }}</td>
+    <td>{{ object.slug }}</td>
+    <td>{{ object.created }}</td>
+    <td>{{ object.last_updated }}</td>
+    <td>{{ object.member_no }}</td>
+    <td>{{ object.status }}</td>
+    <td>{{ object.status_date }}</td>
+    <td>{{ object.user_id }}</td>
+    <td>{{ object.date_entered }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'payments_member_acceptance_create' %}">Create new member_acceptance</a>
+{% endblock %}

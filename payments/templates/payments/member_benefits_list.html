@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'payments_member_benefits_list' %}">member_benefits Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>name</td>
+    <td>slug</td>
+    <td>created</td>
+    <td>last_updated</td>
+    <td>member_no</td>
+    <td>limit</td>
+    <td>sharing</td>
+    <td>anniv</td>
+    <td>suspended</td>
+    <td>expense</td>
+    <td>idx</td>
+    <td>balance</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.name }}</td>
+    <td>{{ object.slug }}</td>
+    <td>{{ object.created }}</td>
+    <td>{{ object.last_updated }}</td>
+    <td>{{ object.member_no }}</td>
+    <td>{{ object.limit }}</td>
+    <td>{{ object.sharing }}</td>
+    <td>{{ object.anniv }}</td>
+    <td>{{ object.suspended }}</td>
+    <td>{{ object.expense }}</td>
+    <td>{{ object.idx }}</td>
+    <td>{{ object.balance }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'payments_member_benefits_create' %}">Create new member_benefits</a>
+{% endblock %}

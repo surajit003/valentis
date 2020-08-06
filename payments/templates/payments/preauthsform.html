@@ -1,0 +1,300 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+        <div class="mdl-grid full-width">
+
+        <div class="mdl-card mdl-shadow--16dp util-center full-width">
+            <div class="mdl-card__title mdl-color--teal-500">
+                <h2 class="mdl-card__title-text mdl-color-text--white">Preauthorisation form</h2>
+            </div>
+
+            <div class="mdl-grid" id="preauth">
+    <div class="mdl-cell mdl-cell--3-col">
+        <!-- Square card -->
+        <style>
+            .demo-card-square.mdl-card {
+                width: 260px;
+                height: 320px;
+            }
+
+            .demo-card-square > .mdl-card__title {
+                color: #fff;
+{#                background: url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;#}
+            }
+        </style>
+
+        <div class="demo-card-square mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title mdl-card--expand">
+                <h2 class="mdl-card__title-text" id="names"></h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                Born: <span id="dob"></span> <br>
+                Gender: <span id="gender"></span>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                User is active: <span id="isactive"></span>
+            </div>
+        </div>
+        <br><br><br>
+
+        <div class="demo-card-square mdl-card mdl-shadow--2dp" style="height: 50px;">
+
+            <div class="mdl-card__supporting-text">
+                Limit: <span id="limit"></span> <br>
+                Claim: <span id="claim"></span> <br>
+                Reserve Amount: <br>
+            </div>
+
+        </div>
+    </div>
+    <div class="mdl-cell mdl-cell--9-col">
+        <div class="mdl-card__supporting-text mdl-grid">
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger">
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+
+
+            <form method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <input type="hidden" name="action" value="login"/>
+
+                <div class="mdl-grid ">
+                    <input type="text" name="name" value="name">
+                    <input type="text" name="member_no" value="asl-0900-01">
+
+                    <div class="mdl-selectfield mdl-js-selectfield mdl-cell mdl-cell--3-col">
+
+                        <label class="mdl-selectfield__label" for="authority_type">authority_type</label>
+                        <span class="mdl-textfield__error">{{ form.authority_type.errors }}</span>
+
+                        <select name="authority_type" class="mdl-selectfield__select" id="benefits">
+
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="mdl-grid ">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select mdl-cell mdl-cell--3-col">
+                        <input type="text" value="" class="mdl-textfield__input"
+                               id="provider" readonly>
+                        <input type="hidden" value="" name="provider">
+                        <label for="provider" class="mdl-textfield__label">provider</label>
+                        <span class="mdl-textfield__error">{{ form.provider.errors }}</span>
+                        <ul for="provider"
+                            class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                            <li class="mdl-menu__item" data-val="1">21st Century Insurance</li>
+                            <li class="mdl-menu__item" data-val="2">AARP</li>
+                            <li class="mdl-menu__item" data-val="3">ACE Limited</li>
+                            <li class="mdl-menu__item" data-val="4">Elephant.com</li>
+
+                        </ul>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--3-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey"
+                               for="textfield_ward">Ward</label>
+                        <span class="mdl-textfield__error">{{ form.ward.errors }}</span>
+                        <input type="number" class="mdl-textfield__input"
+                               id="id_{{ form.ward.name }}"
+                               name="{{ form.ward.name }}"
+                               value="{% if form.ward.value != None %}{{ form.ward.value }}{% endif %}"
+                               required>
+                    </div>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey"
+                               for="textfield_anniv">Anniv</label>
+                        <span class="mdl-textfield__error">{{ form.anniv.errors }}</span>
+                        <input type="number" class="mdl-textfield__input"
+                               id="id_{{ form.anniv.name }}"
+                               name="{{ form.anniv.name }}"
+                               value="{% if form.anniv.value != None %}{{ form.anniv.value }}{% endif %}"
+                               required>
+                    </div>
+
+                </div>
+
+                <div class="mdl-grid ">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey"
+                               for="textfield_pre_diagnosis">Diagnosis</label>
+                        <span class="mdl-textfield__error">{{ form.pre_diagnosis.errors }}</span>
+                                    <textarea class="mdl-textfield__input" id="id_{{ form.pre_diagnosis.name }}"
+                                              name="{{ form.pre_diagnosis.name }}"
+                                              rows="3"
+                                              required>{% if form.pre_diagnosis.value != None %}
+                                        {{ form.pre_diagnosis.value }}{% else %} {% endif %}</textarea>
+                    </div>
+
+
+                </div>
+
+                <div class="mdl-grid ">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--3-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey"
+                               for="textfield_available_limit">Admit Days</label>
+                        <span class="mdl-textfield__error">{{ form.admit_days.errors }}</span>
+                        <input type="number" class="mdl-textfield__input"
+                               id="id_{{ form.admit_days.name }}"
+                               name="{{ form.admit_days.name }}"
+                               value="{% if form.admit_days.value != None %}{{ form.admit_days.value }}{% endif %}"
+                               required>
+
+
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--3-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey"
+                               for="textfield_available_limit">Authority Limit</label>
+                        <span class="mdl-textfield__error">{{ form.available_limit.errors }}</span>
+                        <input type="number" class="mdl-textfield__input"
+                               id="id_{{ form.available_limit.name }}"
+                               name="{{ form.available_limit.name }}"
+                               value="
+                                       {% if form.available_limit.value != None %}{{ form.available_limit.value }}{% endif %}"
+                               required>
+
+
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--3-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey"
+                               for="textfield_day_bed_charge">Daily Bed Limit</label>
+                        <span class="mdl-textfield__error">{{ form.day_bed_charge.errors }}</span>
+                        <input type="number" class="mdl-textfield__input"
+                               id="id_{{ form.day_bed_charge.name }}"
+                               name="{{ form.day_bed_charge.name }}" value="
+                                {% if form.day_bed_charge.value != None %}{{ form.day_bed_charge.value }}{% endif %}"
+                               required>
+                    </div>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--3-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey"
+                               for="textfield_reserve">Reserve Ammount</label>
+                        <span class="mdl-textfield__error">{{ form.reserve.errors }}</span>
+                        <input type="number" class="mdl-textfield__input"
+                               id="id_{{ form.reserve.name }}"
+                               name="{{ form.reserve.name }}"
+                               value="{% if form.reserve.value != None %}{{ form.reserve.value }}{% endif %}"
+                               required>
+                    </div>
+
+                </div>
+
+                <div class="mdl-grid ">
+
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey"
+                               for="textfield_date_reported">Date Reported</label>
+                        <span class="mdl-textfield__error">{{ form.date_reported.errors }}</span>
+                        <input class="mdl-textfield__input" type="date"
+                               id="id_{{ form.date_reported.name }}"
+                               name="{{ form.date_reported.name }}"
+                               value="
+                                       {% if form.date_reported.value != None %}{{ form.date_reported.value }} {% else %} {% endif %}"
+                               required>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--8-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey"
+                               for="textfield_reported_by">Reported By</label>
+                        <span class="mdl-textfield__error">{{ form.reported_by.errors }}</span>
+                        <input class="mdl-textfield__input" type="text"
+                               id="id_{{ form.reported_by.name }}"
+                               name="{{ form.reported_by.name }}"
+                               value="
+                                       {% if form.reported_by.value != None %}{{ form.reported_by.value }} {% else %} {% endif %}"
+                               required>
+                    </div>
+                </div>
+
+                <div class="mdl-grid ">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey"
+                               for="textfield_notes">Notes</label>
+                        <span class="mdl-textfield__error">{{ form.notes.errors }}</span>
+                                    <textarea class="mdl-textfield__input" id="id_{{ form.notes.name }}"
+                                              name="{{ form.notes.name }}"
+                                              rows="3" cols="100"
+                                              required>{% if form.notes.value != None %}
+                                        {{ form.notes.value }}{% else %} {% endif %}</textarea>
+                    </div>
+
+
+                </div>
+
+                <div class="mdl-grid ">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--3-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey"
+                               for="textfield_dob">Date Authorised </label>
+                        <span class="mdl-textfield__error">{{ form.dob.errors }}</span>
+                        <input class="mdl-textfield__input" type="date" id="id_{{ form.dob.name }}"
+                               name="{{ form.dob.name }}"
+                               value="{% if form.dob.value != None %}{{ form.dob.value }} {% else %} {% endif %}"
+                               required>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--3-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey"
+                               for="textfield_date_admitted">Date Admitted </label>
+                        <span class="mdl-textfield__error">{{ form.date_admitted.errors }}</span>
+                        <input class="mdl-textfield__input" type="date" id="id_{{ form.date_admitted.name }}"
+                               name="{{ form.date_admitted.name }}"
+                               value="
+                                       {% if form.date_admitted.value != None %}{{ form.date_admitted.value }} {% else %} {% endif %}"
+                               required>
+                    </div>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey"
+                               for="textfield_authorised_by">Authorised By</label>
+                        <span class="mdl-textfield__error">{{ form.authorized_by.errors }}</span>
+                        <input class="mdl-textfield__input" type="text" id="id_{{ form.authorized_by.name }}"
+                               name="{{ form.authorized_by.name }}"
+                               value="
+                                       {% if form.authorized_by.value != None %}{{ form.authorized_by.value }}{% else %}{% endif %}"
+                               required>
+                    </div>
+
+
+                </div>
+                {#                            {{ form|crispy }}#}
+
+
+                <div class="mdl-cell mdl-cell--12-col send-button" align="center">
+
+                    <button id="submit" type="submit"
+                            class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored mdl-color--primary disabled">
+                        Submit
+                    </button>
+                </div>
+
+
+            </form>
+
+            <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+        </div>
+    </div>
+</div>
+
+
+        </div>
+    </div>
+
+{% endblock %}

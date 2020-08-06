@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<script>
+    $("#radiology_tab").addClass("current").siblings().removeClass("current")
+</script>
+<p><a class="btn btn-default" href="{% url 'radiologyresult_list' %}">RadiologyResult Listing</a></p>
+<table class="table">
+    <tr>
+        <td>slug</td>
+        <td>{{ object.slug }}</td>
+    </tr>
+    <tr>
+        <td>created</td>
+        <td>{{ object.created }}</td>
+    </tr>
+    <tr>
+        <td>last_updated</td>
+        <td>{{ object.last_updated }}</td>
+    </tr>
+    <tr>
+        <td>patient_no</td>
+        <td>{{ object.patient_no }}</td>
+    </tr>
+    <tr>
+        <td>results</td>
+        <td>{{ object.results }}</td>
+    </tr>
+    <tr>
+        <td>tests_done</td>
+        <td>{{ object.tests_done }}</td>
+    </tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit RadiologyResult</a> {% endblock %}

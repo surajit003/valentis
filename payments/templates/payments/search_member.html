@@ -1,0 +1,250 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="mdl-grid full-width">
+
+        <div class="mdl-card mdl-shadow--16dp util-center full-width">
+            <style>
+                .mdl-card__title-text {
+                    display: flex;
+                    box-sizing: border-box;
+                    align-items: center;
+                }
+            </style>
+            <div class="mdl-card__title mdl-color--teal-500 ">
+                <h2 class="mdl-card__title-text mdl-color-text--white" style="justify-content: center">Preauthorisations
+                    form</h2>
+            </div>
+
+            <div class="mdl-grid" id="search_members">
+                <!-- Wide card with share menu button -->
+                <style>
+                    .demo-card-wide.mdl-card {
+                        width: 512px;
+                    }
+
+                    .demo-card-wide > .mdl-card__title {
+                        color: #fff;
+                        height: 176px;
+                    {#            background: url('../assets/demos/welcome_card.jpg') center / cover;#}
+                    }
+
+                    .demo-card-wide > .mdl-card__menu {
+                        color: #fff;
+                    }
+                </style>
+
+                <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                    <!-- Search -->
+                    <style>
+                        /* TODO: Hover and Focus state.
+            *       Fix position of mobile search button.
+            */
+                        .mdh-expandable-search {
+                            margin: 0 50px;
+                            align-items: center;
+                            justify-content: center;
+                        }
+
+                        .mdh-expandable-search form {
+                            max-width: 600px;
+                        }
+
+                        .mdh-expandable-search,
+                        .mdh-expandable-search form,
+                        .mdh-expandable-search input {
+                            /* Cross browser flex-grow */
+                            -webkit-box-flex: 1;
+                            -webkit-flex-grow: 1;
+                            -ms-flex-positive: 1;
+                            flex-grow: 1;
+                        }
+
+                        .mdh-expandable-search,
+                        .mdh-expandable-search form {
+                            /* Cross browser inline-flex */
+                            display: -webkit-inline-flex;
+                            display: -moz-inline-box;
+                            display: -ms-inline-flexbox;
+                            display: inline-flex;
+                        }
+
+                        /* Position search icon */
+                        .mdh-expandable-search .material-icons {
+                            position: relative;
+                            right: -40px;
+                            margin-left: -24px; /* Remove the blank space left behind by the icon being relatively positioned */
+                        }
+
+                        .mdh-expandable-search input {
+                            outline: none;
+                            border: none;
+                            font-size: 16px;
+                            color: #FFFFFF;
+                            background-color: #78909C;
+                            padding: 0px 35px 0px 70px;
+                            height: 40px;
+                            line-height: 40px; /* TODO: This was recommended for cross browser compatability of input height, check if its actually needed in modern browsers */
+
+                            border-radius: 5px 5px 5px 5px;
+                            -moz-border-radius: 5px 5px 5px 5px;
+                            -webkit-border-radius: 5px 5px 5px 5px;
+                        }
+
+                        .mdh-expandable-search input::-webkit-input-placeholder { /* WebKit browsers */
+                            color: #FFFFFF;
+                        }
+
+                        .mdh-expandable-search input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                            color: #FFFFFF;
+                            opacity: 1; /* Firefox gives the placeholder a reduced opacity so we have to increase it */
+                        }
+
+                        .mdh-expandable-search input::-moz-placeholder { /* Mozilla Firefox 19+ */
+                            color: #FFFFFF;
+                            opacity: 1; /* Firefox gives the placeholder a reduced opacity so we have to increase it */
+                        }
+
+                        .mdh-expandable-search input:-ms-input-placeholder { /* Internet Explorer 10+ */
+                            color: #FFFFFF;
+                        }
+
+                        /* Bug fix: https://github.com/google/material-design-lite/issues/1078
+                         * To much padding on the left of header when the menu button is hidden */
+                        @media screen and (min-width: 851px) {
+                            .mdl-layout__header-row {
+                                padding: 0 40px 0 40px;
+                            }
+                        }
+
+                        /* Bug fix for badges being in the wrong location */
+                        .mdl-badge[data-badge]:after {
+                            right: -7px;
+                            top: -8px;
+                        }
+                    </style>
+
+                    {#                    preauth scrips#}
+                    <script>
+                        //       hide the two icons if the search box is below a certain size.
+                        $(document).ready(function () {
+
+
+                            $('.mdh-toggle-search').click(function () {
+                                // No search bar is currently shown
+                                if ($(this).find('i').text() == 'search') {
+                                    $(this).find('i').text('cancel');
+                                    $(this).removeClass('mdl-cell--hide-tablet mdl-cell--hide-desktop'); // Ensures the close button doesn't disappear if the screen is resized.
+
+                                    $('.mdl-layout__drawer-button, .mdl-layout-title, .mdl-badge, .mdl-layout-spacer').hide();
+                                    $('.mdl-layout__header-row').css('padding-left', '16px'); // Remove margin that used to hold the menu button
+                                    $('.mdh-expandable-search').removeClass('mdl-cell--hide-phone').css('margin', '0 16px 0 0');
+
+                                }
+                                // Search bar is currently showing
+                                else {
+                                    $(this).find('i').text('search');
+                                    $(this).addClass('mdl-cell--hide-tablet mdl-cell--hide-desktop');
+
+                                    $('.mdl-layout__drawer-button, .mdl-layout-title, .mdl-badge, .mdl-layout-spacer').show();
+                                    $('.mdl-layout__header-row').css('padding-left', '');
+                                    $('.mdh-expandable-search').addClass('mdl-cell--hide-phone').css('margin', '0 50px');
+                                }
+
+                            });
+
+
+                        });
+
+
+
+                         function searchMembers(str) {
+       console.log('Entered');
+
+        //ensure to remove previous prepended results to avoid duplicity
+        $('#searchresult tbody').children().remove();
+        if (/\S/.test(str) && str.length > 2) {
+            $.ajax({
+                url: "/payments/api/v1/member_info/",
+                type: "get",
+                data: {
+                    search: str,
+                },
+                success: function(json) {
+                    console.log("Json",json)
+                    if (json.length === 0) {
+                        onchange = "searchMembers(this.value)"
+                        $("#no_result").show()
+                        $('#searchresult').hide()
+
+                    } else {
+
+                        $("#no_result").hide()
+                        $('#searchresult').show()
+                        var tbody = $('#search_table tbody'),
+                            props = ["member_no", "first_name", "surname", "passport_no"]
+                        $.each(json, function(i, reservation) {
+
+                            var tr = $("<tr onclick=\"window.location.href='/payments/pre_authorization/new/" + json[i].member_no + "/' \" '>");
+                            $.each(props, function(i, prop) {
+                                $('<td  class="mdl-data-table__cell--non-numeric">').html(reservation[prop]).appendTo(tr);
+                            });
+                            tbody.append(tr);
+                        });
+
+                    }
+
+                }
+
+            })
+        } else {
+            $("#no_result").hide()
+            $('#searchresult').hide()
+        }
+
+    }
+
+                    </script>
+
+                    <div class="mdh-expandable-search mdl-cell--hide-phone">
+                        <i class="material-icons">search</i>
+                        <form method="get" action="/members/search">
+                            <input type="text" id="search" placeholder="Search" size="1"
+                                   onkeyup="searchMembers(this.value)">
+                        </form>
+                    </div>
+
+                    <div id="no_result" style="display: none">
+                        <div class="mdl-card__title mdl-card--expand">
+                            <h2 class="mdl-card__title-text">No Results</h2>
+                        </div>
+                    </div>
+
+                    <div id="searchresult" style="display: none">
+                        <table id="search_table" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width">
+                            <thead>
+                            <tr>
+                                <th class="mdl-data-table__cell--non-numeric full-width">Member ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'payments_member_acceptance_list' %}">member_acceptance Listing</a></p>
+<table class="table">
+<tr><td>name</td><td>{{ object.name }}</td></tr>
+<tr><td>slug</td><td>{{ object.slug }}</td></tr>
+<tr><td>created</td><td>{{ object.created }}</td></tr>
+<tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+<tr><td>member_no</td><td>{{ object.member_no }}</td></tr>
+<tr><td>status</td><td>{{ object.status }}</td></tr>
+<tr><td>status_date</td><td>{{ object.status_date }}</td></tr>
+<tr><td>user_id</td><td>{{ object.user_id }}</td></tr>
+<tr><td>date_entered</td><td>{{ object.date_entered }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit member_acceptance</a>
+
+{% endblock %}
