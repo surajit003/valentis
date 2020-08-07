@@ -38,7 +38,7 @@ AUTHENTICATION_BACKENDS = ('valentisHealth.backends.EmailAuthBackend',)
 # URL to redirect to if one ain't logged in
 LOGIN_URL = '/account/log-in/'
 LOGIN_REDIRECT_URL = '/registration/'
-
+LOGIN_EXEMPT_URLS =['127.0.0.1',]
 # Application definition
 
 INSTALLED_APPS = [
@@ -74,7 +74,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'valentisHealth.middleware.LoginRequiredMiddleware',
+    # 'valentisHealth.middleware.LoginRequiredMiddleware',
     # 'session_security.middleware.SessionSecurityMiddleware',
 ]
 
@@ -104,19 +104,19 @@ WSGI_APPLICATION = 'valentisHealth.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-
     # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'valentis_health',
-    #     'USER': 'root',
-    #     'PASSWORD': 'V4L3NT!Shealth',
-    #     'HOST': 'localhost',
-    #     'PORT': '',
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # }
+
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'valentis_health',
+        'USER': 'surajit',
+        'PASSWORD': 'mom12345',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
 }
 
 

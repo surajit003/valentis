@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 function getdiagnosis(str) {
 
 
@@ -1059,7 +1058,6 @@ function getcountiess() {
 
 
 
-=======
 function getdiagnosis(str) {
 
 
@@ -2123,4 +2121,3 @@ function getcountiess() {
 
 
 
->>>>>>> 037b6d71d45035c58b96fc5d43770f0b5c23cb0f
