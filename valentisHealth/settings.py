@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-
     'django_extensions',
     'crispy_forms',
     'rest_framework',
@@ -171,8 +170,8 @@ EMAIL_DEBUG = True
 #
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # SECURE_SSL_REDIRECT = True
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
 #
 # SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 # TIME = 120*60 #

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import View, CreateView
+from valentisHealth.backends import EmailAuthBackend
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, reverse
 from django.contrib import messages
@@ -129,12 +130,16 @@ class LoginPage(View):
     def post(self, request, *args, **kwargs):
         if request.method == 'POST':
             form = LoginForm(request.POST)
+            print('details',request.POST['email_address'],request.POST['password'])
+            email = request.POST.get('email_address')
+            password = request.POST.get('password')
             if form.is_valid():
-                user = authenticate(username=request.POST['email_address'],
-                                    password=request.POST['password'])
+                user =EmailAuthBackend.authenticate(email,password)
+                print('user',user)
 
                 if user is not None:
                     if user.is_active and not user.is_patient:
+                        print('UUUUU',user)
                         login(request, user)
                         if 'next' in request.GET:
                             params = request.GET.copy()

@@ -23,7 +23,7 @@ admin.site.site_header = 'ValentisHealth Administration'
 admin.site.site_title = 'ValentisHealth Administration'
 
 urlpatterns = [
-                  url(r'^tunnel/', admin.site.urls),
+                  url(r'^admin/', admin.site.urls),
                   url(r'^registration/', include('registration.urls')),
                   url(r'^nurse/', include('nurse.urls')),
                   url(r'^medication/', include('medication.urls')),

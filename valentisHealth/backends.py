@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.backends import ModelBackend
-from django.contrib.auth.models import User
+from account.models import CustomUser
 from rest_framework import authentication
 from rest_framework import exceptions
 from rest_framework_jwt.serializers import JSONWebTokenSerializer
@@ -19,12 +19,14 @@ class EmailAuthBackend(ModelBackend):
     Allows a user to sign in using an email/password pair rather than
     a username/password pair.
     """
-
-    def authenticate(self, username=None, password=None, **kwargs):
+    @classmethod
+    def authenticate(cls,username=None, password=None, **kwargs):
         """ Authenticate a user based on email address as the user name. """
         try:
-            user = User.objects.get(email=username)
+            user = CustomUser.objects.get(email=username)
+            print('Abc',user)
             if user.check_password(password):
+                print('entered here')
                 return user
         except User.DoesNotExist:
             return None
