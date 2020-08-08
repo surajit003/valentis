@@ -159,10 +159,10 @@ STATIC_URL = '/static/'
 
 # Email settings
 EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'redpulse'
-EMAIL_HOST_PASSWORD = 'redpulse2016'
-SERVER_EMAIL = 'hello@redpulse.co.ke'
-DEFAULT_FROM_EMAIL = 'Valentis <no-reply@redpulse.co.ke>'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+SERVER_EMAIL = ''
+DEFAULT_FROM_EMAIL = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_DEBUG = True
