@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 import datetime
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -110,11 +111,11 @@ DATABASES = {
 
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'valentis_health',
-        'USER': 'surajit',
-        'PASSWORD': 'mom12345',
-        'HOST': 'localhost',
-        'PORT': '',
+        "NAME": config("DB_NAME"),
+        "USER": config("DB_USER"),
+        "PASSWORD": config("DB_PASSWORD"),
+        "HOST": config("DB_HOST"),
+        "PORT": config("DB_PORT", default=5432),
     }
 }
 
@@ -158,13 +159,14 @@ STATIC_URL = '/static/'
 
 
 # Email settings
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-SERVER_EMAIL = ''
-DEFAULT_FROM_EMAIL = ''
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+SERVER_EMAIL = ''
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 EMAIL_DEBUG = True
 
 #
