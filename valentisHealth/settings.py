@@ -34,7 +34,10 @@ ALLOWED_HOSTS = ['*']
 AUTH_USER_MODEL = 'account.CustomUser'
 
 # Custom authentication backend using email and password
-AUTHENTICATION_BACKENDS = ('valentisHealth.backends.EmailAuthBackend',)
+AUTHENTICATION_BACKENDS = ('valentisHealth.backends.EmailAuthBackend',
+                           'django.contrib.auth.backends.ModelBackend',
+
+                           )
 
 # URL to redirect to if one ain't logged in
 LOGIN_URL = '/account/log-in/'
